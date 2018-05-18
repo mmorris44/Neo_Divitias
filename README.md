@@ -16,8 +16,13 @@ Google drive
 
 ## TODO
 
-Split this up into more specific tasks
+Split this up into more specific tasks (separate prototyping that can happen independently)
 
 - [x] Planning meeting
 - [ ] GDD
-- [ ] Make the game
+- [ ] Assets
+- [ ] Levels
+- [ ] Music
+- [ ] SFX
+- [ ] Upgrades
+- [ ] Storyboarding
