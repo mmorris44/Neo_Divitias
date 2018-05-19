@@ -4,42 +4,71 @@ using UnityEngine;
 
 public class PlayerMove : MonoBehaviour {
 
-    Quaternion forwardRotation, backwardRotation, leftRotation, rightRotation;
+    // Public consts
+    public float maxSpeed;
+    public float movePower;
+    public float maxVelocityChange;
+    public float gravity;
+    public float jumpHeight;
+    public float rotateSpeed;
+
+    Rigidbody rbody;
+    bool grounded;
 
 	// Use this for initialization
 	void Start () {
-        forwardRotation = Quaternion.Euler(10, 0, 0);
-        backwardRotation = Quaternion.Euler(-10, 0, 0);
-        leftRotation = Quaternion.Euler(0, 0, 10);
-        rightRotation = Quaternion.Euler(0, 0, -10);
+        rbody = GetComponent<Rigidbody>();
+        rbody.freezeRotation = true;
+        rbody.useGravity = false;
+        grounded = false;
+        Cursor.visible = false;
     }
 	
 	// Update is called once per frame
 	void Update () {
-        if (Input.GetKey("w"))
+
+    }
+
+    void FixedUpdate()
+    {
+        // Calculate how fast we should be moving
+        Vector3 targetVelocity = new Vector3(Input.GetAxis("Horizontal"), 0, Input.GetAxis("Vertical"));
+        targetVelocity = transform.TransformDirection(targetVelocity);
+        targetVelocity *= movePower;
+
+        // Apply a force that attempts to reach our target velocity
+        Vector3 velocity = rbody.velocity;
+        Vector3 velocityChange = (targetVelocity - velocity);
+        velocityChange.x = Mathf.Clamp(velocityChange.x, -maxVelocityChange, maxVelocityChange);
+        velocityChange.z = Mathf.Clamp(velocityChange.z, -maxVelocityChange, maxVelocityChange);
+        velocityChange.y = 0;
+        rbody.AddForce(velocityChange, ForceMode.VelocityChange);
+
+        rbody.velocity = Vector3.ClampMagnitude(rbody.velocity, maxSpeed);
+
+        // Jump
+        if (grounded && Input.GetButton("Jump"))
         {
-            transform.rotation = Quaternion.RotateTowards(transform.rotation, forwardRotation, Time.deltaTime * 20f);
-            transform.Translate(Vector3.forward * Time.deltaTime * 5f);
-        } else if (Input.GetKey("s"))
-        {
-            transform.rotation = Quaternion.RotateTowards(transform.rotation, backwardRotation, Time.deltaTime * 20f);
-            transform.Translate(Vector3.back * Time.deltaTime * 5f);
+            rbody.velocity = new Vector3(velocity.x, CalculateJumpVerticalSpeed(), velocity.z);
         }
 
-        if (Input.GetKey("a"))
-        {
-            transform.rotation = Quaternion.RotateTowards(transform.rotation, leftRotation, Time.deltaTime * 20f);
-            transform.Translate(Vector3.left * Time.deltaTime * 5f);
-        }
-        else if (Input.GetKey("d"))
-        {
-            transform.rotation = Quaternion.RotateTowards(transform.rotation, rightRotation, Time.deltaTime * 20f);
-            transform.Translate(Vector3.right * Time.deltaTime * 5f);
-        }
+        // We apply gravity manually for more tuning control
+        rbody.AddForce(new Vector3(0, -gravity * rbody.mass, 0));
+        grounded = false;
 
-        if (!(Input.GetKey("d") || Input.GetKey("a") || Input.GetKey("s") || Input.GetKey("w")))
-        {
-            transform.rotation = Quaternion.RotateTowards(transform.rotation, Quaternion.identity, Time.deltaTime * 50f);
-        }
+        // Set player left/right rotation from mouse
+        transform.Rotate(0, Input.GetAxis("Mouse X") * rotateSpeed, 0);
+    }
+
+    void OnCollisionStay()
+    {
+        grounded = true;
+    }
+
+    float CalculateJumpVerticalSpeed()
+    {
+        // From the jump height and gravity we deduce the upwards speed 
+        // for the character to reach at the apex.
+        return Mathf.Sqrt(2 * jumpHeight * gravity);
     }
 }
