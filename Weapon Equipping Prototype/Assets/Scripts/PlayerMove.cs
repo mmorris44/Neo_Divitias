@@ -5,12 +5,12 @@ using UnityEngine;
 public class PlayerMove : MonoBehaviour {
 
     // Public consts
-    public float maxSpeed;
     public float movePower;
     public float maxVelocityChange;
     public float gravity;
     public float jumpHeight;
     public float rotateSpeed;
+    public float maxTilt;
 
     Rigidbody rbody;
     bool grounded;
@@ -44,8 +44,6 @@ public class PlayerMove : MonoBehaviour {
         velocityChange.y = 0;
         rbody.AddForce(velocityChange, ForceMode.VelocityChange);
 
-        rbody.velocity = Vector3.ClampMagnitude(rbody.velocity, maxSpeed);
-
         // Jump
         if (grounded && Input.GetButton("Jump"))
         {
@@ -58,6 +56,11 @@ public class PlayerMove : MonoBehaviour {
 
         // Set player left/right rotation from mouse
         transform.Rotate(0, Input.GetAxis("Mouse X") * rotateSpeed, 0);
+
+        // Set player x rotation based off current velocity
+        float forwardTilt = Vector3.Dot(rbody.velocity, transform.forward) / maxVelocityChange * maxTilt;
+        float leftTilt = - Vector3.Dot(rbody.velocity, transform.right) / maxVelocityChange * maxTilt;
+        transform.rotation = Quaternion.Euler(forwardTilt, transform.rotation.y, leftTilt);
     }
 
     void OnCollisionStay()
