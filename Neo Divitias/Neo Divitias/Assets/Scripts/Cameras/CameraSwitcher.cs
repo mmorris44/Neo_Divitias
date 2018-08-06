@@ -4,22 +4,16 @@ using UnityEngine;
 
 public class CameraSwitcher : MonoBehaviour {
 
-    public Camera firstPersonCamera,
-        thirdPersonCamera,
-        orbitingCamera;
+    public Camera firstPersonCamera;
 
     int activeCamera = 0;
-    Camera[] cameras = new Camera[3];
+    Camera[] cameras = new Camera[1];
 
 	// Use this for initialization
 	void Start () {
         firstPersonCamera.enabled = false;
-        thirdPersonCamera.enabled = false;
-        orbitingCamera.enabled = false;
 
         cameras[0] = firstPersonCamera;
-        cameras[1] = thirdPersonCamera;
-        cameras[2] = orbitingCamera;
 
         cameras[activeCamera].enabled = true;
 	}
