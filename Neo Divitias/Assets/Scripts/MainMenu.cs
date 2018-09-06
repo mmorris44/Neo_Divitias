@@ -19,8 +19,19 @@ public class MainMenu : MonoBehaviour{
         SceneManager.LoadScene(string.Format("Level {0}", GameState.game_level));
     }
 
-    public void LoadShop()
-    {
+    public void LoadShop(){
+        // This should ideally be somewhere that only gets called once on setup.
+        GameState.BaseSetup();
+        try
+        {
+            GameState.GetPrefs();
+        }
+        catch (System.Exception e)
+        {
+            // TODO. Make this a GUI pop up or something. Give the user feedback. 
+            // Another option would be to only show the continue if prefs can be set.
+            Debug.LogError("Prefs couldnt be loaded beacuase they havent been set yet.");
+        }
         GameState.GetPrefs();
         SceneManager.LoadScene("Shop");
     }
@@ -38,19 +49,15 @@ public class MainMenu : MonoBehaviour{
         Application.Quit();
     }
 
-    public void UpgradeItem(string item){
-        // This is vom, change it
-        //if (player == 1){
-            Debug.Log("Upgrade item");
-            Debug.Log(item);
-            Debug.Log(GameState.player_one.Equipment[item.ToLower()]);
-            GameState.player_one.Equipment[item.ToLower()]++;
-            Debug.Log(GameState.player_one.Equipment[item.ToLower()]);
-       // }
-    }
-
     public void ReturnToMain(){
-        GameState.SetPrefs();
+        // This is a bit hacky but it allows us to go back to main menu from settings and controls before a game has been started.
+        // Maybe fix if we have extra time at the end
+        try {
+            GameState.SetPrefs();
+        }
+        catch(System.Exception e){
+            Debug.LogError("Prefs couldnt be set because GameState hasnt been instantiated.");
+        }
         SceneManager.LoadScene("Main");
     }
 }
