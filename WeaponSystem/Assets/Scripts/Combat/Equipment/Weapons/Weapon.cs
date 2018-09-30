@@ -38,15 +38,20 @@ public abstract class Weapon : Equipment
 
 				if (target != null)
 				{
-					target.damage(damage[level-1]);
-					if (hit.rigidbody != null)
-					{
-						hit.rigidbody.AddForce(-hit.normal * impactForce);
-					}
+                    if (target.gameObject.tag != "player" || GameState.game_level == 4 )
+                    {
+                        target.damage(damage[level - 1]);
+                        if (hit.rigidbody != null)
+                        {
+                            hit.rigidbody.AddForce(-hit.normal * impactForce);
+                        }
+                    }
 
-					Instantiate(impactFx, target.transform);
 				}
-			} else
+
+                Instantiate(impactFx, target.transform);
+            }
+            else
 			{
 				// spawn particle effect at end of range
 				Instantiate(impactFx, playerCam.transform.position + (playerCam.transform.forward * range[level-1]), Quaternion.identity);
