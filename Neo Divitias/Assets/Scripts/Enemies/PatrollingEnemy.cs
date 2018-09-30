@@ -1,8 +1,9 @@
-﻿using System.Collections;
+﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class PatrollingEnemy : MonoBehaviour {
+public class PatrollingEnemy : DamageableObject {
 
     public float patrolSpeed = 2f;
     public float chaseSpeed = 2.5f;
@@ -10,8 +11,9 @@ public class PatrollingEnemy : MonoBehaviour {
     public float distanceFromPlayer = 5f;
     public Transform[] positions;
     public float rotationSpeed = 1f;
-    public int damage = 1;
+    public int damageDone = 1;
     public float fireCooldown = 1f;
+    public int health = 5;
 
     public Transform player;
     public Rigidbody playerBody;
@@ -20,7 +22,16 @@ public class PatrollingEnemy : MonoBehaviour {
     int currentTarget = 1;
     float currentCooldown = 0;
 
-	void Start () {
+    public override void damage(int damage)
+    {
+        health -= 1;
+        if (health <= 0)
+        {
+            Destroy(gameObject);
+        }
+    }
+
+    void Start () {
         // Set position to 0th tranform
         transform.position = positions[0].position;
 	}
@@ -65,7 +76,7 @@ public class PatrollingEnemy : MonoBehaviour {
             // Fire if able
             if (currentCooldown <= 0)
             {
-                shooter.straightFire(player, damage);
+                shooter.straightFire(player, damageDone);
                 currentCooldown = fireCooldown;
             } else if (currentCooldown > -1)
             {
