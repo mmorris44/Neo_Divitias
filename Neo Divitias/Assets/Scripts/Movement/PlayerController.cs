@@ -10,6 +10,7 @@ public class PlayerController : MonoBehaviour {
         friction = 1f,
         jumpForce = 1f;
     public GameObject cameraSwitcher;
+    public bool restrictVel = true;
 
     Rigidbody body;
     Vector3 forward, right;
@@ -40,23 +41,26 @@ public class PlayerController : MonoBehaviour {
         right = currentCamera.transform.right;
         right.y = 0;
 
-        // Set velocity
-        if (Input.GetAxis("Vertical") > 0)
+        if (restrictVel)
         {
-            body.AddForce(forward * moveSpeedCurrent);
-        }
-        else if (Input.GetAxis("Vertical") < 0)
-        {
-            body.AddForce(-forward * moveSpeedCurrent);
-        }
+            // Set velocity
+            if (Input.GetAxis("Vertical") > 0)
+            {
+                body.AddForce(forward * moveSpeedCurrent);
+            }
+            else if (Input.GetAxis("Vertical") < 0)
+            {
+                body.AddForce(-forward * moveSpeedCurrent);
+            }
 
-        if (Input.GetAxis("Horizontal") > 0)
-        {
-            body.AddForce(right * moveSpeedCurrent);
-        }
-        else if (Input.GetAxis("Horizontal") < 0)
-        {
-            body.AddForce(-right * moveSpeedCurrent);
+            if (Input.GetAxis("Horizontal") > 0)
+            {
+                body.AddForce(right * moveSpeedCurrent);
+            }
+            else if (Input.GetAxis("Horizontal") < 0)
+            {
+                body.AddForce(-right * moveSpeedCurrent);
+            }
         }
 
         // If not movement input
@@ -68,10 +72,14 @@ public class PlayerController : MonoBehaviour {
         }
 
         // Clamp horizontal velocity
-        float y = body.velocity.y;
-        body.velocity = new Vector3(body.velocity.x, 0, body.velocity.z);
-        body.velocity = Vector3.ClampMagnitude(body.velocity, maxVelocityCurrent);
-        body.velocity = new Vector3(body.velocity.x, y, body.velocity.z);
+
+        if (restrictVel)
+        {
+            float y = body.velocity.y;
+            body.velocity = new Vector3(body.velocity.x, 0, body.velocity.z);
+            body.velocity = Vector3.ClampMagnitude(body.velocity, maxVelocityCurrent);
+            body.velocity = new Vector3(body.velocity.x, y, body.velocity.z);
+        }
     }
 
     void Update()
