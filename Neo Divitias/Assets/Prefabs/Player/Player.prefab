@@ -3637,7 +3637,7 @@ MonoBehaviour:
   - 0
   activationSound: {fileID: 0}
   duration:
-  - 1
+  - 0.75
   - 0
   - 0
   playerController: {fileID: 114760956215372772}

@@ -125,11 +125,6 @@ Prefab:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: 114054432332454994, guid: 468c7ccdb046c304987053a54307d612,
-        type: 2}
-      propertyPath: duration.Array.size
-      value: 3
-      objectReference: {fileID: 0}
     - target: {fileID: 4516177737361604, guid: 468c7ccdb046c304987053a54307d612, type: 2}
       propertyPath: m_LocalPosition.x
       value: -0.2746305
@@ -167,76 +162,9 @@ Prefab:
       propertyPath: cameraSwitcher
       value: 
       objectReference: {fileID: 1624840854}
-    - target: {fileID: 114054432332454994, guid: 468c7ccdb046c304987053a54307d612,
-        type: 2}
-      propertyPath: cooldown.Array.data[0]
-      value: 2
-      objectReference: {fileID: 0}
-    - target: {fileID: 114054432332454994, guid: 468c7ccdb046c304987053a54307d612,
-        type: 2}
-      propertyPath: movementForce.Array.data[0]
-      value: 25
-      objectReference: {fileID: 0}
-    - target: {fileID: 114054432332454994, guid: 468c7ccdb046c304987053a54307d612,
-        type: 2}
-      propertyPath: playerCam
-      value: 
-      objectReference: {fileID: 391533723}
-    - target: {fileID: 114117983679581050, guid: 468c7ccdb046c304987053a54307d612,
-        type: 2}
-      propertyPath: equipped
-      value: 
-      objectReference: {fileID: 757249182}
-    - target: {fileID: 114320309812467866, guid: 468c7ccdb046c304987053a54307d612,
-        type: 2}
-      propertyPath: player
-      value: 
-      objectReference: {fileID: 757249179}
-    - target: {fileID: 114320309812467866, guid: 468c7ccdb046c304987053a54307d612,
-        type: 2}
-      propertyPath: playerCam
-      value: 
-      objectReference: {fileID: 391533723}
-    - target: {fileID: 114320309812467866, guid: 468c7ccdb046c304987053a54307d612,
-        type: 2}
-      propertyPath: cooldown.Array.data[0]
-      value: 5
-      objectReference: {fileID: 0}
-    - target: {fileID: 114320309812467866, guid: 468c7ccdb046c304987053a54307d612,
-        type: 2}
-      propertyPath: movementForce.Array.data[0]
-      value: 20
-      objectReference: {fileID: 0}
-    - target: {fileID: 114054432332454994, guid: 468c7ccdb046c304987053a54307d612,
-        type: 2}
-      propertyPath: duration.Array.data[0]
-      value: 5
-      objectReference: {fileID: 0}
-    - target: {fileID: 114054432332454994, guid: 468c7ccdb046c304987053a54307d612,
-        type: 2}
-      propertyPath: playerController
-      value: 
-      objectReference: {fileID: 757249178}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 468c7ccdb046c304987053a54307d612, type: 2}
   m_IsPrefabParent: 0
---- !u!114 &757249178 stripped
-MonoBehaviour:
-  m_PrefabParentObject: {fileID: 114760956215372772, guid: 468c7ccdb046c304987053a54307d612,
-    type: 2}
-  m_PrefabInternal: {fileID: 675612746}
-  m_Script: {fileID: 11500000, guid: 0ff557566e8cf424d96890375aa5ec54, type: 3}
---- !u!54 &757249179 stripped
-Rigidbody:
-  m_PrefabParentObject: {fileID: 54369231960953214, guid: 468c7ccdb046c304987053a54307d612,
-    type: 2}
-  m_PrefabInternal: {fileID: 675612746}
---- !u!114 &757249182 stripped
-MonoBehaviour:
-  m_PrefabParentObject: {fileID: 114054432332454994, guid: 468c7ccdb046c304987053a54307d612,
-    type: 2}
-  m_PrefabInternal: {fileID: 675612746}
-  m_Script: {fileID: 11500000, guid: abddd13e81854224e91d7ea6323b94dc, type: 3}
 --- !u!1 &1490356399
 GameObject:
   m_ObjectHideFlags: 0
