@@ -10,10 +10,15 @@ public class PatrollingEnemy : MonoBehaviour {
     public float distanceFromPlayer = 5f;
     public Transform[] positions;
     public float rotationSpeed = 1f;
+    public int damage = 1;
+    public float fireCooldown = 1f;
 
     public Transform player;
+    public Rigidbody playerBody;
+    public FireAtPlayer shooter;
 
     int currentTarget = 1;
+    float currentCooldown = 0;
 
 	void Start () {
         // Set position to 0th tranform
@@ -55,6 +60,16 @@ public class PatrollingEnemy : MonoBehaviour {
             if (distance > distanceFromPlayer)
             {
                 transform.position = Vector3.MoveTowards(transform.position, player.position, moveDist);
+            }
+
+            // Fire if able
+            if (currentCooldown <= 0)
+            {
+                shooter.straightFire(player, damage);
+                currentCooldown = fireCooldown;
+            } else if (currentCooldown > -1)
+            {
+                currentCooldown -= Time.deltaTime;
             }
         }
 	}

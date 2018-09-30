@@ -792,7 +792,7 @@ Transform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 192575798}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 1, z: 0}
+  m_LocalPosition: {x: 0, y: 1, z: -2.32}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 495006279}
@@ -1466,6 +1466,11 @@ Prefab:
       propertyPath: distanceFromPlayer
       value: 5
       objectReference: {fileID: 0}
+    - target: {fileID: 114115724049201438, guid: 6444740df3a5c3b4fb4bbccdff98ad7c,
+        type: 2}
+      propertyPath: playerBody
+      value: 
+      objectReference: {fileID: 495006282}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 6444740df3a5c3b4fb4bbccdff98ad7c, type: 2}
   m_IsPrefabParent: 0
