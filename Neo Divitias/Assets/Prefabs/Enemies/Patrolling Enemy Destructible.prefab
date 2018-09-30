@@ -20,7 +20,6 @@ GameObject:
   m_Component:
   - component: {fileID: 4066333113200918}
   - component: {fileID: 33557773150328326}
-  - component: {fileID: 135525595527201920}
   - component: {fileID: 23767618546246720}
   m_Layer: 0
   m_Name: Sphere
@@ -108,6 +107,7 @@ GameObject:
   - component: {fileID: 4843940541183638}
   - component: {fileID: 114115724049201438}
   - component: {fileID: 114722529497696584}
+  - component: {fileID: 135411530331926284}
   m_Layer: 0
   m_Name: Patrolling Enemy Destructible
   m_TagString: Untagged
@@ -415,10 +415,12 @@ MonoBehaviour:
   distanceFromPlayer: 5
   positions: []
   rotationSpeed: 1
-  damage: 1
+  damageDone: 1
   fireCooldown: 1
-  player: {fileID: 0}
-  playerBody: {fileID: 0}
+  health: 5
+  player: {fileID: 4585504876006264, guid: 468c7ccdb046c304987053a54307d612, type: 2}
+  playerBody: {fileID: 54369231960953214, guid: 468c7ccdb046c304987053a54307d612,
+    type: 2}
   shooter: {fileID: 114722529497696584}
 --- !u!114 &114722529497696584
 MonoBehaviour:
@@ -433,12 +435,12 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   projectile: {fileID: 1498379661480350, guid: 4d758c155c4684a4893c62ee417f6b04, type: 2}
   spawnSpot: {fileID: 4090679147977458}
---- !u!135 &135525595527201920
+--- !u!135 &135411530331926284
 SphereCollider:
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1110096097294932}
+  m_GameObject: {fileID: 1676783200382568}
   m_Material: {fileID: 0}
   m_IsTrigger: 0
   m_Enabled: 1

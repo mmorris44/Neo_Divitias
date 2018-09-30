@@ -608,6 +608,7 @@ GameObject:
   - component: {fileID: 54369231960953214}
   - component: {fileID: 114760956215372772}
   - component: {fileID: 135821086351104266}
+  - component: {fileID: 114005679952004268}
   m_Layer: 0
   m_Name: Base
   m_TagString: Untagged
@@ -1284,7 +1285,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1134396177712644}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -0.2746305, y: 1.659, z: -1.2247713}
+  m_LocalPosition: {x: 0, y: 0.7, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 4585504876006264}
@@ -3597,6 +3598,19 @@ Behaviour:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1895294820389374}
   m_Enabled: 1
+--- !u!114 &114005679952004268
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1806213626347196}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 10b7bca464610b244a99f9a1766cd35f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  currentHealth: 10
+  maxHealth: 10
 --- !u!114 &114043415466856980
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -3654,7 +3668,7 @@ MonoBehaviour:
   - 0
   - 0
   fireRate:
-  - 0
+  - 1
   - 0
   - 0
   numProjectiles: 000000000000000000000000
@@ -3683,7 +3697,7 @@ MonoBehaviour:
   - 0
   - 0
   fireRate:
-  - 0
+  - 8
   - 0
   - 0
 --- !u!114 &114601785353161526
@@ -3711,7 +3725,7 @@ MonoBehaviour:
   - 0
   - 0
   fireRate:
-  - 0
+  - 4
   - 0
   - 0
 --- !u!114 &114760956215372772
@@ -3756,7 +3770,7 @@ MonoBehaviour:
   - 0
   - 0
   fireRate:
-  - 0
+  - 2
   - 0
   - 0
 --- !u!114 &114953412590710898

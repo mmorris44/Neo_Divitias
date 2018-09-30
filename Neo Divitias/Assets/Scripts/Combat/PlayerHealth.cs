@@ -2,8 +2,8 @@
 
 public class PlayerHealth : DamageableObject
 {
-    int currentHealth;
-    int maxHealth;
+    public int currentHealth;
+    public int maxHealth;
 
     public void Update()
     {
