@@ -15,15 +15,17 @@ public class PatrollingEnemy : DamageableObject {
     public float fireCooldown = 1f;
     public int health = 5;
 
-    public Transform player;
-    public Rigidbody playerBody;
     public FireAtPlayer shooter;
+    public bool isDestructible = true;
 
     int currentTarget = 1;
     float currentCooldown = 0;
+    Transform[] player;
+    Rigidbody[] playerBody;
 
     public override void damage(int damage)
     {
+        if (!isDestructible) return;
         health -= 1;
         if (health <= 0)
         {
@@ -34,10 +36,31 @@ public class PatrollingEnemy : DamageableObject {
     void Start () {
         // Set position to 0th tranform
         transform.position = positions[0].position;
-	}
+
+        GameObject[] players = GameObject.FindGameObjectsWithTag("Player");
+        player = new Transform[players.Length];
+        playerBody = new Rigidbody[players.Length];
+        for (int i = 0; i < players.Length; ++i)
+        {
+            player[i] = players[i].transform;
+            playerBody[i] = players[i].GetComponent<Rigidbody>();
+        }
+    }
 	
 	void Update () {
-        float distance = (player.position - transform.position).magnitude;
+        int playerIndex = 0;
+        float distance = float.MaxValue;
+
+        // Find closest player
+        for (int i = 0; i < player.Length; ++i)
+        {
+            float tempD = (player[i].position - transform.position).magnitude;
+            if (tempD < distance)
+            {
+                playerIndex = i;
+                distance = tempD;
+            }
+        }
 
         // Patrol
         if (distance > chaseDistance)
@@ -67,16 +90,16 @@ public class PatrollingEnemy : DamageableObject {
             float moveDist = chaseSpeed * Time.deltaTime;
 
             // Look at player and move towards if outside range
-            transform.LookAt(player.position);
+            transform.LookAt(player[playerIndex].position);
             if (distance > distanceFromPlayer)
             {
-                transform.position = Vector3.MoveTowards(transform.position, player.position, moveDist);
+                transform.position = Vector3.MoveTowards(transform.position, player[playerIndex].position, moveDist);
             }
 
             // Fire if able
             if (currentCooldown <= 0)
             {
-                shooter.straightFire(player, damageDone);
+                shooter.straightFire(player[playerIndex], damageDone);
                 currentCooldown = fireCooldown;
             } else if (currentCooldown > -1)
             {
