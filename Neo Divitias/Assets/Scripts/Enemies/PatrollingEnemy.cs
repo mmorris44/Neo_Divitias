@@ -18,7 +18,7 @@ public class PatrollingEnemy : DamageableObject {
     public FireAtPlayer shooter;
     public bool isDestructible = true;
 
-    int currentTarget = 1;
+    int currentTarget = 0;
     float currentCooldown = 0;
     Transform[] player;
     Rigidbody[] playerBody;
