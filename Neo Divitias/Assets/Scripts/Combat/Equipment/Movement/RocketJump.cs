@@ -8,10 +8,9 @@ public class RocketJump : MovementItem {
     {
         if (nextActivate < Time.time)
         {
-            Debug.Log("Rocket activated!");
 
             nextActivate = Time.time + cooldown[level-1];
-            //activationSound.Play();
+            activationSound.Play();
 
             // perform rocket jump
             player.AddForce(Vector3.up * movementForce[level - 1], ForceMode.Impulse);

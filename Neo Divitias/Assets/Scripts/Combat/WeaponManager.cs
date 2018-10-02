@@ -13,8 +13,13 @@ public class WeaponManager : MonoBehaviour
 
     public Weapon equipped;
 	public Weapon unequipped;
-	
-	void Update () {
+
+    private void Start()
+    {
+        equipped.gameObject.SetActive(true);
+    }
+
+    void Update () {
 		if (Input.GetButton(fireButton))
 		{
 			equipped.Shoot(playerCamera);

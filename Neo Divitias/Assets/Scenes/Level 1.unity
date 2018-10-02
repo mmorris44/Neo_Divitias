@@ -3083,6 +3083,12 @@ Transform:
   m_PrefabParentObject: {fileID: 4308263334026852, guid: 7cd0226806f76d04abd57430f7cb99e0,
     type: 2}
   m_PrefabInternal: {fileID: 734890726}
+--- !u!114 &737519717 stripped
+MonoBehaviour:
+  m_PrefabParentObject: {fileID: 114805586419245024, guid: 468c7ccdb046c304987053a54307d612,
+    type: 2}
+  m_PrefabInternal: {fileID: 1508153710}
+  m_Script: {fileID: 11500000, guid: d2f8278cacfe0f1488e1d5f633756bfc, type: 3}
 --- !u!1001 &750407008
 Prefab:
   m_ObjectHideFlags: 0
@@ -6134,6 +6140,12 @@ Transform:
   m_PrefabParentObject: {fileID: 4037680944693938, guid: abe81061438221341a060082cc7a3e5f,
     type: 2}
   m_PrefabInternal: {fileID: 1460104511}
+--- !u!114 &1469269440 stripped
+MonoBehaviour:
+  m_PrefabParentObject: {fileID: 114427080515191426, guid: 468c7ccdb046c304987053a54307d612,
+    type: 2}
+  m_PrefabInternal: {fileID: 1508153710}
+  m_Script: {fileID: 11500000, guid: ae44e403214fcc442ba7ed91ae797fe9, type: 3}
 --- !u!1 &1474096936
 GameObject:
   m_ObjectHideFlags: 0
@@ -6510,6 +6522,44 @@ Prefab:
       propertyPath: cameraSwitcher
       value: 
       objectReference: {fileID: 1486018123}
+    - target: {fileID: 198427800678895944, guid: 468c7ccdb046c304987053a54307d612,
+        type: 2}
+      propertyPath: playOnAwake
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 198427800678895944, guid: 468c7ccdb046c304987053a54307d612,
+        type: 2}
+      propertyPath: randomSeed
+      value: 1874883866
+      objectReference: {fileID: 0}
+    - target: {fileID: 198991051924790136, guid: 468c7ccdb046c304987053a54307d612,
+        type: 2}
+      propertyPath: playOnAwake
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 198442755875779036, guid: 468c7ccdb046c304987053a54307d612,
+        type: 2}
+      propertyPath: playOnAwake
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 114114028351466236, guid: 468c7ccdb046c304987053a54307d612,
+        type: 2}
+      propertyPath: equipped
+      value: 
+      objectReference: {fileID: 1469269440}
+    - target: {fileID: 114114028351466236, guid: 468c7ccdb046c304987053a54307d612,
+        type: 2}
+      propertyPath: unequipped
+      value: 
+      objectReference: {fileID: 737519717}
+    - target: {fileID: 1196903921246394, guid: 468c7ccdb046c304987053a54307d612, type: 2}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1884345316684070, guid: 468c7ccdb046c304987053a54307d612, type: 2}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 468c7ccdb046c304987053a54307d612, type: 2}
   m_IsPrefabParent: 0
