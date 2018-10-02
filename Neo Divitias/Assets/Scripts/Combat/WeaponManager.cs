@@ -31,8 +31,9 @@ public class WeaponManager : MonoBehaviour
 			equipped = unequipped;
 			unequipped = tmp;
 
-            unequipped.gameObject.SetActive(false);
-            equipped.gameObject.SetActive(true);
+            //unequipped.gameObject.SetActive(false);
+            StartCoroutine(unequipped.switchOut(equipped));
+            //equipped.gameObject.SetActive(true);
         }
 	}
 

@@ -12,6 +12,7 @@ public abstract class Weapon : Equipment
 	public float[] recoil; // amount of recoil per shot
 	public float[] fireRate; // (per second)	
 
+    private bool switching = false;
     private float currentRecoil = 0.0f;
 	private ParticleSystem muzzleFlash;
 	private AudioSource gunAudio;
@@ -26,19 +27,22 @@ public abstract class Weapon : Equipment
 
     void Update()
     {
-        float xRotation = recoilRecovery;
-        currentRecoil -= recoilRecovery;
-        if (currentRecoil < 0.0f)
+        if (!switching)
         {
-            xRotation += currentRecoil;
-            currentRecoil = 0.0f;
+            float xRotation = recoilRecovery;
+            currentRecoil -= recoilRecovery;
+            if (currentRecoil < 0.0f)
+            {
+                xRotation += currentRecoil;
+                currentRecoil = 0.0f;
+            }
+            gameObject.transform.Rotate(xRotation, 0.0f, 0.0f);
         }
-        gameObject.transform.Rotate(xRotation, 0.0f, 0.0f);
     }
 
     public void Shoot(Camera playerCam)
 	{
-		if (Time.time > nextFire)
+		if (Time.time > nextFire && !switching)
 		{
 			nextFire = Time.time + (1 / fireRate[level-1]);
             Recoil();
@@ -91,5 +95,43 @@ public abstract class Weapon : Equipment
             currentRecoil = maxRecoil;
         }
         gameObject.transform.Rotate(-xRotation, 0.0f, 0.0f);
+    }
+
+    public IEnumerator switchOut(Weapon switchingIn)
+    {
+        switching = true;
+        // rotate down
+        float rotateAmount = 0.0f;
+        float rotateStep = 5f;
+        while (rotateAmount < 44.0f)
+        {
+            rotateAmount += rotateStep;
+            gameObject.transform.Rotate(-5.0f, 0.0f, 0.0f);
+            yield return null;
+        }
+
+        gameObject.SetActive(false);
+        switchingIn.gameObject.SetActive(true);
+        StartCoroutine(switchingIn.switchIn());
+        gameObject.transform.Rotate(currentRecoil + 45.0f, 0.0f, 0.0f);
+        currentRecoil = 0.0f;
+        switching = false;
+    }
+
+    private IEnumerator switchIn()
+    {
+        switching = true;
+        float rotateAmount = 45.0f;
+        float rotateStep = 5.0f;
+        gameObject.transform.Rotate(45.0f, 0.0f, 0.0f);
+
+        // rotate up
+        while (rotateAmount > 1.0f)
+        {
+            rotateAmount -= rotateStep;
+            gameObject.transform.Rotate(-5.0f, 0.0f, 0.0f);
+            yield return null;
+        }
+        switching = false;
     }
 }
