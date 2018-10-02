@@ -7,7 +7,7 @@ public abstract class Weapon : Equipment
 	public GameObject impactFx;
 	public int[] damage;
 	public float[] range;
-	public float[] spread; // radius of circle within which a shot's ray will be cast
+	public float[] recoil; // amount of recoil per shot
 	public float[] fireRate; // (per second)	
 
 	private ParticleSystem muzzleFlash;

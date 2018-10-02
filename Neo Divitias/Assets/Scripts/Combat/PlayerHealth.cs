@@ -4,10 +4,11 @@ public class PlayerHealth : DamageableObject
 {
     public int currentHealth;
     public int maxHealth;
+    public int regenPerSecond;
 
     public void Update()
     {
-        // TODO: Implement health regen mechanic
+        currentHealth = Mathf.Min(currentHealth + (int)(regenPerSecond * Time.deltaTime), maxHealth);
     }
 
     public override void damage(int damage)
