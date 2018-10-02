@@ -609,6 +609,9 @@ GameObject:
   - component: {fileID: 114760956215372772}
   - component: {fileID: 135821086351104266}
   - component: {fileID: 114005679952004268}
+  - component: {fileID: 114618770422685152}
+  - component: {fileID: 114916339653160466}
+  - component: {fileID: 114275022072151542}
   m_Layer: 0
   m_Name: Base
   m_TagString: Player
@@ -1285,7 +1288,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1134396177712644}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0.7, z: 0}
+  m_LocalPosition: {x: -0.2746305, y: 1.659, z: -1.2247713}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 4585504876006264}
@@ -3611,6 +3614,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   currentHealth: 10
   maxHealth: 10
+  regenPerSecond: 0
 --- !u!114 &114043415466856980
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -3645,6 +3649,21 @@ MonoBehaviour:
   rifle: {fileID: 114805586419245024}
   equipped: {fileID: 114343481314270944}
   unequipped: {fileID: 114601785353161526}
+--- !u!114 &114275022072151542
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1806213626347196}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c57d4267d04ce024fae581178b58a8d0, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  activateButton: MoveAbilityActivate
+  dash: {fileID: 114916339653160466}
+  rocket: {fileID: 114618770422685152}
+  equipped: {fileID: 114618770422685152}
 --- !u!114 &114343481314270944
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -3660,19 +3679,19 @@ MonoBehaviour:
   cost: 0
   impactForce: 0
   impactFx: {fileID: 0}
-  damage: 000000000000000000000000
+  damage: 0f0000001400000019000000
   range:
   - 5
-  - 0
-  - 0
-  spread:
+  - 7.5
+  - 10
+  recoil:
   - 0
   - 0
   - 0
   fireRate:
   - 1
-  - 0
-  - 0
+  - 1.25
+  - 1.5
   numProjectiles: 000000000000000000000000
 --- !u!114 &114427080515191426
 MonoBehaviour:
@@ -3689,19 +3708,19 @@ MonoBehaviour:
   cost: 0
   impactForce: 0
   impactFx: {fileID: 0}
-  damage: 000000000000000000000000
+  damage: 020000000300000004000000
   range:
   - 10
-  - 0
-  - 0
-  spread:
+  - 10
+  - 10
+  recoil:
   - 0
   - 0
   - 0
   fireRate:
   - 8
-  - 0
-  - 0
+  - 10
+  - 12
 --- !u!114 &114601785353161526
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -3717,19 +3736,43 @@ MonoBehaviour:
   cost: 0
   impactForce: 0
   impactFx: {fileID: 0}
-  damage: 000000000000000000000000
+  damage: 030000000400000005000000
   range:
   - 10
-  - 0
-  - 0
-  spread:
+  - 10
+  - 10
+  recoil:
   - 0
   - 0
   - 0
   fireRate:
+  - 3
   - 4
-  - 0
-  - 0
+  - 5
+--- !u!114 &114618770422685152
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1806213626347196}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1254c1729386e854996f5475305118d5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  level: 1
+  cost: 0
+  playerCam: {fileID: 20807266968998558}
+  player: {fileID: 54369231960953214}
+  cooldown:
+  - 5
+  - 3
+  - 2
+  movementForce:
+  - 20
+  - 25
+  - 30
+  activationSound: {fileID: 0}
 --- !u!114 &114760956215372772
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -3747,6 +3790,7 @@ MonoBehaviour:
   friction: 10
   jumpForce: 5
   cameraSwitcher: {fileID: 0}
+  restrictVel: 1
 --- !u!114 &114805586419245024
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -3762,19 +3806,48 @@ MonoBehaviour:
   cost: 0
   impactForce: 0
   impactFx: {fileID: 0}
-  damage: 000000000000000000000000
+  damage: 05000000080000000a000000
   range:
   - 20
-  - 0
-  - 0
-  spread:
+  - 20
+  - 20
+  recoil:
   - 0
   - 0
   - 0
   fireRate:
   - 2
-  - 0
-  - 0
+  - 3
+  - 4
+--- !u!114 &114916339653160466
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1806213626347196}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: abddd13e81854224e91d7ea6323b94dc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  level: 1
+  cost: 0
+  playerCam: {fileID: 20807266968998558}
+  player: {fileID: 54369231960953214}
+  cooldown:
+  - 5
+  - 4
+  - 3
+  movementForce:
+  - 13
+  - 18
+  - 25
+  activationSound: {fileID: 0}
+  duration:
+  - 1
+  - 1.5
+  - 2
+  playerController: {fileID: 114760956215372772}
 --- !u!114 &114953412590710898
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -3954,7 +4027,7 @@ ParticleSystem:
   moveWithTransform: 0
   moveWithCustomTransform: {fileID: 0}
   scalingMode: 2
-  randomSeed: 2091360664
+  randomSeed: -1264304257
   InitialModule:
     serializedVersion: 3
     enabled: 1
