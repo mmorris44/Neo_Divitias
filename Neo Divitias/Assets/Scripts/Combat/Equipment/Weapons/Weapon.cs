@@ -5,11 +5,14 @@ public abstract class Weapon : Equipment
 {
 	public float impactForce;
 	public GameObject impactFx;
+    public float maxRecoil;
+    public float recoilRecovery;
 	public int[] damage;
 	public float[] range;
 	public float[] recoil; // amount of recoil per shot
 	public float[] fireRate; // (per second)	
 
+    private float currentRecoil = 0.0f;
 	private ParticleSystem muzzleFlash;
 	private AudioSource gunAudio;
 	private float nextFire;
@@ -21,17 +24,30 @@ public abstract class Weapon : Equipment
 		muzzleFlash = GetComponent<ParticleSystem>();
 	}
 
-	public void Shoot(Camera playerCam)
+    void Update()
+    {
+        float xRotation = recoilRecovery;
+        currentRecoil -= recoilRecovery;
+        if (currentRecoil < 0.0f)
+        {
+            xRotation += currentRecoil;
+            currentRecoil = 0.0f;
+        }
+        gameObject.transform.Rotate(xRotation, 0.0f, 0.0f);
+    }
+
+    public void Shoot(Camera playerCam)
 	{
 		if (Time.time > nextFire)
 		{
 			nextFire = Time.time + (1 / fireRate[level-1]);
+            Recoil();
             StartCoroutine(shotEffect());
 
             Vector3 rayOrigin = playerCam.ViewportToWorldPoint(new Vector3(0.5f, 0.5f, 0));
 			RaycastHit hit;
 
-			if (Physics.Raycast(rayOrigin, GetShotDirection(playerCam.transform), out hit, range[level-1]))
+			if (Physics.Raycast(rayOrigin, playerCam.transform.forward, out hit, range[level-1]))
 			{
 				DamageableObject target = hit.collider.GetComponent<DamageableObject>();
 
@@ -60,16 +76,20 @@ public abstract class Weapon : Equipment
 	
 	private IEnumerator shotEffect ()
 	{
-		gunAudio.Play();
+        gunAudio.Play();
         muzzleFlash.Play();
         yield return shotDuration;
 	}
 
-	/**
-	 * TO DO: Calculate a direction vector randomly within the spread radius
-	 */
-	protected Vector3 GetShotDirection(Transform cam)
-	{
-		return cam.forward;
-	}
+    private void Recoil()
+    {
+        float xRotation = recoil[level - 1];
+        currentRecoil += recoil[level - 1];
+        if (currentRecoil > maxRecoil)
+        {
+            xRotation += maxRecoil - currentRecoil;
+            currentRecoil = maxRecoil;
+        }
+        gameObject.transform.Rotate(-xRotation, 0.0f, 0.0f);
+    }
 }
