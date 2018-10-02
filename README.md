@@ -16,13 +16,4 @@ Google drive
 
 ## TODO
 
-Split this up into more specific tasks (separate prototyping that can happen independently)
-
-- [x] Planning meeting
-- [ ] GDD
-- [ ] Assets
-- [ ] Levels
-- [ ] Music
-- [ ] SFX
-- [ ] Upgrades
-- [ ] Storyboarding
+https://docs.google.com/spreadsheets/d/1UE9bp8McFt9zG9cRewLLtZmNYBiLGyMYjKgjm8lZy0I/edit#gid=0
