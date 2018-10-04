@@ -47,7 +47,7 @@ public abstract class Weapon : Equipment
 		{
 			nextFire = Time.time + (1 / fireRate[level-1]);
             Recoil();
-            StartCoroutine(shotEffect());
+            if (gameObject.activeSelf) StartCoroutine(shotEffect());
 
             Vector3 rayOrigin = playerCam.ViewportToWorldPoint(new Vector3(0.5f, 0.5f, 0));
 			RaycastHit hit;
@@ -113,7 +113,7 @@ public abstract class Weapon : Equipment
 
         gameObject.SetActive(false);
         switchingIn.gameObject.SetActive(true);
-        StartCoroutine(switchingIn.switchIn());
+        if (gameObject.activeSelf) StartCoroutine(switchingIn.switchIn());
         gameObject.transform.Rotate(currentRecoil + 50.0f, 0.0f, 0.0f);
         currentRecoil = 0.0f;
         switching = false;

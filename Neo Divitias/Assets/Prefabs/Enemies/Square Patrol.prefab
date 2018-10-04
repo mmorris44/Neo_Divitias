@@ -569,6 +569,8 @@ MonoBehaviour:
   health: 5
   shooter: {fileID: 114229883208872406}
   isDestructible: 1
+  deathAnimation: {fileID: 1768562405605382, guid: 58437e049be764e4fa87007545815beb,
+    type: 2}
 --- !u!114 &114229883208872406
 MonoBehaviour:
   m_ObjectHideFlags: 1
