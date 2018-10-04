@@ -5,6 +5,7 @@ public abstract class Weapon : Equipment
 {
 	public float impactForce;
 	public GameObject impactFx;
+    public GameObject fizzleFx;
     public float maxRecoil;
     public float recoilRecovery;
 	public int[] damage;
@@ -68,12 +69,12 @@ public abstract class Weapon : Equipment
 
 				}
 
-                Instantiate(impactFx, target.transform);
+                Instantiate(impactFx, hit.point, Quaternion.identity);
             }
             else
 			{
 				// spawn particle effect at end of range
-				Instantiate(impactFx, playerCam.transform.position + (playerCam.transform.forward * range[level-1]), Quaternion.identity);
+				Instantiate(fizzleFx, playerCam.transform.position + (playerCam.transform.forward * range[level-1]), Quaternion.identity);
 			}
 		}
 	}
@@ -102,18 +103,18 @@ public abstract class Weapon : Equipment
         switching = true;
         // rotate down
         float rotateAmount = 0.0f;
-        float rotateStep = 5f;
-        while (rotateAmount < 44.0f)
+        float rotateStep = 10f;
+        while (rotateAmount < 49.0f)
         {
             rotateAmount += rotateStep;
-            gameObject.transform.Rotate(-5.0f, 0.0f, 0.0f);
+            gameObject.transform.Rotate(-10.0f, 0.0f, 0.0f);
             yield return null;
         }
 
         gameObject.SetActive(false);
         switchingIn.gameObject.SetActive(true);
         StartCoroutine(switchingIn.switchIn());
-        gameObject.transform.Rotate(currentRecoil + 45.0f, 0.0f, 0.0f);
+        gameObject.transform.Rotate(currentRecoil + 50.0f, 0.0f, 0.0f);
         currentRecoil = 0.0f;
         switching = false;
     }
@@ -121,15 +122,15 @@ public abstract class Weapon : Equipment
     private IEnumerator switchIn()
     {
         switching = true;
-        float rotateAmount = 45.0f;
-        float rotateStep = 5.0f;
-        gameObject.transform.Rotate(45.0f, 0.0f, 0.0f);
+        float rotateAmount = 50.0f;
+        float rotateStep = 10.0f;
+        gameObject.transform.Rotate(50.0f, 0.0f, 0.0f);
 
         // rotate up
         while (rotateAmount > 1.0f)
         {
             rotateAmount -= rotateStep;
-            gameObject.transform.Rotate(-5.0f, 0.0f, 0.0f);
+            gameObject.transform.Rotate(-10.0f, 0.0f, 0.0f);
             yield return null;
         }
         switching = false;

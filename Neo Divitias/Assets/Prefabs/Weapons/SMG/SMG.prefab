@@ -642,17 +642,23 @@ MonoBehaviour:
   level: 1
   cost: 0
   impactForce: 0
-  impactFx: {fileID: 0}
-  damage: 000000000000000000000000
+  impactFx: {fileID: 1030936683918092, guid: 8ca936447741fdb419fe2823cec47539, type: 2}
+  fizzleFx: {fileID: 1034939947380656, guid: 6b091c8b8b12ae94e944d5bba55f40ff, type: 2}
+  maxRecoil: 12
+  recoilRecovery: 0.9
+  damage: 020000000300000004000000
   range:
-  - 0
-  - 0
-  - 0
-  recoil: []
+  - 10
+  - 10
+  - 10
+  recoil:
+  - 7
+  - 7
+  - 7
   fireRate:
-  - 0
-  - 0
-  - 0
+  - 8
+  - 10
+  - 12
 --- !u!198 &198136918082711878
 ParticleSystem:
   m_ObjectHideFlags: 1
@@ -665,7 +671,7 @@ ParticleSystem:
   stopAction: 0
   looping: 0
   prewarm: 0
-  playOnAwake: 1
+  playOnAwake: 0
   useUnscaledTime: 0
   autoRandomSeed: 1
   useRigidbodyForVelocity: 1

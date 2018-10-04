@@ -80,7 +80,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!1 &1440815593833642
 GameObject:
   m_ObjectHideFlags: 0
@@ -570,17 +570,23 @@ MonoBehaviour:
   level: 1
   cost: 0
   impactForce: 0
-  impactFx: {fileID: 0}
-  damage: 000000000000000000000000
+  impactFx: {fileID: 1030936683918092, guid: 8ca936447741fdb419fe2823cec47539, type: 2}
+  fizzleFx: {fileID: 1034939947380656, guid: 6b091c8b8b12ae94e944d5bba55f40ff, type: 2}
+  maxRecoil: 20
+  recoilRecovery: 1.5
+  damage: 0f0000001400000019000000
   range:
-  - 0
-  - 0
-  - 0
-  recoil: []
+  - 5
+  - 7.5
+  - 10
+  recoil:
+  - 20
+  - 20
+  - 20
   fireRate:
   - 1
-  - 0
-  - 0
+  - 1.25
+  - 1.5
   numProjectiles: 000000000000000000000000
 --- !u!198 &198695177259922246
 ParticleSystem:
@@ -642,7 +648,7 @@ ParticleSystem:
   moveWithTransform: 0
   moveWithCustomTransform: {fileID: 0}
   scalingMode: 2
-  randomSeed: -772075976
+  randomSeed: 1874883866
   InitialModule:
     serializedVersion: 3
     enabled: 1

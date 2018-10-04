@@ -3868,8 +3868,8 @@ MonoBehaviour:
   pistol: {fileID: 114601785353161526}
   smg: {fileID: 114427080515191426}
   rifle: {fileID: 114805586419245024}
-  equipped: {fileID: 114601785353161526}
-  unequipped: {fileID: 114805586419245024}
+  equipped: {fileID: 114343481314270944}
+  unequipped: {fileID: 114427080515191426}
 --- !u!114 &114246415059563754
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -3928,16 +3928,16 @@ MonoBehaviour:
   impactForce: 0
   impactFx: {fileID: 0}
   maxRecoil: 20
-  recoilRecovery: 1
+  recoilRecovery: 1.5
   damage: 0f0000001400000019000000
   range:
   - 5
   - 7.5
   - 10
   recoil:
-  - 15
-  - 15
-  - 15
+  - 20
+  - 20
+  - 20
   fireRate:
   - 1
   - 1.25
@@ -3958,17 +3958,17 @@ MonoBehaviour:
   cost: 0
   impactForce: 0
   impactFx: {fileID: 0}
-  maxRecoil: 15
-  recoilRecovery: 1
+  maxRecoil: 12
+  recoilRecovery: 0.9
   damage: 020000000300000004000000
   range:
   - 10
   - 10
   - 10
   recoil:
-  - 5
-  - 5
-  - 5
+  - 7
+  - 7
+  - 7
   fireRate:
   - 8
   - 10
@@ -3996,9 +3996,9 @@ MonoBehaviour:
   - 10
   - 10
   recoil:
-  - 3
-  - 3
-  - 3
+  - 6
+  - 6
+  - 6
   fireRate:
   - 3
   - 4
@@ -4076,21 +4076,21 @@ MonoBehaviour:
   cost: 0
   impactForce: 0
   impactFx: {fileID: 0}
-  maxRecoil: 15
-  recoilRecovery: 1
+  maxRecoil: 20
+  recoilRecovery: 0.75
   damage: 05000000080000000a000000
   range:
   - 20
   - 20
   - 20
   recoil:
-  - 10
-  - 10
-  - 10
+  - 7
+  - 7
+  - 7
   fireRate:
-  - 2
-  - 3
+  - 3.5
   - 4
+  - 4.5
 --- !u!114 &114916339653160466
 MonoBehaviour:
   m_ObjectHideFlags: 1
