@@ -17,6 +17,7 @@ public class PatrollingEnemy : DamageableObject {
 
     public FireAtPlayer shooter;
     public bool isDestructible = true;
+    public GameObject deathAnimation;
 
     int currentTarget = 0;
     float currentCooldown = 0;
@@ -29,6 +30,7 @@ public class PatrollingEnemy : DamageableObject {
         health -= 1;
         if (health <= 0)
         {
+            Instantiate(deathAnimation, transform.position, Quaternion.identity);
             Destroy(gameObject);
         }
     }

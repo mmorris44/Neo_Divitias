@@ -17,6 +17,7 @@ public class ChaseEnemy : DamageableObject {
 
     public FireAtPlayer shooter;
     public bool isDestructible = true;
+    public GameObject deathAnimation;
 
     float currentCooldown = 0;
     Transform[] player;
@@ -28,6 +29,7 @@ public class ChaseEnemy : DamageableObject {
         health -= 1;
         if (health <= 0)
         {
+            Instantiate(deathAnimation, transform.position, Quaternion.identity);
             Destroy(gameObject);
         }
     }

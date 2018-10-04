@@ -613,10 +613,10 @@ MonoBehaviour:
   damageDone: 1
   fireCooldown: 1
   health: 5
-  player: {fileID: 0}
-  playerBody: {fileID: 0}
   shooter: {fileID: 114613166907214924}
   isDestructible: 1
+  deathAnimation: {fileID: 1768562405605382, guid: 58437e049be764e4fa87007545815beb,
+    type: 2}
 --- !u!114 &114613166907214924
 MonoBehaviour:
   m_ObjectHideFlags: 1

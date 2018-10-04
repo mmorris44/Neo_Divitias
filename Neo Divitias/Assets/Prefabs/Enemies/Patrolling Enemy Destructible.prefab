@@ -418,11 +418,10 @@ MonoBehaviour:
   damageDone: 1
   fireCooldown: 1
   health: 5
-  player: {fileID: 4585504876006264, guid: 468c7ccdb046c304987053a54307d612, type: 2}
-  playerBody: {fileID: 54369231960953214, guid: 468c7ccdb046c304987053a54307d612,
-    type: 2}
   shooter: {fileID: 114722529497696584}
   isDestructible: 1
+  deathAnimation: {fileID: 1768562405605382, guid: 58437e049be764e4fa87007545815beb,
+    type: 2}
 --- !u!114 &114722529497696584
 MonoBehaviour:
   m_ObjectHideFlags: 1

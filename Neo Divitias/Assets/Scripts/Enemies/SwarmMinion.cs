@@ -9,6 +9,7 @@ public class SwarmMinion : DamageableObject {
     public int damageDone = 1;
     public float damageCooldown = 2f;
     public int health = 1;
+    public GameObject deathAnimation;
 
     public SwarmEnemy swarm;
 
@@ -24,6 +25,7 @@ public class SwarmMinion : DamageableObject {
         health -= 1;
         if (health <= 0)
         {
+            Instantiate(deathAnimation, transform.position, Quaternion.identity);
             Destroy(gameObject);
         }
     }
