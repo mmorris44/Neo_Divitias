@@ -1,0 +1,229 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ContentModelStore">
+    <e p="C:\Users\Michael White\.Rider2018.1\system\resharper-host\Local\Transient\ReSharperHost\v12\SolutionCaches\_Neo Divitias.2115248972.00" t="ExcludeRecursive" />
+    <e p="D:\UnityProjects\GamesCapstoneProject\Neo Divitias" t="IncludeRecursive">
+      <e p="Assembly-CSharp-Editor.csproj" t="IncludeRecursive" />
+      <e p="Assembly-CSharp.csproj" t="IncludeRecursive" />
+      <e p="Assets\Scripts" t="Include">
+        <e p="Cameras" t="Include">
+          <e p="CameraSwitcher.cs" t="Include" />
+          <e p="CutsceneCamera.cs" t="Include" />
+          <e p="OrbitingCameraController.cs" t="Include" />
+          <e p="ThirdPersonCameraController.cs" t="Include" />
+        </e>
+        <e p="Combat" t="Include">
+          <e p="DamageableObject.cs" t="Include" />
+          <e p="Equipment" t="Include">
+            <e p="Equipment.cs" t="Include" />
+            <e p="Movement" t="Include">
+              <e p="Dash.cs" t="Include" />
+              <e p="MovementItem.cs" t="Include" />
+              <e p="RocketJump.cs" t="Include" />
+            </e>
+            <e p="Weapons" t="Include">
+              <e p="Pistol.cs" t="Include" />
+              <e p="Rifle.cs" t="Include" />
+              <e p="Shotgun.cs" t="Include" />
+              <e p="SMG.cs" t="Include" />
+              <e p="Weapon.cs" t="Include" />
+            </e>
+          </e>
+          <e p="ExplodingObject.cs" t="Include" />
+          <e p="ExplosionControl.cs" t="Include" />
+          <e p="MovementManager.cs" t="Include" />
+          <e p="PlayerHealth.cs" t="Include" />
+          <e p="RaycastShoot.cs" t="Include" />
+          <e p="WeaponManager.cs" t="Include" />
+        </e>
+        <e p="Effects" t="Include">
+          <e p="DeathController.cs" t="Include" />
+          <e p="EnergyController.cs" t="Include" />
+          <e p="FadeOutToBlack.cs" t="Include" />
+        </e>
+        <e p="Enemies" t="Include">
+          <e p="ChaseEnemy.cs" t="Include" />
+          <e p="FireAtPlayer.cs" t="Include" />
+          <e p="PatrollingEnemy.cs" t="Include" />
+          <e p="ProjectileController.cs" t="Include" />
+          <e p="SwarmEnemy.cs" t="Include" />
+          <e p="SwarmMinion.cs" t="Include" />
+          <e p="TurretEnemy.cs" t="Include" />
+        </e>
+        <e p="Environment" t="Include">
+          <e p="ObjectiveCollect.cs" t="Include" />
+          <e p="ObjectiveRotate.cs" t="Include" />
+        </e>
+        <e p="Game Control" t="Include">
+          <e p="CursorController.cs" t="Include" />
+          <e p="GameManager.cs" t="Include" />
+          <e p="MusicController.cs" t="Include" />
+          <e p="WorldBuilder.cs" t="Include" />
+        </e>
+        <e p="Menu and Game State" t="Include">
+          <e p="GameState.cs" t="Include" />
+          <e p="MainMenu.cs" t="Include" />
+          <e p="Pause.cs" t="Include" />
+          <e p="Player.cs" t="Include" />
+          <e p="ToggleScript.cs" t="Include" />
+          <e p="UpgradeScript.cs" t="Include" />
+        </e>
+        <e p="Movement" t="Include">
+          <e p="GunAim.cs" t="Include" />
+          <e p="PlayerController.cs" t="Include" />
+          <e p="PlayerRotate.cs" t="Include" />
+          <e p="WeaponFollowPlayer.cs" t="Include" />
+        </e>
+      </e>
+      <e p="Assets\Tools" t="Include">
+        <e p="JMO Assets" t="Include">
+          <e p="!JMO Assets Readme.txt" t="Include" />
+          <e p="Cartoon FX Easy Editor" t="Include">
+            <e p="CartoonFX Easy Editor Readme.txt" t="Include" />
+            <e p="Editor" t="Include">
+              <e p="CFXEasyEditor.cs" t="Include" />
+            </e>
+          </e>
+          <e p="WarFX" t="Include">
+            <e p="!WarFX Readme.txt" t="Include" />
+            <e p="_Effects" t="Include">
+              <e p="MuzzleFlashes" t="Include">
+                <e p="!MuzzleFlash Differences.txt" t="Include" />
+              </e>
+            </e>
+            <e p="_Effects (Mobile)" t="Include">
+              <e p="MuzzleFlashes" t="Include">
+                <e p="!MuzzleFlash Differences.txt" t="Include" />
+              </e>
+            </e>
+            <e p="Demo" t="Include">
+              <e p="Assets" t="Include">
+                <e p="CFX_AutoStopLoopedEffect.cs" t="Include" />
+                <e p="CFX_Demo_RandomDir.cs" t="Include" />
+                <e p="CFX_Demo_RotateCamera.cs" t="Include" />
+                <e p="CFX_Demo_Translate.cs" t="Include" />
+                <e p="WFX_Demo.cs" t="Include" />
+                <e p="WFX_Demo_DeleteAfterDelay.cs" t="Include" />
+                <e p="WFX_Demo_New.cs" t="Include" />
+                <e p="WFX_Demo_RandomDir.cs" t="Include" />
+                <e p="WFX_Demo_Wall.cs" t="Include" />
+              </e>
+            </e>
+            <e p="Editor" t="Include">
+              <e p="CFX_SpawnSystemEditor.cs" t="Include" />
+            </e>
+            <e p="Scripts" t="Include">
+              <e p="CFX_AutoDestructShuriken.cs" t="Include" />
+              <e p="CFX_LightIntensityFade.cs" t="Include" />
+              <e p="WFX_BulletHoleDecal.cs" t="Include" />
+              <e p="WFX_LightFlicker.cs" t="Include" />
+            </e>
+            <e p="Shaders" t="Include">
+              <e p="WFX_S Add Scroll.shader" t="Include" />
+              <e p="WFX_S Alpha-Diffuse TintColor.shader" t="Include" />
+              <e p="WFX_S Alpha-Specular TintColor.shader" t="Include" />
+              <e p="WFX_S AlphaBlend NoSoftParticles.shader" t="Include" />
+              <e p="WFX_S AlphaBlend Scroll.shader" t="Include" />
+              <e p="WFX_S Multiply Soft Scroll.shader" t="Include" />
+              <e p="WFX_S Multiply Soft.shader" t="Include" />
+              <e p="WFX_S Particle Add A8.shader" t="Include" />
+              <e p="WFX_S Particle AddSoft A8.shader" t="Include" />
+              <e p="WFX_S Particle Multiply A8.shader" t="Include" />
+              <e p="WFX_S Smoke Scroll.shader" t="Include" />
+            </e>
+            <e p="Spawn System" t="Include">
+              <e p="CFX_SpawnSystem.cs" t="Include" />
+            </e>
+          </e>
+        </e>
+        <e p="PowerUp" t="Include">
+          <e p="Scripts" t="Include">
+            <e p="CustomizablePowerUp.cs" t="Include" />
+            <e p="PowerUpManager.cs" t="Include" />
+            <e p="PowerUpRotation.cs" t="Include" />
+            <e p="ScaleParticles.cs" t="Include" />
+            <e p="TakeablePowerUp.cs" t="Include" />
+            <e p="Utility" t="Include">
+              <e p="Singleton.cs" t="Include" />
+            </e>
+          </e>
+        </e>
+        <e p="TextMesh Pro" t="Include">
+          <e p="Examples &amp; Extras" t="Include">
+            <e p="Fonts" t="Include">
+              <e p="Anton OFL.txt" t="Include" />
+              <e p="Bangers - OFL.txt" t="Include" />
+              <e p="LiberationSans - OFL.txt" t="Include" />
+              <e p="NotoSans - License.txt" t="Include" />
+              <e p="Oswald Bold - OFL.txt" t="Include" />
+            </e>
+            <e p="Scripts" t="Include">
+              <e p="Benchmark01.cs" t="Include" />
+              <e p="Benchmark01_UGUI.cs" t="Include" />
+              <e p="Benchmark02.cs" t="Include" />
+              <e p="Benchmark03.cs" t="Include" />
+              <e p="Benchmark04.cs" t="Include" />
+              <e p="CameraController.cs" t="Include" />
+              <e p="ChatController.cs" t="Include" />
+              <e p="EnvMapAnimator.cs" t="Include" />
+              <e p="ObjectSpin.cs" t="Include" />
+              <e p="ShaderPropAnimator.cs" t="Include" />
+              <e p="SimpleScript.cs" t="Include" />
+              <e p="SkewTextExample.cs" t="Include" />
+              <e p="TeleType.cs" t="Include" />
+              <e p="TextConsoleSimulator.cs" t="Include" />
+              <e p="TextMeshProFloatingText.cs" t="Include" />
+              <e p="TextMeshSpawner.cs" t="Include" />
+              <e p="TMP_DigitValidator.cs" t="Include" />
+              <e p="TMP_ExampleScript_01.cs" t="Include" />
+              <e p="TMP_FrameRateCounter.cs" t="Include" />
+              <e p="TMP_PhoneNumberValidator.cs" t="Include" />
+              <e p="TMP_TextEventCheck.cs" t="Include" />
+              <e p="TMP_TextEventHandler.cs" t="Include" />
+              <e p="TMP_TextInfoDebugTool.cs" t="Include" />
+              <e p="TMP_TextSelector_A.cs" t="Include" />
+              <e p="TMP_TextSelector_B.cs" t="Include" />
+              <e p="TMP_UiFrameRateCounter.cs" t="Include" />
+              <e p="TMPro_InstructionOverlay.cs" t="Include" />
+              <e p="VertexColorCycler.cs" t="Include" />
+              <e p="VertexJitter.cs" t="Include" />
+              <e p="VertexShakeA.cs" t="Include" />
+              <e p="VertexShakeB.cs" t="Include" />
+              <e p="VertexZoom.cs" t="Include" />
+              <e p="WarpTextExample.cs" t="Include" />
+            </e>
+          </e>
+          <e p="Resources" t="Include">
+            <e p="LineBreaking Following Characters.txt" t="Include" />
+            <e p="LineBreaking Leading Characters.txt" t="Include" />
+            <e p="Shaders" t="Include">
+              <e p="TMP_Bitmap-Mobile.shader" t="Include" />
+              <e p="TMP_Bitmap.shader" t="Include" />
+              <e p="TMP_SDF Overlay.shader" t="Include" />
+              <e p="TMP_SDF-Mobile Masking.shader" t="Include" />
+              <e p="TMP_SDF-Mobile Overlay.shader" t="Include" />
+              <e p="TMP_SDF-Mobile.shader" t="Include" />
+              <e p="TMP_SDF-Surface-Mobile.shader" t="Include" />
+              <e p="TMP_SDF-Surface.shader" t="Include" />
+              <e p="TMP_SDF.shader" t="Include" />
+              <e p="TMP_Sprite.shader" t="Include" />
+              <e p="TMPro.cginc" t="Include" />
+              <e p="TMPro_Properties.cginc" t="Include" />
+              <e p="TMPro_Surface.cginc" t="Include" />
+            </e>
+          </e>
+          <e p="Sprites" t="Include">
+            <e p="EmojiOne Attribution.txt" t="Include" />
+          </e>
+        </e>
+      </e>
+      <e p="Library" t="ExcludeRecursive" />
+      <e p="Neo Divitias.sln" t="IncludeFlat" />
+      <e p="obj" t="ExcludeRecursive" />
+      <e p="packages" t="ExcludeRecursive" />
+      <e p="Temp" t="ExcludeRecursive">
+        <e p="bin" t="ExcludeRecursive" />
+      </e>
+    </e>
+  </component>
+</project>

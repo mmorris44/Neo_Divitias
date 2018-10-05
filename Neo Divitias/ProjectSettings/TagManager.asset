@@ -12,6 +12,8 @@ TagManager:
   - smg
   - armour
   - accuracy
+  - FxTemporaire
+  - objective
   layers:
   - Default
   - TransparentFX

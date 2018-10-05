@@ -4,6 +4,7 @@ using UnityEngine;
 public abstract class Weapon : Equipment
 {
 	public float impactForce;
+	public float swapDelay;
 	public GameObject impactFx;
     public GameObject fizzleFx;
     public float maxRecoil;
@@ -11,14 +12,19 @@ public abstract class Weapon : Equipment
 	public int[] damage;
 	public float[] range;
 	public float[] recoil; // amount of recoil per shot
-	public float[] fireRate; // (per second)	
+	public float[] fireRate; // (per second)
 
-    private bool switching = false;
+    private bool switching = true;
     private float currentRecoil = 0.0f;
 	private ParticleSystem muzzleFlash;
 	private AudioSource gunAudio;
 	private float nextFire;
 	private WaitForSeconds shotDuration = new WaitForSeconds(0.07f);
+
+	private void OnEnable()
+	{
+		StartCoroutine(switchIn());
+	}
 
 	void Start()
 	{
@@ -101,6 +107,7 @@ public abstract class Weapon : Equipment
     public IEnumerator switchOut(Weapon switchingIn)
     {
         switching = true;
+
         // rotate down
         float rotateAmount = 0.0f;
         float rotateStep = 10f;
@@ -111,17 +118,17 @@ public abstract class Weapon : Equipment
             yield return null;
         }
 
+	    // swap active
         gameObject.SetActive(false);
-        switchingIn.gameObject.SetActive(true);
-        if (gameObject.activeSelf) StartCoroutine(switchingIn.switchIn());
+	    switchingIn.gameObject.SetActive(true);
+	    
+	    // clean up
         gameObject.transform.Rotate(currentRecoil + 50.0f, 0.0f, 0.0f);
         currentRecoil = 0.0f;
-        switching = false;
     }
 
     private IEnumerator switchIn()
     {
-        switching = true;
         float rotateAmount = 50.0f;
         float rotateStep = 10.0f;
         gameObject.transform.Rotate(50.0f, 0.0f, 0.0f);
@@ -133,6 +140,7 @@ public abstract class Weapon : Equipment
             gameObject.transform.Rotate(-10.0f, 0.0f, 0.0f);
             yield return null;
         }
-        switching = false;
+
+	    switching = false;
     }
 }

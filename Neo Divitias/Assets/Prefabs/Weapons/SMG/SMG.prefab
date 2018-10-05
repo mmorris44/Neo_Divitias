@@ -642,6 +642,7 @@ MonoBehaviour:
   level: 1
   cost: 0
   impactForce: 0
+  swapDelay: 0.2
   impactFx: {fileID: 1030936683918092, guid: 8ca936447741fdb419fe2823cec47539, type: 2}
   fizzleFx: {fileID: 1034939947380656, guid: 6b091c8b8b12ae94e944d5bba55f40ff, type: 2}
   maxRecoil: 12

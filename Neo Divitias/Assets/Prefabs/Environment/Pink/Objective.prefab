@@ -37,9 +37,11 @@ GameObject:
   serializedVersion: 5
   m_Component:
   - component: {fileID: 4865320545983250}
+  - component: {fileID: 114266682941590894}
+  - component: {fileID: 136896485052938290}
   m_Layer: 0
   m_Name: Objective
-  m_TagString: Untagged
+  m_TagString: objective
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -610,6 +612,18 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 1, y: 1, z: 1}
   m_Center: {x: 0, y: 0, z: 0}
+--- !u!114 &114266682941590894
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1410808454242076}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: bceb2c63da8ec1b44ab6f1285f6088d1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  pickupFX: {fileID: 100002, guid: 6ecf76dc4f268d340b2666896a954bcc, type: 2}
 --- !u!114 &114320313514374362
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -624,6 +638,19 @@ MonoBehaviour:
   rotateSpeed: 1
   vertSpeed: 0.01
   vertDist: 0.5
+--- !u!136 &136896485052938290
+CapsuleCollider:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1410808454242076}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_Enabled: 1
+  m_Radius: 0.95
+  m_Height: 2.9
+  m_Direction: 1
+  m_Center: {x: 0, y: 1.38, z: 0}
 --- !u!198 &198979881235028512
 ParticleSystem:
   m_ObjectHideFlags: 1
