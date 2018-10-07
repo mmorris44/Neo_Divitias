@@ -33,6 +33,12 @@ public class GameManager : MonoBehaviour {
 	static void changeLevel()
 	{
 		collectedObjectives = 0;
+
+        // fade to black and gradual time slow
+
+
+        // reset timescale + change level
+
 		throw new System.NotImplementedException();
 	}
 }
