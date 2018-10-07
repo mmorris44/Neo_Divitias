@@ -1,4 +1,5 @@
 ﻿using UnityEngine;
+using UnityEngine.UI;
 
 public class PlayerHealth : DamageableObject
 {
@@ -6,9 +7,17 @@ public class PlayerHealth : DamageableObject
     public int maxHealth;
     public int regenPerSecond;
 
+    public Slider healthbar;
+
+    public void Start()
+    {
+        InvokeRepeating("Regenerate", 0.0f, 1.0f);
+    }
+
     public void Update()
     {
-        currentHealth = Mathf.Min(currentHealth + (int)(regenPerSecond * Time.deltaTime), maxHealth);
+        //currentHealth = Mathf.Min(currentHealth + (int)(regenPerSecond * Time.deltaTime), maxHealth);
+        healthbar.value = (float)currentHealth / (float)maxHealth;
     }
 
     public override void damage(int damage)
@@ -16,9 +25,9 @@ public class PlayerHealth : DamageableObject
         currentHealth -= damage;
     }
 
-    public void heal(int amount)
+    void Regenerate()
     {
-        currentHealth += amount;
-        if (currentHealth > maxHealth) currentHealth = maxHealth;
+        if (currentHealth < maxHealth)
+            currentHealth++;
     }
 }

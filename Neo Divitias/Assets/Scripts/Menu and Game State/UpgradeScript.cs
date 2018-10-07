@@ -11,7 +11,10 @@ public class UpgradeScript : MonoBehaviour {
 
         int current_level;
         int cost_of_upgrade;
+
         // Dont need to check if player can afford item because items that are too expensive wont be interactable
+        // Wasn't sure how to best differentiate between player 1 and player 2 here. So put them in different layers
+        // Also couldnt find a wayto get gameobject layer by naem, so have to use integer values
         if (gameObject.layer == 8){
             current_level = GameState.player_one.Equipment[item.ToLower()];
             cost_of_upgrade = PlayerPrefs.GetInt(string.Format("{0}_{1}", item.ToLower(), current_level + 1));
@@ -28,8 +31,8 @@ public class UpgradeScript : MonoBehaviour {
         
         foreach (UnityEngine.UI.Toggle t in gameObject.GetComponentsInChildren <UnityEngine.UI.Toggle>())
         {
-            Debug.Log("Please");
             ToggleScript ts = t.GetComponent<ToggleScript>();
+            // Call refresh here to deactivate items that the player cant afford now
             ts.Refresh();
         }
     }

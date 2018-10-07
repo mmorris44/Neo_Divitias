@@ -7,10 +7,10 @@ public class Player
     public Dictionary<string, int> Equipment = new Dictionary<string, int>();
 
     public string name { get; set; }
+    public string primary { get; set; }
+    public string secondary { get; set; }
     public int money { get; set; }
 
-    public string weapon_1 { get; set; }
-    public string weapon_2 { get; set; }
     public string movement { get; set; }
 
     public Player(string name)
@@ -27,6 +27,31 @@ public class Player
         Equipment.Add("accuracy", 0);
         Equipment.Add("money", 150);
 
-        this.weapon_1 = string.Format("{0}_Pistol", name);
+        this.primary = string.Format("{0}_pistol", name);
+        this.secondary = string.Format("{0}_pistol", name);
+    }
+
+    public void selectWeapon(string weapon){
+        primary = secondary;
+        secondary = weapon;
+    }
+
+    public void deselectWeapon(string weapon)
+    {
+        // If they choose to deselect a weapon. Default that weapon to a pistol.
+        if (primary == weapon)
+        {
+            primary = string.Format("{0}_pistol", name);
+        }
+        else if (secondary == weapon)
+        {
+            secondary = string.Format("{0}_pistol", name);
+        }
+    }
+
+    public void weaponDebug()
+    {
+        Debug.Log(string.Format("Primary: {0}", primary));
+        Debug.Log(string.Format("Secondary: {0}", secondary));
     }
 }

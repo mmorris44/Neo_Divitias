@@ -1,18 +1,26 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using TMPro;
 
 public class GameManager : MonoBehaviour {
 
 	private static int collectedObjectives = 0;
 	private static int totalObjectives;
+    public TextMeshProUGUI timeText;
 	
 	void Start ()
 	{
 		totalObjectives = GameObject.FindGameObjectsWithTag("objective").Length;
-	}
+        timeText.SetText("Time: 0s");
+    }
 
-	public static void CollectObjective()
+    void Update()
+    {
+        timeText.SetText("Time: " + (int)Time.timeSinceLevelLoad + "s");
+    }
+
+    public static void CollectObjective()
 	{
 		collectedObjectives += 1;
 

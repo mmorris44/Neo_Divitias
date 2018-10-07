@@ -7,25 +7,76 @@ using UnityEngine.UI;
 
 public class ToggleScript : MonoBehaviour {
     private UnityEngine.UI.Toggle toggle;
+    Toggle[] ws;
 
     private void Start() { 
         toggle = GetComponent<UnityEngine.UI.Toggle>();
         toggle.onValueChanged.AddListener(OnToggleValueChanged);
 
+        //Toggle[] weapons = new Toggle[4];
+        //Debug.Log(gameObject.GetComponentsInChildren<Toggle>().Length);
+        //weapons[0] = gameObject.GetComponentsInChildren<Toggle>()[0];
+        //weapons[1] = gameObject.GetComponentsInChildren<Toggle>()[4];
+        //weapons[2] = gameObject.GetComponentsInChildren<Toggle>()[5];
+        //weapons[3] = gameObject.GetComponentsInChildren<Toggle>()[6];
+
+        ws = gameObject.GetComponentsInChildren<Toggle>();
+
+        //1(pistol) and 2(pistol)
+        // CLICK 4
+        //2(pistol) 4(smg)
+        // CLICK 4
+        //2(pistol) 4(pistol)
+
         Refresh();
     }
 
+    private void selectWeapon(int player, string w){
+        if (player == 1){
+            GameState.player_one.selectWeapon(string.Format("{0}_{1}", player, w));
+        }
+        else if (player == 2){
+            GameState.player_two.selectWeapon(string.Format("{0}_{1}", player, w));
+        }
+    }
+
+    private void deselectWeapon(int player, string w){
+        if (player == 1){
+            GameState.player_one.deselectWeapon(string.Format("{0}_{1}", player, w));
+        }
+        else if (player == 2){
+            GameState.player_two.deselectWeapon(string.Format("{0}_{1}", player, w));
+        }
+    }
+
     private void OnToggleValueChanged(bool isOn){
-    UnityEngine.UI.ColorBlock cb = toggle.colors;
-    if (isOn){
-        cb.normalColor = Color.gray;
-        cb.highlightedColor = Color.gray;
-    }
-    else{
-        cb.normalColor = Color.green;
-        cb.highlightedColor = Color.green;
-    }
-    toggle.colors = cb;
+        UnityEngine.UI.ColorBlock cb = toggle.colors;
+    
+        if (isOn){
+            cb.normalColor = Color.gray;
+            cb.highlightedColor = Color.gray;
+            if (gameObject.layer == 8)
+            {
+                deselectWeapon(1, gameObject.GetComponent<Toggle>().ToString().ToLower());
+            }
+            else if (gameObject.layer == 9)
+            {
+                deselectWeapon(2, gameObject.GetComponent<Toggle>().ToString().ToLower());
+            }
+        }
+        else{
+            // Change the toggle to selected. This should then call refresh to deactivate the oldest weapon.
+            cb.normalColor = Color.green;
+            cb.highlightedColor = Color.green;
+            if (gameObject.layer == 8){
+                selectWeapon(1, gameObject.GetComponent<Toggle>().ToString().ToLower());
+            }
+            else if (gameObject.layer == 9){
+                selectWeapon(2, gameObject.GetComponent<Toggle>().ToString().ToLower());
+            }
+        }
+        toggle.colors = cb;
+        GameState.player_one.weaponDebug();
     }
 
     public void Refresh(){

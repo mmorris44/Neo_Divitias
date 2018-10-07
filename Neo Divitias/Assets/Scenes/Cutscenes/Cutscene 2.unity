@@ -6498,6 +6498,11 @@ Prefab:
       propertyPath: cutsceneDuration
       value: 32
       objectReference: {fileID: 0}
+    - target: {fileID: 114955695612495142, guid: 535a4a3f7eb8fd04599eb4649c4de595,
+        type: 2}
+      propertyPath: nextLevel
+      value: Level 2
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 535a4a3f7eb8fd04599eb4649c4de595, type: 2}
   m_IsPrefabParent: 0

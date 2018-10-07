@@ -1,6 +1,8 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
+
 
 public class CutsceneCamera : MonoBehaviour {
 
@@ -27,7 +29,9 @@ public class CutsceneCamera : MonoBehaviour {
 	
 	void Update () {
         // Check if done
-        if (currentTarget >= positions.Length) return;
+        if (currentTarget >= positions.Length){
+            SceneManager.LoadScene(string.Format("Level {0}", GameState.game_level));
+        }
 
         float moveDist = speed * Time.deltaTime;
 
@@ -36,7 +40,10 @@ public class CutsceneCamera : MonoBehaviour {
         {
             currentTarget += 1;
             // Check if done
-            if (currentTarget >= positions.Length) return;
+            if (currentTarget >= positions.Length)
+            {
+                SceneManager.LoadScene(string.Format("Level {0}", GameState.game_level));
+            }
         }
 
         // Lerp towards goal rotation
@@ -48,5 +55,11 @@ public class CutsceneCamera : MonoBehaviour {
 
         // Move towards goal position
         transform.position = Vector3.MoveTowards(transform.position, positions[currentTarget].position, moveDist);
-	}
+
+        // Skip cutscene
+        if (Input.GetKeyUp(KeyCode.O))
+        {
+            SceneManager.LoadScene(string.Format("Level {0}", GameState.game_level));
+        }
+    }
 }

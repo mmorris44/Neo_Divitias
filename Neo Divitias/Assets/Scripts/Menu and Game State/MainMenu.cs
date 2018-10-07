@@ -16,7 +16,7 @@ public class MainMenu : MonoBehaviour{
 
     public void StartNextLevel(){
         GameState.SetPrefs();
-        SceneManager.LoadScene(string.Format("Level {0}", GameState.game_level));
+        SceneManager.LoadScene(string.Format("Cutscene {0}", GameState.game_level));
     }
 
     public void LoadShop(){
