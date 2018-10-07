@@ -3812,9 +3812,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 10b7bca464610b244a99f9a1766cd35f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  cameraTransform: {fileID: 4609915699095596}
   currentHealth: 10
   maxHealth: 10
   regenPerSecond: 0
+  isDead: 0
+  healthbar: {fileID: 0}
 --- !u!114 &114010133641314164
 MonoBehaviour:
   m_ObjectHideFlags: 1

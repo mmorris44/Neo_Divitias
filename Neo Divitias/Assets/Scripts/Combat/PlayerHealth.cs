@@ -4,6 +4,7 @@ using System.Collections;
 
 public class PlayerHealth : DamageableObject
 {
+    public Transform cameraTransform;
     public int currentHealth;
     public int maxHealth;
     public int regenPerSecond;
@@ -19,7 +20,7 @@ public class PlayerHealth : DamageableObject
     {
         playerTransform = transform;
         spawnLocation = new Vector3(playerTransform.position.x, playerTransform.position.y, playerTransform.position.z);
-        spawnRotation = new Quaternion(playerTransform.rotation.x, playerTransform.rotation.y, playerTransform.rotation.z, playerTransform.rotation.w);
+        spawnRotation = new Quaternion(cameraTransform.rotation.x, cameraTransform.rotation.y, cameraTransform.rotation.z, cameraTransform.rotation.w);
         InvokeRepeating("Regenerate", 0.0f, 1.0f / regenPerSecond);
     }
 
@@ -68,7 +69,7 @@ public class PlayerHealth : DamageableObject
 
         // teleport player back to start position
         playerTransform.position = spawnLocation;
-        playerTransform.rotation = spawnRotation;
+        cameraTransform.rotation = spawnRotation;
 
         /* //fade from black
         while (!faded)
