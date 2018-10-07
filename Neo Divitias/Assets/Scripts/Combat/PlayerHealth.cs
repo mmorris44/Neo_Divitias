@@ -51,6 +51,7 @@ public class PlayerHealth : DamageableObject
     {
         isDead = true;
         currentHealth = 0;
+        GameManager.addTimePenalty();
 
         /* //fade to black
         while (!faded)

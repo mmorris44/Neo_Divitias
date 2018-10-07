@@ -1,23 +1,26 @@
 ﻿using System.Collections;
-using System.Collections.Generic;
+using UnityEngine.SceneManagement;
 using UnityEngine;
 using TMPro;
 
 public class GameManager : MonoBehaviour {
+    public static int deathPenalty;
 
 	private static int collectedObjectives = 0;
 	private static int totalObjectives;
+    private static int penaltyTotal;
     public TextMeshProUGUI timeText;
 	
 	void Start ()
 	{
-		totalObjectives = GameObject.FindGameObjectsWithTag("objective").Length;
+        penaltyTotal = 0;
+        totalObjectives = GameObject.FindGameObjectsWithTag("objective").Length;
         timeText.SetText("Time: 0s");
     }
 
     void Update()
     {
-        timeText.SetText("Time: " + (int)Time.timeSinceLevelLoad + "s");
+        timeText.SetText("Time: " + ((int)Time.timeSinceLevelLoad + penaltyTotal) + "s");
     }
 
     public static void CollectObjective()
@@ -26,19 +29,33 @@ public class GameManager : MonoBehaviour {
 
 		if (collectedObjectives == totalObjectives)
 		{
-			changeLevel();
+            FindObjectOfType<GameManager>().StartCoroutine(changeLevel());
 		}
 	}
 
-	static void changeLevel()
+	static IEnumerator changeLevel()
 	{
 		collectedObjectives = 0;
 
+        float originalTimeScale = Time.timeScale;
         // fade to black and gradual time slow
+        /*
+        while(!faded) {
 
+            yield return null;
+        }
+ 
+        */
 
         // reset timescale + change level
+        Time.timeScale = originalTimeScale;
+        SceneManager.LoadScene("Shop");
 
-		throw new System.NotImplementedException();
+        yield return null; // placeholder
 	}
+
+    public static void addTimePenalty()
+    {
+        penaltyTotal += deathPenalty;
+    }
 }
