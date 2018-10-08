@@ -4,6 +4,8 @@ using System.Collections;
 
 public class PlayerHealth : DamageableObject
 {
+    public Image fadeImg;
+    public Animator fade;
     public Transform cameraTransform;
     public int currentHealth;
     public int maxHealth;
@@ -26,7 +28,7 @@ public class PlayerHealth : DamageableObject
 
     public void Update()
     {
-        if (playerTransform.position.y < -35)
+        if (playerTransform.position.y < -30)
         {
             StartCoroutine(die());
         }
@@ -53,35 +55,32 @@ public class PlayerHealth : DamageableObject
         currentHealth = 0;
         GameManager.addTimePenalty();
 
-        /* //fade to black
-        while (!faded)
+        fade.Play("fadeOut");
+
+        while (fadeImg.color.a < 1)
         {
             yield return null;
         }
-        */
 
         StartCoroutine(respawn());
-        yield return null; // just a placeholder until fade is implemented
     }
 
     private IEnumerator respawn()
     {
         currentHealth = maxHealth;
 
-        // teleport player back to start position
+        // set player back to start position and rotation
         playerTransform.position = spawnLocation;
         cameraTransform.rotation = spawnRotation;
 
-        /* //fade from black
-        while (!faded)
+        fade.Play("fadeIn");
+
+        while (fadeImg.color.a > 0)
         {
             yield return null;
         }
-        */
 
         isDead = false;
-
-        yield return null; // just a placeholder until fade is implemented
     }
 
     void Regenerate()

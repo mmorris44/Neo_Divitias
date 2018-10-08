@@ -1,10 +1,14 @@
 ﻿using System.Collections;
+using UnityEngine.UI;
 using UnityEngine.SceneManagement;
 using UnityEngine;
 using TMPro;
 
 public class GameManager : MonoBehaviour {
+    public static Image[] fadeImgs;
+    public static Animator[] fadeAnims;
     public static int deathPenalty;
+    public static bool timerOn;
 
 	private static int collectedObjectives = 0;
 	private static int totalObjectives;
@@ -13,6 +17,26 @@ public class GameManager : MonoBehaviour {
 	
 	void Start ()
 	{
+        fadeAnims = new Animator[2];
+        fadeImgs = new Image[2];
+        GameObject[] players = GameObject.FindGameObjectsWithTag("fadeAnimator");
+        for (int i = 0; i < players.Length; i++)
+        {
+            fadeAnims[i] = players[i].GetComponent<Animator>();
+        }
+        for (int i = 0; i < players.Length; i++)
+        {
+            fadeImgs[i] = players[i].GetComponent<Image>();
+        }
+
+        foreach (Animator anim in fadeAnims)
+        {
+            if (anim != null)
+            {
+                anim.Play("fadeIn");
+            }
+        }
+        timerOn = true;
         penaltyTotal = 0;
         totalObjectives = GameObject.FindGameObjectsWithTag("objective").Length;
         timeText.SetText("Time: 0s");
@@ -20,7 +44,8 @@ public class GameManager : MonoBehaviour {
 
     void Update()
     {
-        timeText.SetText("Time: " + ((int)Time.timeSinceLevelLoad + penaltyTotal) + "s");
+        if (timerOn)
+            timeText.SetText("Time: " + ((int)Time.timeSinceLevelLoad + penaltyTotal) + "s");
     }
 
     public static void CollectObjective()
@@ -36,24 +61,33 @@ public class GameManager : MonoBehaviour {
 	static IEnumerator changeLevel()
 	{
 		collectedObjectives = 0;
-
+        timerOn = false;
+        float fadeOutDuration = 3f;
         float originalTimeScale = Time.timeScale;
-        // fade to black and gradual time slow
-        /*
-        while(!faded) {
 
+        foreach (Animator anim in fadeAnims)
+        {
+            if (anim != null)
+                anim.Play("fadeOut");
+        }
+        float playUntil = Time.time + fadeOutDuration;
+        while(fadeImgs[0].color.a < 1) {
+            Time.timeScale -= (0.75f / fadeOutDuration * Time.deltaTime);
             yield return null;
         }
- 
-        */
 
         // reset timescale, set prefs & change level
         Time.timeScale = originalTimeScale;
-        GameState.SetPrefs();
-        SceneManager.LoadScene("Shop");
+        //GameState.SetPrefs();
 
-        yield return null; // placeholder
-	}
+        if (SceneManager.GetActiveScene().name == "Tutorial" )
+            SceneManager.LoadScene("Main");
+        else if (SceneManager.GetActiveScene().name == "PvP Level")
+            SceneManager.LoadScene("Main");
+        else
+            SceneManager.LoadScene("Shop");
+
+    }
 
     public static void addTimePenalty()
     {

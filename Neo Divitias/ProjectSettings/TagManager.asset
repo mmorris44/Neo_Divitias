@@ -14,6 +14,7 @@ TagManager:
   - accuracy
   - FxTemporaire
   - objective
+  - fadeAnimator
   layers:
   - Default
   - TransparentFX

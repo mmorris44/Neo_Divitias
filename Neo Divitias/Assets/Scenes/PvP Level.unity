@@ -12642,9 +12642,20 @@ Prefab:
       propertyPath: cameraSwitcher
       value: 
       objectReference: {fileID: 1486018123}
+    - target: {fileID: 224137626199212502, guid: 468c7ccdb046c304987053a54307d612,
+        type: 2}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 468c7ccdb046c304987053a54307d612, type: 2}
   m_IsPrefabParent: 0
+--- !u!114 &1437968098 stripped
+MonoBehaviour:
+  m_PrefabParentObject: {fileID: 114749464842883168, guid: 468c7ccdb046c304987053a54307d612,
+    type: 2}
+  m_PrefabInternal: {fileID: 1437968097}
+  m_Script: {fileID: 1453722849, guid: 89f0137620f6af44b9ba852b4190e64e, type: 3}
 --- !u!1 &1442907583
 GameObject:
   m_ObjectHideFlags: 0
@@ -13326,6 +13337,7 @@ GameObject:
   - component: {fileID: 1486018124}
   - component: {fileID: 1486018125}
   - component: {fileID: 1486018126}
+  - component: {fileID: 1486018127}
   m_Layer: 0
   m_Name: Scripts
   m_TagString: Untagged
@@ -13369,6 +13381,18 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a3571474cd21c6849839c1d02c0feee6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &1486018127
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1486018123}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 316e633257e74e34091f7b362a1faa34, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  timeText: {fileID: 1437968098}
 --- !u!1001 &1488266097
 Prefab:
   m_ObjectHideFlags: 0

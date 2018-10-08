@@ -10,7 +10,7 @@ public class ObjectiveCollect : MonoBehaviour
 	{	
 		if (other.gameObject.CompareTag("Player"))
 		{
-			Instantiate(pickupFX, gameObject.transform.position, Quaternion.identity);
+			//Instantiate(pickupFX, gameObject.transform.position, Quaternion.identity);
 			GameManager.CollectObjective();
 			Destroy(gameObject);
 		}	

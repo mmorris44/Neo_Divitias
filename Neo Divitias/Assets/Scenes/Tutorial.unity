@@ -732,6 +732,12 @@ Prefab:
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 468c7ccdb046c304987053a54307d612, type: 2}
   m_IsPrefabParent: 0
+--- !u!114 &277002727 stripped
+MonoBehaviour:
+  m_PrefabParentObject: {fileID: 114749464842883168, guid: 468c7ccdb046c304987053a54307d612,
+    type: 2}
+  m_PrefabInternal: {fileID: 277002726}
+  m_Script: {fileID: 1453722849, guid: 89f0137620f6af44b9ba852b4190e64e, type: 3}
 --- !u!1 &285316347
 GameObject:
   m_ObjectHideFlags: 0
@@ -2756,6 +2762,7 @@ GameObject:
   - component: {fileID: 1486018125}
   - component: {fileID: 1486018126}
   - component: {fileID: 1486018127}
+  - component: {fileID: 1486018128}
   m_Layer: 0
   m_Name: Scripts
   m_TagString: Untagged
@@ -2810,6 +2817,18 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b3d52b2207c082344bb792338db45f04, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &1486018128
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1486018123}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 316e633257e74e34091f7b362a1faa34, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  timeText: {fileID: 277002727}
 --- !u!20 &1508153711 stripped
 Camera:
   m_PrefabParentObject: {fileID: 20807266968998558, guid: 468c7ccdb046c304987053a54307d612,
