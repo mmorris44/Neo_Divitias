@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class PlayerRotate : MonoBehaviour {
+public class Player2Rotate : MonoBehaviour {
 
     public float speed = 3f;
 
@@ -13,7 +13,6 @@ public class PlayerRotate : MonoBehaviour {
 	
 	void FixedUpdate () {
         // Rotate with mouse
-        transform.Rotate((new Vector3(0, Input.GetAxis("Mouse X"), 0)) * speed);
-        transform.Rotate((new Vector3(0, Input.GetAxis("Horizontal Look p1"), 0)) * speed);
+        transform.Rotate((new Vector3(0, Input.GetAxis("Horizontal Look p2"), 0)) * speed);
     }
 }

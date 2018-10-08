@@ -2,7 +2,8 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class PlayerController : MonoBehaviour {
+public class Player2Controller : MonoBehaviour
+{
 
     public float moveSpeed = 50f,
         sprintMultiplier = 3f,
@@ -15,18 +16,21 @@ public class PlayerController : MonoBehaviour {
     Rigidbody body;
     Vector3 forward, right;
     float distToGround;
+    
 
-    void Start () {
+    void Start()
+    {
         body = GetComponent<Rigidbody>();
         forward = transform.forward;
         right = transform.right;
         distToGround = GetComponent<Collider>().bounds.extents.y;
-	}
-	
-	void FixedUpdate () {
+    }
+
+    void FixedUpdate()
+    {
         // Get speed and max velocity
         float moveSpeedCurrent = moveSpeed, maxVelocityCurrent = maxVelocity;
-        if (Input.GetButton("Sprint p1") || Input.GetButton("Sprint"))
+        if (Input.GetButton("Sprint p2"))
         {
             moveSpeedCurrent *= sprintMultiplier;
         }
@@ -40,28 +44,27 @@ public class PlayerController : MonoBehaviour {
         if (restrictVel)
         {
             // Set velocity
-            if (Input.GetAxis("Vertical p1") > 0 || Input.GetAxis("Vertical mouse") > 0)
+            if (Input.GetAxis("Vertical p2") > 0)
             {
                 body.AddForce(forward * moveSpeedCurrent);
             }
-            else if (Input.GetAxis("Vertical p1") < 0 || Input.GetAxis("Vertical mouse") < 0)
+            else if (Input.GetAxis("Vertical p2") < 0)
             {
                 body.AddForce(-forward * moveSpeedCurrent);
             }
 
-            if (Input.GetAxis("Horizontal p1") > 0 || Input.GetAxis("Horizontal mouse") > 0)
+            if (Input.GetAxis("Horizontal p2") > 0)
             {
                 body.AddForce(right * moveSpeedCurrent);
             }
-            else if (Input.GetAxis("Horizontal p1") < 0 || Input.GetAxis("Horizontal mouse") < 0)
+            else if (Input.GetAxis("Horizontal p2") < 0)
             {
                 body.AddForce(-right * moveSpeedCurrent);
             }
         }
 
         // If not movement input
-        if ((Input.GetAxis("Horizontal p1") == 0 || Input.GetAxis("Horizontal mouse") == 0)
-            && (Input.GetAxis("Vertical p1") == 0 || Input.GetAxis("Vertical mouse") == 0) )
+        if (Input.GetAxis("Horizontal p2") == 0 && Input.GetAxis("Vertical p2") == 0)
         {
             Vector3 reverse = -body.velocity;
             reverse.y = 0;
@@ -82,13 +85,13 @@ public class PlayerController : MonoBehaviour {
     void Update()
     {
         // Check for jumping
-        if ((Input.GetButtonDown("Jump p1") || Input.GetButtonDown("Jump")) && isGrounded())
+        if (Input.GetButtonDown("Jump p2") && isGrounded())
         {
             body.AddForce(Vector3.up * jumpForce, ForceMode.Impulse);
         }
     }
 
-    bool isGrounded ()
+    bool isGrounded()
     {
         return Physics.Raycast(transform.position, Vector3.down, distToGround + 0.2f);
     }

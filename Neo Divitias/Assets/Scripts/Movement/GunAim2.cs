@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class GunAim : MonoBehaviour {
+public class GunAim2 : MonoBehaviour {
 
     public float speed = 3f;
     public float maxRotation = 50f;
@@ -15,8 +15,7 @@ public class GunAim : MonoBehaviour {
 	
 	void FixedUpdate () {
         // Rotate
-        transform.Rotate((new Vector3(-Input.GetAxis("Mouse Y"), Input.GetAxis("Mouse X"), 0)) * speed);
-        transform.Rotate((new Vector3(-Input.GetAxis("Vertical Look p1"), Input.GetAxis("Horizontal Look p1"), 0)) * speed);
+        transform.Rotate((new Vector3(-Input.GetAxis("Vertical Look p2"), Input.GetAxis("Horizontal Look p2"), 0)) * speed);
 
         // Constrain x rotation
         Vector3 angles = transform.rotation.eulerAngles;
