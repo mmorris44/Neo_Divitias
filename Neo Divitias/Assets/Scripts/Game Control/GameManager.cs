@@ -47,8 +47,9 @@ public class GameManager : MonoBehaviour {
  
         */
 
-        // reset timescale + change level
+        // reset timescale, set prefs & change level
         Time.timeScale = originalTimeScale;
+        GameState.SetPrefs();
         SceneManager.LoadScene("Shop");
 
         yield return null; // placeholder
