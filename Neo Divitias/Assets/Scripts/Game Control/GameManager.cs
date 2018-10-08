@@ -71,8 +71,14 @@ public class GameManager : MonoBehaviour {
                 anim.Play("fadeOut");
         }
         float playUntil = Time.time + fadeOutDuration;
-        while(fadeImgs[0].color.a < 1) {
-            Time.timeScale -= (0.75f / fadeOutDuration * Time.deltaTime);
+        while(fadeImgs[0].color.a < 0.95f) {
+            Debug.Log(fadeImgs[0].color.a);
+            Time.timeScale -= (0.75f / (fadeOutDuration / 2) * Time.deltaTime);
+            foreach (Animator anim in fadeAnims)
+            {
+                if (anim != null)
+                    anim.speed = 2 - Time.timeScale;
+            }
             yield return null;
         }
 
