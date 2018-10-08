@@ -6,82 +6,125 @@ using UnityEngine.UI;
 
 
 public class ToggleScript : MonoBehaviour {
-    private UnityEngine.UI.Toggle toggle;
+    private Toggle toggle;
     Toggle[] ws;
 
-    private void Start() { 
-        toggle = GetComponent<UnityEngine.UI.Toggle>();
+    private void Start() {
+        toggle = GetComponent<Toggle>();
         toggle.onValueChanged.AddListener(OnToggleValueChanged);
-
-        //Toggle[] weapons = new Toggle[4];
-        //Debug.Log(gameObject.GetComponentsInChildren<Toggle>().Length);
-        //weapons[0] = gameObject.GetComponentsInChildren<Toggle>()[0];
-        //weapons[1] = gameObject.GetComponentsInChildren<Toggle>()[4];
-        //weapons[2] = gameObject.GetComponentsInChildren<Toggle>()[5];
-        //weapons[3] = gameObject.GetComponentsInChildren<Toggle>()[6];
-
-        ws = gameObject.GetComponentsInChildren<Toggle>();
-
-        //1(pistol) and 2(pistol)
-        // CLICK 4
-        //2(pistol) 4(smg)
-        // CLICK 4
-        //2(pistol) 4(pistol)
 
         Refresh();
     }
 
-    private void selectWeapon(int player, string w){
-        if (player == 1){
-            GameState.player_one.selectWeapon(string.Format("{0}_{1}", player, w));
+    private void selectItem(int player, string w){
+        w = w.Split(' ')[0];
+        Debug.Log(w);
+        if (w.Equals("jump") || w.Equals("dash") || w.Equals("armour"))
+        {
+            if (player == 1)
+            {
+                GameState.player_one.selectMovement(string.Format("{0}_{1}", player, w));
+            }
+            else if (player == 2)
+            {
+                GameState.player_two.selectMovement(string.Format("{0}_{1}", player, w));
+            }
         }
-        else if (player == 2){
-            GameState.player_two.selectWeapon(string.Format("{0}_{1}", player, w));
+        else
+        {
+            if (player == 1)
+            {
+                GameState.player_one.selectWeapon(string.Format("{0}_{1}", player, w));
+            }
+            else if (player == 2)
+            {
+                GameState.player_two.selectWeapon(string.Format("{0}_{1}", player, w));
+            }
         }
     }
 
-    private void deselectWeapon(int player, string w){
-        if (player == 1){
-            GameState.player_one.deselectWeapon(string.Format("{0}_{1}", player, w));
+    private void deselectItem(int player, string w){
+        if (w.Equals("jump") || w.Equals("dash") || w.Equals("armour"))
+        {
+            if (player == 1)
+            {
+                GameState.player_one.deselectMovement();
+            }
+            else if (player == 2)
+            {
+                GameState.player_two.deselectMovement();
+            }
         }
-        else if (player == 2){
-            GameState.player_two.deselectWeapon(string.Format("{0}_{1}", player, w));
+        else
+        {
+            if (player == 1)
+            {
+                GameState.player_one.deselectWeapon(string.Format("{0}_{1}", player, w));
+            }
+            else if (player == 2)
+            {
+                GameState.player_two.deselectWeapon(string.Format("{0}_{1}", player, w));
+            }
         }
+    }
+
+    public void makeDark()
+    {
+        UnityEngine.UI.ColorBlock cb = toggle.colors;
+        cb.normalColor = Color.gray;
+        cb.highlightedColor = Color.yellow;
+
+        toggle.colors = cb;
+    }
+
+    public void autoOff()
+    {
+       toggle.isOn = false;
+    }
+
+    public void makeGreen()
+    {
+        toggle = GetComponent<Toggle>();
+        UnityEngine.UI.ColorBlock cb = toggle.colors;
+
+        cb.normalColor = Color.green;
+        cb.highlightedColor = Color.yellow;
+
+        toggle.colors = cb;
     }
 
     private void OnToggleValueChanged(bool isOn){
-        UnityEngine.UI.ColorBlock cb = toggle.colors;
-    
-        if (isOn){
-            cb.normalColor = Color.gray;
-            cb.highlightedColor = Color.gray;
-            if (gameObject.layer == 8)
+            if (isOn)
             {
-                deselectWeapon(1, gameObject.GetComponent<Toggle>().ToString().ToLower());
+                if (gameObject.layer == 8)
+                {
+                    deselectItem(1, gameObject.GetComponent<Toggle>().ToString().ToLower());
+                }
+                else if (gameObject.layer == 9)
+                {
+                    deselectItem(2, gameObject.GetComponent<Toggle>().ToString().ToLower());
+                }
+                makeDark();
             }
-            else if (gameObject.layer == 9)
+            else
             {
-                deselectWeapon(2, gameObject.GetComponent<Toggle>().ToString().ToLower());
+                // Change the toggle to selected. This should then call refresh to deactivate the oldest weapon.
+                if (gameObject.layer == 8)
+                {
+                    selectItem(1, gameObject.GetComponent<Toggle>().ToString().ToLower());
+                }
+                else if (gameObject.layer == 9)
+                {
+                    selectItem(2, gameObject.GetComponent<Toggle>().ToString().ToLower());
+                }
+                makeGreen();
             }
-        }
-        else{
-            // Change the toggle to selected. This should then call refresh to deactivate the oldest weapon.
-            cb.normalColor = Color.green;
-            cb.highlightedColor = Color.green;
-            if (gameObject.layer == 8){
-                selectWeapon(1, gameObject.GetComponent<Toggle>().ToString().ToLower());
-            }
-            else if (gameObject.layer == 9){
-                selectWeapon(2, gameObject.GetComponent<Toggle>().ToString().ToLower());
-            }
-        }
-        toggle.colors = cb;
         GameState.player_one.weaponDebug();
     }
 
     public void Refresh(){
         TextMeshProUGUI mText = gameObject.GetComponentsInChildren<TextMeshProUGUI>()[0];
-        TextMeshProUGUI cash_left = transform.parent.parent.GetComponentsInChildren<TextMeshProUGUI>()[8];
+        TextMeshProUGUI cash_left = transform.parent.parent.GetComponentsInChildren<TextMeshProUGUI>()[11];
         Text cost = gameObject.GetComponentsInChildren<Text>()[0];
         Button upgrade = gameObject.GetComponentsInChildren<Button>()[0];
 
@@ -113,14 +156,29 @@ public class ToggleScript : MonoBehaviour {
         if (upgradeable){
             cost.text = string.Format("{0}", PlayerPrefs.GetInt(string.Format("{0}_{1}", item_name.ToLower(), current_level + 1)));
         }
-        else{
+        else
+        {
             cost.text = string.Format("MAX");
             upgrade.interactable = false;
+            // Was a bug where if item became too expensive or max, it would become unclickable. However this would also mean you can select more things on controller.
+            // In this case, just move the selection to the actual toggle
+            toggle.Select();
         }
         
         // Can't click if cant afford
         if (!affordable){
             upgrade.interactable = false;
+            toggle.Select();
+        }
+
+
+        if (current_level == 0)
+        {
+            toggle.interactable = false;
+        }
+        else
+        {
+            toggle.interactable = true;
         }
 
         mText.text = string.Format("{0}", current_level);

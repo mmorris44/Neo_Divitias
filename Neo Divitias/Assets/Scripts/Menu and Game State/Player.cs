@@ -21,7 +21,7 @@ public class Player
         Equipment.Add("shotgun", 0);
         Equipment.Add("smg", 0);
         Equipment.Add("rifle", 0);
-        Equipment.Add("jump", 0);
+        Equipment.Add("jump", 1);
         Equipment.Add("dash", 0);
         Equipment.Add("armour", 0);
         Equipment.Add("accuracy", 0);
@@ -29,6 +29,7 @@ public class Player
 
         this.primary = string.Format("{0}_pistol", name);
         this.secondary = string.Format("{0}_pistol", name);
+        this.movement = string.Format("{0}_jump", name);
     }
 
     public void selectWeapon(string weapon){
@@ -47,6 +48,16 @@ public class Player
         {
             secondary = string.Format("{0}_pistol", name);
         }
+    }
+
+    public void selectMovement(string att)
+    {
+        movement = att;
+    }
+
+    public void deselectMovement()
+    {
+        movement = string.Format("{0}_jump", name);
     }
 
     public void weaponDebug()
