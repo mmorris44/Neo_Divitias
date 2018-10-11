@@ -45,7 +45,7 @@ public class GameManager : MonoBehaviour {
     void Update()
     {
         if (timerOn)
-            timeText.SetText("Time: " + ((int)Time.timeSinceLevelLoad + penaltyTotal) + "s");
+            timeText.SetText("Time: " + ((int)Time.timeSinceLevelLoad + penaltyTotal));
     }
 
     public static void CollectObjective()

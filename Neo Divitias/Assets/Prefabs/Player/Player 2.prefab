@@ -3944,7 +3944,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d7f4ee4ddfc26cc4198c3e16011cca81, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  fireButton: Fire1
+  fireButton: Fire2
+  alternareFireButton: FireMouse2
   switchButton: Switch1
   playerNumber: 2
   playerCamera: {fileID: 20807266968998558}

@@ -3,6 +3,7 @@
 public class WeaponManager : MonoBehaviour
 {
     public string fireButton;
+    public string alternareFireButton;
     public string switchButton;
     public int playerNumber;
 
@@ -97,7 +98,7 @@ public class WeaponManager : MonoBehaviour
     }
 
     void Update () {
-		if (Input.GetButton(fireButton))
+		if (Input.GetAxis(fireButton) > 0 || Input.GetButton(alternareFireButton))
 		{
 			equipped.Shoot(playerCamera);
 		}

@@ -4015,6 +4015,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   fireButton: Fire1
+  alternareFireButton: FireMouse1
   switchButton: Switch1
   playerNumber: 1
   playerCamera: {fileID: 20807266968998558}
