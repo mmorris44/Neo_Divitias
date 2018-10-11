@@ -24,12 +24,11 @@ public class Player
         Equipment.Add("jump", 1);
         Equipment.Add("dash", 0);
         Equipment.Add("armour", 0);
-        Equipment.Add("accuracy", 0);
-        Equipment.Add("money", 150);
+        Equipment.Add("money", money);
 
-        this.primary = string.Format("{0}_pistol", name);
-        this.secondary = string.Format("{0}_pistol", name);
-        this.movement = string.Format("{0}_jump", name);
+        this.primary = string.Format("pistol", name);
+        this.secondary = string.Format("pistol", name);
+        this.movement = string.Format("jump", name);
     }
 
     public void selectWeapon(string weapon){
@@ -42,11 +41,11 @@ public class Player
         // If they choose to deselect a weapon. Default that weapon to a pistol.
         if (primary == weapon)
         {
-            primary = string.Format("{0}_pistol", name);
+            primary = string.Format("pistol", name);
         }
         else if (secondary == weapon)
         {
-            secondary = string.Format("{0}_pistol", name);
+            secondary = string.Format("pistol", name);
         }
     }
 
@@ -60,9 +59,11 @@ public class Player
         movement = string.Format("{0}_jump", name);
     }
 
-    public void weaponDebug()
+    public void playerDebug()
     {
-        Debug.Log(string.Format("Primary: {0}", primary));
-        Debug.Log(string.Format("Secondary: {0}", secondary));
+        Debug.Log(string.Format("Player: {0}", name));
+        Debug.Log(string.Format("Primary: {0} - lvl{1}", primary, Equipment[primary]));
+        Debug.Log(string.Format("Secondary: {0} - lvl{1}", secondary, Equipment[secondary]));
+        Debug.Log(string.Format("Movement: {0} - lvl{1}", movement, Equipment[movement]));
     }
 }

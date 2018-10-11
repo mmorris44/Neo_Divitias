@@ -13,7 +13,6 @@ public class WeaponSelectionManager : MonoBehaviour {
     void Start () {
         ws = gameObject.GetComponentsInChildren<Toggle>();
         Toggle pistol = ws[0];
-        Debug.Log("Blah" + pistol.name);
         ToggleScript tsp = pistol.GetComponent<ToggleScript>();
         //tsp.makeDark();
         tsp.makeGreen();
@@ -23,13 +22,13 @@ public class WeaponSelectionManager : MonoBehaviour {
 	void Update () {
         if (gameObject.layer == 8)
         {
-            primary = GameState.player_one.primary.Split('_')[1].Split(' ')[0];
-            secondary = GameState.player_one.secondary.Split('_')[1].Split(' ')[0];
+            primary = GameState.player_one.primary;
+            secondary = GameState.player_one.secondary;
         }
         else if (gameObject.layer == 9)
         {
-            primary = GameState.player_two.primary.Split('_')[1].Split(' ')[0];
-            secondary = GameState.player_two.secondary.Split('_')[1].Split(' ')[0];
+            primary = GameState.player_two.primary;
+            secondary = GameState.player_two.secondary;
         }
 
         foreach (Toggle t in ws)

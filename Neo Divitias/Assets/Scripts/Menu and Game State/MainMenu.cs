@@ -19,6 +19,11 @@ public class MainMenu : MonoBehaviour{
         SceneManager.LoadScene(string.Format("Cutscene {0}", GameState.game_level));
     }
 
+    public void PlayTutorial()
+    {
+        SceneManager.LoadScene("Tutorial");
+    }
+
     public void LoadShop(){
         // This should ideally be somewhere that only gets called once on setup.
         GameState.BaseSetup();

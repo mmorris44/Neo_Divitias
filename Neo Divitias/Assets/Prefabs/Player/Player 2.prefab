@@ -3946,6 +3946,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   fireButton: Fire1
   switchButton: Switch1
+  playerNumber: 2
   playerCamera: {fileID: 20807266968998558}
   shotgun: {fileID: 114235844571110898}
   pistol: {fileID: 114470906162700474}
