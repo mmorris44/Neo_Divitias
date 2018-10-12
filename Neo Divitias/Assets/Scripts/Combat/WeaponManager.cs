@@ -9,6 +9,7 @@ public class WeaponManager : MonoBehaviour
     public int playerNumber;
 
     public Camera playerCamera;
+    public PlayerHealth playerHealth;
     public Weapon shotgun;
     public Weapon pistol;
     public Weapon smg;
@@ -99,13 +100,13 @@ public class WeaponManager : MonoBehaviour
     }
 
     void Update () {
-		if (Input.GetAxis(fireButton) > 0 || Input.GetButton(alternareFireButton))
+		if ((Input.GetAxis(fireButton) > 0 || Input.GetButton(alternareFireButton)) && !playerHealth.isDead)
 		{
 			equipped.Shoot(playerCamera);
 		}
 		
-		if (Input.GetButtonDown(switchButton) || Input.GetButtonDown(alternateSwitchButton))
-		{
+		if ((Input.GetButtonDown(switchButton) || Input.GetButtonDown(alternateSwitchButton)) && !playerHealth.isDead)
+        {
 			Weapon tmp = equipped;
 			equipped = unequipped;
 			unequipped = tmp;

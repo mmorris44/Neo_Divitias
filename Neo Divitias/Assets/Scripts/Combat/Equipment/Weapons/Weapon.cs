@@ -3,7 +3,7 @@ using UnityEngine;
 
 public abstract class Weapon : Equipment
 {
-	public float impactForce;
+    public float impactForce;
 	public float swapDelay;
     public Transform endOfBarrel;
 	public GameObject impactFx;

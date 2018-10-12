@@ -3,12 +3,13 @@ using System.Collections.Generic;
 using UnityEngine;
 
 public class Player1Controller : PlayerController {
-
+    PlayerHealth playerHealth;
     Rigidbody body;
     Vector3 forward, right;
     float distToGround;
 
     void Start () {
+        playerHealth = GetComponent<PlayerHealth>();
         body = GetComponent<Rigidbody>();
         forward = transform.forward;
         right = transform.right;
@@ -17,7 +18,9 @@ public class Player1Controller : PlayerController {
 	
 	void FixedUpdate () {
         // Get speed and max velocity
-        float moveSpeedCurrent = moveSpeed, maxVelocityCurrent = maxVelocity;
+        float moveSpeedCurrent = moveSpeed;
+        float maxVelocityCurrent = maxVelocity;
+
         if (Input.GetButton("Sprint p1") || Input.GetButton("Sprint"))
         {
             moveSpeedCurrent *= sprintMultiplier;
@@ -29,7 +32,7 @@ public class Player1Controller : PlayerController {
         right = currentCamera.transform.right;
         right.y = 0;
 
-        if (restrictVel)
+        if (restrictVel && !playerHealth.isDead)
         {
             // Set velocity
             if (Input.GetAxis("Vertical p1") > 0 || Input.GetAxis("Vertical mouse") > 0)
@@ -74,7 +77,7 @@ public class Player1Controller : PlayerController {
     void Update()
     {
         // Check for jumping
-        if ((Input.GetButtonDown("Jump p1") || Input.GetButtonDown("Jump")) && isGrounded())
+        if ((Input.GetButtonDown("Jump p1") || Input.GetButtonDown("Jump")) && isGrounded() && !playerHealth.isDead)
         {
             body.AddForce(Vector3.up * jumpForce, ForceMode.Impulse);
         }

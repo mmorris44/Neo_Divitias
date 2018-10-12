@@ -4099,6 +4099,7 @@ MonoBehaviour:
   alternateSwitchButton: Switch Weapon p2
   playerNumber: 2
   playerCamera: {fileID: 20807266968998558}
+  playerHealth: {fileID: 114005679952004268}
   shotgun: {fileID: 114072699011574636}
   pistol: {fileID: 114818489826499620}
   smg: {fileID: 114213406067790806}

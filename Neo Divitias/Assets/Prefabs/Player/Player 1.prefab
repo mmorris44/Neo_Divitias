@@ -4168,6 +4168,7 @@ MonoBehaviour:
   alternateSwitchButton: Switch Weapon
   playerNumber: 1
   playerCamera: {fileID: 20807266968998558}
+  playerHealth: {fileID: 114005679952004268}
   shotgun: {fileID: 114754060334561528}
   pistol: {fileID: 114209081236461336}
   smg: {fileID: 114104682703296478}

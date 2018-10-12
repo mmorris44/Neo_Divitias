@@ -4,12 +4,14 @@ using UnityEngine;
 
 public class Player2Controller : PlayerController {
 
+    PlayerHealth playerHealth;
     Rigidbody body;
     Vector3 forward, right;
     float distToGround;
 
     void Start()
     {
+        playerHealth = GetComponent<PlayerHealth>();
         body = GetComponent<Rigidbody>();
         forward = transform.forward;
         right = transform.right;
@@ -19,7 +21,9 @@ public class Player2Controller : PlayerController {
     void FixedUpdate()
     {
         // Get speed and max velocity
-        float moveSpeedCurrent = moveSpeed, maxVelocityCurrent = maxVelocity;
+        float moveSpeedCurrent = moveSpeed;
+        float maxVelocityCurrent = maxVelocity;
+
         if (Input.GetButton("Sprint p2"))
         {
             moveSpeedCurrent *= sprintMultiplier;
@@ -31,7 +35,7 @@ public class Player2Controller : PlayerController {
         right = currentCamera.transform.right;
         right.y = 0;
 
-        if (restrictVel)
+        if (restrictVel & !playerHealth.isDead)
         {
             // Set velocity
             if (Input.GetAxis("Vertical p2") > 0)
@@ -75,7 +79,7 @@ public class Player2Controller : PlayerController {
     void Update()
     {
         // Check for jumping
-        if (Input.GetButtonDown("Jump p2") && isGrounded())
+        if (Input.GetButtonDown("Jump p2") && isGrounded() && !playerHealth.isDead)
         {
             body.AddForce(Vector3.up * jumpForce, ForceMode.Impulse);
         }

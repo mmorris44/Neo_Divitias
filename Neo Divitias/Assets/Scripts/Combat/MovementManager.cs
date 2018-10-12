@@ -5,13 +5,20 @@ using UnityEngine;
 public class MovementManager : MonoBehaviour {
     public string activateButton;
     public string alternateActivateButton;
+    PlayerHealth playerHealth;
+
     public MovementItem dash;
     public MovementItem rocket;
 
     public MovementItem equipped;
-	
-	void Update () {
-        if (Input.GetButtonDown(activateButton) || Input.GetButtonDown(alternateActivateButton))
+
+    private void Start()
+    {
+        playerHealth = GetComponent<PlayerHealth>();
+    }
+
+    void Update () {
+        if ((Input.GetButtonDown(activateButton) || Input.GetButtonDown(alternateActivateButton)) && !playerHealth.isDead)
         {
             equipped.Activate();
         }
