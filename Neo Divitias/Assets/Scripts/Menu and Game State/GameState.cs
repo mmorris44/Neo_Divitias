@@ -12,32 +12,32 @@ public static class GameState{
     // We could store a dict with base and scale factors example {"pistol": [100, 0, 1, 3]}. pistol_1 = 100*0, pistol_2 = 100*1 etc.
     public static void BaseSetup() {
         PlayerPrefs.SetInt("pistol_1", 0);
-        PlayerPrefs.SetInt("pistol_2", 100);
-        PlayerPrefs.SetInt("pistol_3", 300);
+        PlayerPrefs.SetInt("pistol_2", 60);
+        PlayerPrefs.SetInt("pistol_3", 120);
 
-        PlayerPrefs.SetInt("shotgun_1", 120);
-        PlayerPrefs.SetInt("shotgun_2", 250);
-        PlayerPrefs.SetInt("shotgun_3", 350);
+        PlayerPrefs.SetInt("shotgun_1", 20);
+        PlayerPrefs.SetInt("shotgun_2", 80);
+        PlayerPrefs.SetInt("shotgun_3", 150);
 
-        PlayerPrefs.SetInt("smg_1", 150);
-        PlayerPrefs.SetInt("smg_2", 275);
-        PlayerPrefs.SetInt("smg_3", 400);
+        PlayerPrefs.SetInt("smg_1", 20);
+        PlayerPrefs.SetInt("smg_2", 80);
+        PlayerPrefs.SetInt("smg_3", 150);
 
-        PlayerPrefs.SetInt("rifle_1", 200);
-        PlayerPrefs.SetInt("rifle_2", 300);
-        PlayerPrefs.SetInt("rifle_3", 500);
+        PlayerPrefs.SetInt("rifle_1", 20);
+        PlayerPrefs.SetInt("rifle_2", 80);
+        PlayerPrefs.SetInt("rifle_3", 150);
 
-        PlayerPrefs.SetInt("dash_1", 150);
-        PlayerPrefs.SetInt("dash_2", 200);
-        PlayerPrefs.SetInt("dash_3", 250);
+        PlayerPrefs.SetInt("dash_1", 30);
+        PlayerPrefs.SetInt("dash_2", 100);
+        PlayerPrefs.SetInt("dash_3", 180);
 
-        PlayerPrefs.SetInt("jump_1", 150);
-        PlayerPrefs.SetInt("jump_2", 200);
-        PlayerPrefs.SetInt("jump_3", 250);
+        PlayerPrefs.SetInt("jump_1", 0);
+        PlayerPrefs.SetInt("jump_2", 100);
+        PlayerPrefs.SetInt("jump_3", 180);
 
         PlayerPrefs.SetInt("armour_1", 50);
-        PlayerPrefs.SetInt("armour_2", 100);
-        PlayerPrefs.SetInt("armour_3", 140);
+        PlayerPrefs.SetInt("armour_2", 120);
+        PlayerPrefs.SetInt("armour_3", 200);
     }
 
     // Get all player prefs

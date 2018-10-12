@@ -17,6 +17,7 @@ public class WeaponSelectionManager : MonoBehaviour {
         //tsp.makeDark();
         tsp.makeGreen();
     }
+    //55 92
 	
 	// Update is called once per frame
 	void Update () {
@@ -40,6 +41,11 @@ public class WeaponSelectionManager : MonoBehaviour {
                 ts.makeDark();
                 ts.autoOff();
                 // (FIXED)The bug with having to double click is because we only change the colout here. WE do not deselect the toggle
+            }
+            else
+            {
+                ts.makeGreen();
+                ts.autoOn();
             }
         }
     }

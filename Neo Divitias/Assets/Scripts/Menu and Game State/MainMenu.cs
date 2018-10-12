@@ -43,6 +43,22 @@ public class MainMenu : MonoBehaviour{
     
     // This will be done by Matt
     public void FinishLevel(){
+        // This is hacky shit that manually sets the money after each level. THIS MUST BE CHANGED.
+        if(GameState.game_level == 1)
+        {
+            GameState.player_one.money += 110;
+            GameState.player_two.money += 110;
+        }
+        else if (GameState.game_level == 2)
+        {
+            GameState.player_one.money += 320;
+            GameState.player_two.money += 380;
+        }
+        else if (GameState.game_level == 3)
+        {
+            GameState.player_one.money += 380;
+            GameState.player_two.money += 380;
+        }
         GameState.game_level++;
         GameState.SetPrefs();
         LoadShop();

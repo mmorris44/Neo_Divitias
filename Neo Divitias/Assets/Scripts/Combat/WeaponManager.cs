@@ -55,8 +55,8 @@ public class WeaponManager : MonoBehaviour
                     unequipped = smg;
                     break;
             }
-            equipped.level = GameState.player_one.Equipment["primary"];
-            unequipped.level = GameState.player_one.Equipment["secondary"];
+            equipped.level = GameState.player_one.Equipment[primary];
+            unequipped.level = GameState.player_one.Equipment[secondary];
         }
         else
         {
@@ -92,8 +92,8 @@ public class WeaponManager : MonoBehaviour
                     unequipped = smg;
                     break;
             }
-            equipped.level = GameState.player_two.Equipment["primary"];
-            unequipped.level = GameState.player_two.Equipment["secondary"];
+            equipped.level = GameState.player_two.Equipment[primary];
+            unequipped.level = GameState.player_two.Equipment[secondary];
         }
         equipped.gameObject.SetActive(true);
 
