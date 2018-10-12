@@ -79,6 +79,21 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
+--- !u!1 &1561898510459230
+GameObject:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  serializedVersion: 5
+  m_Component:
+  - component: {fileID: 4554981626636186}
+  m_Layer: 0
+  m_Name: EndOfBarrel
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
 --- !u!1 &1671029925390012
 GameObject:
   m_ObjectHideFlags: 0
@@ -201,6 +216,19 @@ Transform:
   m_Father: {fileID: 4826450088584990}
   m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!4 &4554981626636186
+Transform:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1561898510459230}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: -0.006999962, y: 0.056, z: 0.321}
+  m_LocalScale: {x: 0.5, y: 0.5, z: 0.5}
+  m_Children: []
+  m_Father: {fileID: 4826450088584990}
+  m_RootOrder: 7
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!4 &4648745180258574
 Transform:
   m_ObjectHideFlags: 1
@@ -231,6 +259,7 @@ Transform:
   - {fileID: 4857096927641466}
   - {fileID: 4273089400623780}
   - {fileID: 4434564307684280}
+  - {fileID: 4554981626636186}
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -643,8 +672,10 @@ MonoBehaviour:
   cost: 0
   impactForce: 0
   swapDelay: 0.2
+  endOfBarrel: {fileID: 4554981626636186}
   impactFx: {fileID: 1030936683918092, guid: 8ca936447741fdb419fe2823cec47539, type: 2}
   fizzleFx: {fileID: 1034939947380656, guid: 6b091c8b8b12ae94e944d5bba55f40ff, type: 2}
+  muzzleFx: {fileID: 1731547956655754, guid: 20771f8ca7de16b42945a8d9e5b2ca6f, type: 2}
   maxRecoil: 12
   recoilRecovery: 0.9
   damage: 020000000300000004000000
@@ -720,7 +751,7 @@ ParticleSystem:
   moveWithTransform: 0
   moveWithCustomTransform: {fileID: 0}
   scalingMode: 2
-  randomSeed: -120166842
+  randomSeed: -679466816
   InitialModule:
     serializedVersion: 3
     enabled: 1
