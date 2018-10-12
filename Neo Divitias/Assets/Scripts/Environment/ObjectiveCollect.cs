@@ -10,7 +10,9 @@ public class ObjectiveCollect : MonoBehaviour
 	{	
 		if (other.gameObject.CompareTag("Player"))
 		{
-			//Instantiate(pickupFX, gameObject.transform.position, Quaternion.identity);
+            Vector3 pos = gameObject.transform.position;
+            pos.y += 1.5f;
+            Instantiate(pickupFX, pos, pickupFX.transform.rotation);
 			GameManager.CollectObjective();
 			Destroy(gameObject);
 		}	
