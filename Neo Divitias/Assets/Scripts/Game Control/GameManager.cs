@@ -14,7 +14,7 @@ public class GameManager : MonoBehaviour {
 	private static int totalObjectives;
     private static int penaltyTotal;
     public TextMeshProUGUI timeText;
-    public static TextMeshProUGUI objectiveText;
+    public TextMeshProUGUI objectiveText;
 
     void Start ()
 	{
@@ -40,7 +40,7 @@ public class GameManager : MonoBehaviour {
         timerOn = true;
         penaltyTotal = 0;
         totalObjectives = GameObject.FindGameObjectsWithTag("objective").Length;
-        timeText.SetText("Time: 0s");
+        objectiveText.SetText("" + collectedObjectives + "/" + totalObjectives);
     }
 
     void Update()
@@ -51,7 +51,7 @@ public class GameManager : MonoBehaviour {
         }
     }
 
-    public static void CollectObjective()
+    public void CollectObjective()
 	{
 		collectedObjectives += 1;
         objectiveText.SetText("" + collectedObjectives + "/" + totalObjectives);
