@@ -4016,7 +4016,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   fireButton: Fire1
   alternareFireButton: FireMouse1
-  switchButton: Switch1
+  switchButton: Switch Weapon p1
+  alternateSwitchButton: Switch Weapon
   playerNumber: 1
   playerCamera: {fileID: 20807266968998558}
   shotgun: {fileID: 114235844571110898}
@@ -4128,7 +4129,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c57d4267d04ce024fae581178b58a8d0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  activateButton: MoveAbilityActivate
+  activateButton: MoveAbilityActivate p1
+  alternateActivateButton: MoveAbilityActivate
   dash: {fileID: 114916339653160466}
   rocket: {fileID: 114618770422685152}
   equipped: {fileID: 114916339653160466}
