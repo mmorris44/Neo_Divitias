@@ -5,6 +5,7 @@ public class WeaponManager : MonoBehaviour
     public string fireButton;
     public string alternareFireButton;
     public string switchButton;
+    public string alternateSwitchButton;
     public int playerNumber;
 
     public Camera playerCamera;
@@ -103,7 +104,7 @@ public class WeaponManager : MonoBehaviour
 			equipped.Shoot(playerCamera);
 		}
 		
-		if (Input.GetButtonDown(switchButton))
+		if (Input.GetButtonDown(switchButton) || Input.GetButtonDown(alternateSwitchButton))
 		{
 			Weapon tmp = equipped;
 			equipped = unequipped;

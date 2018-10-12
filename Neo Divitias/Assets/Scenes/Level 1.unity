@@ -1889,6 +1889,31 @@ Prefab:
       propertyPath: m_AnchorMax.y
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 224137626199212502, guid: 6c1dda215ae832f4f98f5913276a70f0,
+        type: 2}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 114114028351466236, guid: 6c1dda215ae832f4f98f5913276a70f0,
+        type: 2}
+      propertyPath: switchButton
+      value: Switch Weapon p2
+      objectReference: {fileID: 0}
+    - target: {fileID: 114114028351466236, guid: 6c1dda215ae832f4f98f5913276a70f0,
+        type: 2}
+      propertyPath: alternateSwitchButton
+      value: Switch Weapon p2
+      objectReference: {fileID: 0}
+    - target: {fileID: 114275022072151542, guid: 6c1dda215ae832f4f98f5913276a70f0,
+        type: 2}
+      propertyPath: activateButton
+      value: MoveAbilityActivate p2
+      objectReference: {fileID: 0}
+    - target: {fileID: 114275022072151542, guid: 6c1dda215ae832f4f98f5913276a70f0,
+        type: 2}
+      propertyPath: alternateActivateButton
+      value: MoveAbilityActivate p2
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 6c1dda215ae832f4f98f5913276a70f0, type: 2}
   m_IsPrefabParent: 0
@@ -4779,6 +4804,31 @@ Prefab:
         type: 2}
       propertyPath: m_AnchorMax.y
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 224137626199212502, guid: 468c7ccdb046c304987053a54307d612,
+        type: 2}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 114114028351466236, guid: 468c7ccdb046c304987053a54307d612,
+        type: 2}
+      propertyPath: switchButton
+      value: Switch Weapon p1
+      objectReference: {fileID: 0}
+    - target: {fileID: 114114028351466236, guid: 468c7ccdb046c304987053a54307d612,
+        type: 2}
+      propertyPath: alternateSwitchButton
+      value: Switch Weapon
+      objectReference: {fileID: 0}
+    - target: {fileID: 114275022072151542, guid: 468c7ccdb046c304987053a54307d612,
+        type: 2}
+      propertyPath: activateButton
+      value: MoveAbilityActivate p1
+      objectReference: {fileID: 0}
+    - target: {fileID: 114275022072151542, guid: 468c7ccdb046c304987053a54307d612,
+        type: 2}
+      propertyPath: alternateActivateButton
+      value: MoveAbilityActivate
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 468c7ccdb046c304987053a54307d612, type: 2}
