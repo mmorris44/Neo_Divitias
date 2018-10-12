@@ -15,6 +15,7 @@ public class Pause : MonoBehaviour {
 
         // Escape to end the level
         if (Input.GetKeyUp(KeyCode.Escape)){
+
             mm.FinishLevel();
         }
     }
