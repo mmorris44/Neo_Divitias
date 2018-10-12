@@ -14,8 +14,9 @@ public class GameManager : MonoBehaviour {
 	private static int totalObjectives;
     private static int penaltyTotal;
     public TextMeshProUGUI timeText;
-	
-	void Start ()
+    public static TextMeshProUGUI objectiveText;
+
+    void Start ()
 	{
         fadeAnims = new Animator[2];
         fadeImgs = new Image[2];
@@ -45,14 +46,17 @@ public class GameManager : MonoBehaviour {
     void Update()
     {
         if (timerOn)
-            timeText.SetText("Time: " + ((int)Time.timeSinceLevelLoad + penaltyTotal));
+        {
+            timeText.SetText("" + Mathf.Min((int)Time.timeSinceLevelLoad + penaltyTotal, 99999));
+        }
     }
 
     public static void CollectObjective()
 	{
 		collectedObjectives += 1;
+        objectiveText.SetText("" + collectedObjectives + "/" + totalObjectives);
 
-		if (collectedObjectives == totalObjectives)
+        if (collectedObjectives == totalObjectives)
 		{
             FindObjectOfType<GameManager>().StartCoroutine(changeLevel());
 		}
