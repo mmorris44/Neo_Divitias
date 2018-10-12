@@ -84,6 +84,8 @@ public class GameManager : MonoBehaviour {
 
         // reset timescale, set prefs & change level
         Time.timeScale = originalTimeScale;
+        MainMenu m = new MainMenu();
+        m.FinishLevel();
         //GameState.SetPrefs();
 
         if (SceneManager.GetActiveScene().name == "Tutorial" )
