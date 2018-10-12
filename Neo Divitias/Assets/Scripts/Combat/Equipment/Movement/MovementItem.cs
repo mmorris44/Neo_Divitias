@@ -6,6 +6,7 @@ public abstract class MovementItem : Equipment
 {
     public Camera playerCam;
     public Rigidbody player;
+    public AbilityCooldown cooldownTimer;
     public float[] cooldown;
     public float[] movementForce;
     public AudioSource activationSound;

@@ -24,7 +24,7 @@ public class Dash : MovementItem {
     private IEnumerator performDash()
     {
         float wait_until = Time.time + duration[level - 1];
-
+        StartCoroutine(cooldownTimer.abilityActivate(nextActivate, cooldown[level-1]));
         while (Time.time < wait_until)
         {
             playerController.restrictVel = false;
