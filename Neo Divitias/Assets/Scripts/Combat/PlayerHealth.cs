@@ -7,9 +7,9 @@ public class PlayerHealth : DamageableObject
     public Image fadeImg;
     public Animator fade;
     public Transform cameraTransform;
-    public int currentHealth;
-    public int maxHealth;
-    public int regenPerSecond;
+    public float currentHealth;
+    public float maxHealth;
+    public float regenPerSecond;
     public bool isDead;
 
     public Slider healthbar;
@@ -36,7 +36,7 @@ public class PlayerHealth : DamageableObject
         healthbar.value = (float)currentHealth / (float)maxHealth;
     }
 
-    public override void damage(int damage)
+    public override void damage(float damage)
     {
 
         if (currentHealth - damage <= 0)

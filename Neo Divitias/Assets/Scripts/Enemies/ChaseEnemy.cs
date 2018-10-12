@@ -13,7 +13,7 @@ public class ChaseEnemy : DamageableObject {
     public float verticaleOffset = 1f;
     public int damageDone = 1;
     public float fireCooldown = 1f;
-    public int health = 5;
+    public float health = 5;
     public float agroDuration = 10f;
 
     public FireAtPlayer shooter;
@@ -25,7 +25,7 @@ public class ChaseEnemy : DamageableObject {
     Transform[] player;
     Rigidbody[] playerBody;
 
-    public override void damage(int damage)
+    public override void damage(float damage)
     {
         if (!isDestructible) return;
         health -= damage;

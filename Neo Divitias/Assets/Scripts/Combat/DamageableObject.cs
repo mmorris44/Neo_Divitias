@@ -4,5 +4,5 @@ using UnityEngine;
 
 public abstract class DamageableObject : MonoBehaviour {
 
-    public abstract void damage(int damage);
+    public abstract void damage(float damage);
 }

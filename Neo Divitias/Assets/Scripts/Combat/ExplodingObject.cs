@@ -4,10 +4,10 @@ using UnityEngine;
 
 public class ExplodingObject : DamageableObject {
 
-    public int currentHealth = 3;
+    public float currentHealth = 3;
     public GameObject explosion;
 
-	public override void damage (int damage)
+	public override void damage (float damage)
     {
         currentHealth -= damage;
 

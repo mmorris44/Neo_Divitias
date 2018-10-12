@@ -8,7 +8,7 @@ public class SwarmMinion : DamageableObject {
     public float swarmSpeed = 5f;
     public int damageDone = 1;
     public float damageCooldown = 2f;
-    public int health = 1;
+    public float health = 1;
     public GameObject deathAnimation;
 
     public SwarmEnemy swarm;
@@ -20,9 +20,9 @@ public class SwarmMinion : DamageableObject {
         targetPosition = randomLocation();
 	}
 
-    public override void damage(int damage)
+    public override void damage(float damage)
     {
-        health -= 1;
+        health -= damage;
         if (health <= 0)
         {
             Instantiate(deathAnimation, transform.position, Quaternion.identity);
