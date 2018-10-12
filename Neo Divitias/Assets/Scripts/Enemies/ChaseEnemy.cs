@@ -14,11 +14,13 @@ public class ChaseEnemy : DamageableObject {
     public int damageDone = 1;
     public float fireCooldown = 1f;
     public int health = 5;
+    public float agroDuration = 10f;
 
     public FireAtPlayer shooter;
     public bool isDestructible = true;
     public GameObject deathAnimation;
 
+    float agroEnd = -1f;
     float currentCooldown = 0;
     Transform[] player;
     Rigidbody[] playerBody;
@@ -26,12 +28,14 @@ public class ChaseEnemy : DamageableObject {
     public override void damage(int damage)
     {
         if (!isDestructible) return;
-        health -= 1;
+        health -= damage;
         if (health <= 0)
         {
             Instantiate(deathAnimation, transform.position, Quaternion.identity);
             Destroy(gameObject);
         }
+
+        agroEnd = Time.time + agroDuration;
     }
 
     void Start () {
@@ -73,7 +77,7 @@ public class ChaseEnemy : DamageableObject {
         }
 
         // Fire if able
-        if (currentCooldown <= 0 && distance < range)
+        if ((currentCooldown <= 0 && distance < range) || agroEnd > Time.time)
         {
             shooter.straightFire(player[playerIndex], damageDone);
             currentCooldown = fireCooldown;

@@ -14,11 +14,13 @@ public class PatrollingEnemy : DamageableObject {
     public int damageDone = 1;
     public float fireCooldown = 1f;
     public int health = 5;
+    public float agroDuration = 10f;
 
     public FireAtPlayer shooter;
     public bool isDestructible = true;
     public GameObject deathAnimation;
 
+    float agroEnd = -1f;
     int currentTarget = 0;
     float currentCooldown = 0;
     Transform[] player;
@@ -27,12 +29,14 @@ public class PatrollingEnemy : DamageableObject {
     public override void damage(int damage)
     {
         if (!isDestructible) return;
-        health -= 1;
+        health -= damage;
         if (health <= 0)
         {
             Instantiate(deathAnimation, transform.position, Quaternion.identity);
             Destroy(gameObject);
         }
+
+        agroEnd = Time.time + agroDuration;
     }
 
     void Start () {
@@ -65,7 +69,7 @@ public class PatrollingEnemy : DamageableObject {
         }
 
         // Patrol
-        if (distance > chaseDistance)
+        if (distance > chaseDistance && agroEnd < Time.time)
         {
             float moveDist = patrolSpeed * Time.deltaTime;
 

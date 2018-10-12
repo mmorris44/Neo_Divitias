@@ -612,7 +612,8 @@ MonoBehaviour:
   rotationSpeed: 1
   damageDone: 1
   fireCooldown: 1
-  health: 5
+  health: 30
+  agroDuration: 10
   shooter: {fileID: 114613166907214924}
   isDestructible: 1
   deathAnimation: {fileID: 1768562405605382, guid: 58437e049be764e4fa87007545815beb,
@@ -630,6 +631,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   projectile: {fileID: 1498379661480350, guid: 4d758c155c4684a4893c62ee417f6b04, type: 2}
   spawnSpot: {fileID: 4598591285453646}
+  predictBias: 1
 --- !u!135 &135625854234592868
 SphereCollider:
   m_ObjectHideFlags: 1

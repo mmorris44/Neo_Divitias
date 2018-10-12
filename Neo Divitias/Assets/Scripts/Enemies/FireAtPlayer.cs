@@ -6,6 +6,7 @@ public class FireAtPlayer : MonoBehaviour {
 
     public GameObject projectile;
     public Transform spawnSpot;
+    public float predictBias = 1f;
 
 	public void straightFire(Transform player, int damage)
     {
@@ -16,7 +17,9 @@ public class FireAtPlayer : MonoBehaviour {
 
     public void predictiveFire(Transform player, Rigidbody playerBody, int damage)
     {
-        Debug.Log("predictiveFire() method not yet implemented");
+        GameObject p = Instantiate(projectile, spawnSpot.position, Quaternion.identity) as GameObject;
+        p.GetComponent<ProjectileController>().damage = damage;
+        p.transform.LookAt(player.position + predictBias * playerBody.velocity);
     }
 
 }
