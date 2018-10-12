@@ -5,8 +5,10 @@ public abstract class Weapon : Equipment
 {
 	public float impactForce;
 	public float swapDelay;
+    public Transform endOfBarrel;
 	public GameObject impactFx;
     public GameObject fizzleFx;
+    public GameObject muzzleFx;
     public float maxRecoil;
     public float recoilRecovery;
 	public int[] damage;
@@ -29,7 +31,7 @@ public abstract class Weapon : Equipment
 	void Start()
 	{
 		gunAudio = GetComponent<AudioSource>();
-		muzzleFlash = GetComponent<ParticleSystem>();
+        muzzleFlash = GetComponentInChildren<ParticleSystem>();
 	}
 
     void Update()
@@ -88,7 +90,9 @@ public abstract class Weapon : Equipment
 	private IEnumerator shotEffect ()
 	{
         gunAudio.Play();
-        muzzleFlash.Play();
+        //muzzleFlash.Play();
+        var muzzle = Instantiate(muzzleFx, endOfBarrel.position, endOfBarrel.rotation);
+        muzzle.transform.parent = endOfBarrel;
         yield return shotDuration;
 	}
 
