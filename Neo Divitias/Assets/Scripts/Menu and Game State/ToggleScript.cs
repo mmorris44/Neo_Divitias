@@ -18,32 +18,40 @@ public class ToggleScript : MonoBehaviour {
 
     private void selectItem(int player, string w){
         w = w.Split(' ')[0];
-        if (w.Equals("jump") || w.Equals("dash") || w.Equals("armour"))
+        if (w.Equals("armour"))
+        {
+
+        }
+        else if (w.Equals("jump") || w.Equals("dash"))
         {
             if (player == 1)
             {
-                GameState.player_one.selectMovement(string.Format("{0}_{1}", player, w));
+                GameState.player_one.selectMovement(w);
             }
             else if (player == 2)
-            {
-                GameState.player_two.selectMovement(string.Format("{0}_{1}", player, w));
+            { 
+                GameState.player_two.selectMovement(w);
             }
         }
         else
         {
             if (player == 1)
             {
-                GameState.player_one.selectWeapon(string.Format("{0}_{1}", player, w));
+                GameState.player_one.selectWeapon(w);
             }
             else if (player == 2)
             {
-                GameState.player_two.selectWeapon(string.Format("{0}_{1}", player, w));
+                GameState.player_two.selectWeapon(w);
             }
         }
     }
 
     private void deselectItem(int player, string w){
-        if (w.Equals("jump") || w.Equals("dash") || w.Equals("armour"))
+        if (w.Equals("armour"))
+        {
+
+        }
+        else if (w.Equals("jump") || w.Equals("dash"))
         {
             if (player == 1)
             {
@@ -58,11 +66,11 @@ public class ToggleScript : MonoBehaviour {
         {
             if (player == 1)
             {
-                GameState.player_one.deselectWeapon(string.Format("{0}_{1}", player, w));
+                GameState.player_one.deselectWeapon(w);
             }
             else if (player == 2)
             {
-                GameState.player_two.deselectWeapon(string.Format("{0}_{1}", player, w));
+                GameState.player_two.deselectWeapon(w);
             }
         }
     }

@@ -16,7 +16,7 @@ public class Player
     public Player(string name)
     {
         this.name = name;
-        this.money = 500;
+        this.money = 30;
         Equipment.Add("pistol", 1);
         Equipment.Add("shotgun", 0);
         Equipment.Add("smg", 0);
@@ -56,14 +56,11 @@ public class Player
 
     public void deselectMovement()
     {
-        movement = string.Format("{0}_jump", name);
+        movement = string.Format("jump", name);
     }
 
     public void playerDebug()
     {
-        Debug.Log(string.Format("Player: {0}", name));
-        Debug.Log(string.Format("Primary: {0} - lvl{1}", primary, Equipment[primary]));
-        Debug.Log(string.Format("Secondary: {0} - lvl{1}", secondary, Equipment[secondary]));
-        Debug.Log(string.Format("Movement: {0} - lvl{1}", movement, Equipment[movement]));
+        Debug.Log(string.Format("Player: {0} : P - {1}({2}) S - {3}({4}) M - {5}({6}) A - {7}", name, primary, Equipment[primary], secondary, Equipment[secondary], movement, Equipment[movement], Equipment["armour"]));
     }
 }

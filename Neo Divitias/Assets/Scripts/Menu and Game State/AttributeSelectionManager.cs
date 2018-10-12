@@ -18,11 +18,11 @@ public class AttributeSelectionManager : MonoBehaviour
     {
         if (gameObject.layer == 8)
         {
-            movement = GameState.player_one.movement.Split('_')[1].Split(' ')[0];
+            movement = GameState.player_one.movement;
         }
         else if (gameObject.layer == 9)
         {
-            movement = GameState.player_two.movement.Split('_')[1].Split(' ')[0];
+            movement = GameState.player_two.movement;
         }
 
         foreach (Toggle t in ws)

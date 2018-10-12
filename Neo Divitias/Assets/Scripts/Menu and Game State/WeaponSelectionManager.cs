@@ -41,6 +41,11 @@ public class WeaponSelectionManager : MonoBehaviour {
                 ts.autoOff();
                 // (FIXED)The bug with having to double click is because we only change the colout here. WE do not deselect the toggle
             }
+            else
+            {
+                ts.makeGreen();
+                ts.autoOn();
+            }
         }
     }
 }
