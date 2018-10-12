@@ -66,7 +66,7 @@ public abstract class Weapon : Equipment
 
 				if (target != null)
 				{
-                    if (target.gameObject.tag != "player" || GameState.game_level == 4 )
+                    if (target.gameObject.tag != "Player" || GameState.game_level == 4 )
                     {
                         target.damage(damage[level - 1]);
                         if (hit.rigidbody != null)
