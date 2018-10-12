@@ -18,7 +18,6 @@ public abstract class Weapon : Equipment
 
     private bool switching = true;
     private float currentRecoil = 0.0f;
-	private ParticleSystem muzzleFlash;
 	private AudioSource gunAudio;
 	private float nextFire;
 	private WaitForSeconds shotDuration = new WaitForSeconds(0.07f);
@@ -31,7 +30,6 @@ public abstract class Weapon : Equipment
 	void Start()
 	{
 		gunAudio = GetComponent<AudioSource>();
-        muzzleFlash = GetComponentInChildren<ParticleSystem>();
 	}
 
     void Update()
@@ -90,9 +88,11 @@ public abstract class Weapon : Equipment
 	private IEnumerator shotEffect ()
 	{
         gunAudio.Play();
-        //muzzleFlash.Play();
+
+        // parent muzzle to barrel to avoid displaced muzzle flashes when moving weapon while shooting
         var muzzle = Instantiate(muzzleFx, endOfBarrel.position, endOfBarrel.rotation);
         muzzle.transform.parent = endOfBarrel;
+
         yield return shotDuration;
 	}
 

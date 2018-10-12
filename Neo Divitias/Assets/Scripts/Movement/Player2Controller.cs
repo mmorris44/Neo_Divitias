@@ -3,7 +3,6 @@ using System.Collections.Generic;
 using UnityEngine;
 
 public class Player2Controller : PlayerController {
-
     PlayerHealth playerHealth;
     Rigidbody body;
     Vector3 forward, right;
@@ -35,7 +34,7 @@ public class Player2Controller : PlayerController {
         right = currentCamera.transform.right;
         right.y = 0;
 
-        if (restrictVel & !playerHealth.isDead)
+        if (!playerHealth.isDead)
         {
             // Set velocity
             if (Input.GetAxis("Vertical p2") > 0)

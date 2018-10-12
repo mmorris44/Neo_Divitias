@@ -32,7 +32,7 @@ public class Player1Controller : PlayerController {
         right = currentCamera.transform.right;
         right.y = 0;
 
-        if (restrictVel && !playerHealth.isDead)
+        if (!playerHealth.isDead)
         {
             // Set velocity
             if (Input.GetAxis("Vertical p1") > 0 || Input.GetAxis("Vertical mouse") > 0)

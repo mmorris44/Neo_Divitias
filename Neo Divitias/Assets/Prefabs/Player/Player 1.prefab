@@ -4453,12 +4453,12 @@ MonoBehaviour:
   - 4
   - 3
   movementForce:
-  - 13
+  - 40
   - 18
   - 25
   activationSound: {fileID: 82313265706639020}
   duration:
-  - 1
+  - 0.3
   - 1.5
   - 2
   playerController: {fileID: 114760956215372772}

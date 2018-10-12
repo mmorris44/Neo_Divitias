@@ -24,9 +24,14 @@ public class Dash : MovementItem {
     private IEnumerator performDash()
     {
         float wait_until = Time.time + duration[level - 1];
-        playerController.restrictVel = false;
-        player.AddForce(playerCam.transform.forward * movementForce[level - 1], ForceMode.Impulse);
-        yield return new WaitForSeconds(duration[level - 1]);
+
+        while (Time.time < wait_until)
+        {
+            playerController.restrictVel = false;
+            player.velocity = playerCam.transform.forward * movementForce[level - 1];
+            //player.AddForce(playerCam.transform.forward * movementForce[level - 1], ForceMode.Impulse);
+            yield return null;
+        }
 
         playerController.restrictVel = true;
     }
