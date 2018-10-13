@@ -17,6 +17,7 @@ public class WeaponManager : MonoBehaviour
 
     public Weapon equipped;
 	public Weapon unequipped;
+    public AudioSource swapSound;
 
     private void Start()
     {
@@ -111,6 +112,7 @@ public class WeaponManager : MonoBehaviour
 			equipped = unequipped;
 			unequipped = tmp;
 
+            swapSound.Play();
             //unequipped.gameObject.SetActive(false);
             StartCoroutine(unequipped.switchOut(equipped));
             //equipped.gameObject.SetActive(true);

@@ -41,6 +41,7 @@ public class TurretEnemy : DamageableObject {
         {
             Instantiate(deathFX, transform.position, Quaternion.identity);
             Instantiate(deathAnimation, transform.position, Quaternion.identity);
+            deathSound.Play();
             Destroy(gameObject);
         }
 

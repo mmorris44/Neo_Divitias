@@ -74,7 +74,7 @@ public class PlayerHealth : DamageableObject
         {
             mr.enabled = false;
         }
-     
+        deathSound.Play();
 
         // fade out
         fade.Play("fadeOut");
