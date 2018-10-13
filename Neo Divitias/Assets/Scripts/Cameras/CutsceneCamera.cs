@@ -10,6 +10,7 @@ public class CutsceneCamera : MonoBehaviour {
     public float cutsceneDuration; // In seconds
     public Transform[] positions;
     public float rotationSpeed = 1f;
+    public CutsceneFader cutsceneFader;
 
     float speed = 0;
     int currentTarget = 1;
@@ -30,7 +31,8 @@ public class CutsceneCamera : MonoBehaviour {
 	void Update () {
         // Check if done
         if (currentTarget >= positions.Length){
-            SceneManager.LoadScene(string.Format("Level {0}", GameState.game_level));
+            StartCoroutine(endScene());
+            return;
         }
 
         float moveDist = speed * Time.deltaTime;
@@ -42,7 +44,8 @@ public class CutsceneCamera : MonoBehaviour {
             // Check if done
             if (currentTarget >= positions.Length)
             {
-                SceneManager.LoadScene(string.Format("Level {0}", GameState.game_level));
+                StartCoroutine(endScene());
+                return;
             }
         }
 
@@ -59,7 +62,19 @@ public class CutsceneCamera : MonoBehaviour {
         // Skip cutscene
         if (Input.GetButtonDown("Skip"))
         {
-            SceneManager.LoadScene(string.Format("Level {0}", GameState.game_level));
+            StartCoroutine(endScene());
         }
+    }
+
+    public IEnumerator endScene()
+    {
+        cutsceneFader.FadeOut();
+
+        while (!cutsceneFader.FadedOut()) {
+
+            yield return null;
+        }
+
+        SceneManager.LoadSceneAsync(string.Format("Level {0}", GameState.game_level));
     }
 }

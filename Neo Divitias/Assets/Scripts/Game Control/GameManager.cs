@@ -79,7 +79,8 @@ public class GameManager : MonoBehaviour {
                 anim.Play("fadeOut");
         }
         float playUntil = Time.time + fadeOutDuration;
-        while(fadeImgs[0].color.a < 0.95f) {
+        while (fadeImgs[0].color.a < 0.95f)
+        {
             Debug.Log(fadeImgs[0].color.a);
             Time.timeScale -= (0.75f / (fadeOutDuration / 2) * Time.deltaTime);
             foreach (Animator anim in fadeAnims)
@@ -92,14 +93,15 @@ public class GameManager : MonoBehaviour {
 
         // reset timescale, set prefs & change level
         Time.timeScale = originalTimeScale;
-        MainMenu m = new MainMenu();
-        m.FinishLevel();
-        //GameState.SetPrefs();
+        //MainMenu m = new MainMenu();
+        //m.FinishLevel();
+        
+        GameState.SetPrefs();
 
         if (SceneManager.GetActiveScene().name == "Tutorial" )
             SceneManager.LoadScene("Main");
-        else if (SceneManager.GetActiveScene().name == "PvP Level")
-            SceneManager.LoadScene("Main");
+        else if (SceneManager.GetActiveScene().name == "Level 4")
+            SceneManager.LoadScene("Cutscene 5");
         else
             SceneManager.LoadScene("Shop");
 
