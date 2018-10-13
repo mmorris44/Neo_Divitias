@@ -4436,6 +4436,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   activateButton: MoveAbilityActivate p2
   alternateActivateButton: MoveAbilityActivate p2
+  playerNumber: 2
   dash: {fileID: 114916339653160466}
   rocket: {fileID: 114618770422685152}
   equipped: {fileID: 114916339653160466}

@@ -21,6 +21,14 @@ public class MainMenu : MonoBehaviour{
 
     public void PlayTutorial()
     {
+        GameState.game_level = 1;
+        GameState.player_one = new Player("1");
+        GameState.player_two = new Player("2");
+        GameState.player_one.Equipment["dash"] = 3;
+        GameState.player_one.movement = "dash";
+        GameState.player_two.Equipment["dash"] = 3;
+        GameState.player_two.movement = "dash";
+        GameState.SetPrefs();
         SceneManager.LoadScene("Tutorial");
     }
 
@@ -33,35 +41,29 @@ public class MainMenu : MonoBehaviour{
         }
         catch (System.Exception e)
         {
-            // TODO. Make this a GUI pop up or something. Give the user feedback. 
-            // Another option would be to only show the continue if prefs can be set.
-            Debug.LogError("Prefs couldnt be loaded beacuase they havent been set yet.");
+            NewGame();
         }
-        GameState.GetPrefs();
+        //GameState.GetPrefs();
         SceneManager.LoadScene("Shop");
     }
+
+    public void loadControlsScene()
+    {
+
+    }
     
-    // This will be done by Matt
     public void FinishLevel(){
-        // This is hacky shit that manually sets the money after each level. THIS MUST BE CHANGED.
-        if(GameState.game_level == 1)
+        if (SceneManager.GetActiveScene().name.Equals("Tutorial"))
         {
-            GameState.player_one.money += 110;
-            GameState.player_two.money += 110;
+
+            ReturnToMain();
         }
-        else if (GameState.game_level == 2)
+        else
         {
-            GameState.player_one.money += 320;
-            GameState.player_two.money += 380;
+            GameState.game_level++;
+            GameState.SetPrefs();
+            LoadShop();
         }
-        else if (GameState.game_level == 3)
-        {
-            GameState.player_one.money += 380;
-            GameState.player_two.money += 380;
-        }
-        GameState.game_level++;
-        GameState.SetPrefs();
-        LoadShop();
     }
 
     public void QuitGame(){

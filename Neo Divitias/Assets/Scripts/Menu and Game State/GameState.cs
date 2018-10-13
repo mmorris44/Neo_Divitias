@@ -7,6 +7,10 @@ public static class GameState{
     public static int game_level;
     public static Player player_one;
     public static Player player_two;
+    public static int time_1 = -1;
+    public static int time_2 = -1;
+    public static int time_3 = -1;
+    public static int winner = 0;
 
     // Set weapon prices once. We should maybe store these in a file somewhere and just do a single read in. But this is fine for now.
     // We could store a dict with base and scale factors example {"pistol": [100, 0, 1, 3]}. pistol_1 = 100*0, pistol_2 = 100*1 etc.
@@ -43,9 +47,14 @@ public static class GameState{
     // Get all player prefs
     public static void GetPrefs () {
         game_level = PlayerPrefs.GetInt("game_level");
+        time_1 = PlayerPrefs.GetInt("time_1");
+        time_2 = PlayerPrefs.GetInt("time_2");
+        time_3 = PlayerPrefs.GetInt("time_3");
+        winner = PlayerPrefs.GetInt("winner");
 
         player_one.name = PlayerPrefs.GetString("1_name");
         player_one.money = PlayerPrefs.GetInt("1_money");
+        player_one.kills = PlayerPrefs.GetInt("1_kills");
         player_one.primary = PlayerPrefs.GetString("1_primary");
         player_one.secondary = PlayerPrefs.GetString("1_secondary");
         player_one.Equipment["pistol"] = PlayerPrefs.GetInt("1_pistol");
@@ -58,6 +67,7 @@ public static class GameState{
 
         player_two.name = PlayerPrefs.GetString("2_name");
         player_two.money = PlayerPrefs.GetInt("2_money");
+        player_two.kills = PlayerPrefs.GetInt("2_kills");
         player_two.primary = PlayerPrefs.GetString("2_primary");
         player_two.secondary = PlayerPrefs.GetString("2_secondary");
         player_two.Equipment["pistol"] = PlayerPrefs.GetInt("2_pistol");
@@ -72,9 +82,14 @@ public static class GameState{
     // Set player prefs
     public static void SetPrefs() {
         PlayerPrefs.SetInt("game_level", game_level);
+        PlayerPrefs.SetInt("time_1", time_1);
+        PlayerPrefs.SetInt("time_2", time_2);
+        PlayerPrefs.SetInt("time_3", time_3);
+        PlayerPrefs.SetInt("winner", winner);
 
         PlayerPrefs.SetString("1_name", player_one.name);
         PlayerPrefs.SetInt("1_money", player_one.money);
+        PlayerPrefs.SetInt("1_kill", player_one.kills);
         PlayerPrefs.SetString("1_primary", player_one.primary);
         PlayerPrefs.SetString("1_secondary", player_one.secondary);
         PlayerPrefs.SetInt("1_pistol", player_one.Equipment["pistol"]);
@@ -87,6 +102,7 @@ public static class GameState{
 
         PlayerPrefs.SetString("2_name", player_two.name);
         PlayerPrefs.SetInt("2_money", player_two.money);
+        PlayerPrefs.SetInt("2_kill", player_two.kills);
         PlayerPrefs.SetString("2_primary", player_two.primary);
         PlayerPrefs.SetString("2_secondary", player_two.secondary);
         PlayerPrefs.SetInt("2_pistol", player_two.Equipment["pistol"]);

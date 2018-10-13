@@ -53,6 +53,14 @@ public class GameManager : MonoBehaviour {
             p1Money.SetText("$" + GameState.player_one.money);
             p2Money.SetText("$" + GameState.player_two.money);
         }
+        if (Input.GetButtonDown("Skip"))
+        {
+            if (SceneManager.GetActiveScene().name == "Tutorial")
+            {
+                StartCoroutine(changeLevel());
+
+            }
+        }
     }
 
     public void CollectObjective()
@@ -93,18 +101,8 @@ public class GameManager : MonoBehaviour {
 
         // reset timescale, set prefs & change level
         Time.timeScale = originalTimeScale;
-        //MainMenu m = new MainMenu();
-        //m.FinishLevel();
-        
-        GameState.SetPrefs();
-
-        if (SceneManager.GetActiveScene().name == "Tutorial" )
-            SceneManager.LoadScene("Main");
-        else if (SceneManager.GetActiveScene().name == "Level 4")
-            SceneManager.LoadScene("Cutscene 5");
-        else
-            SceneManager.LoadScene("Shop");
-
+        MainMenu m = new MainMenu();
+        m.FinishLevel();
     }
 
     public static void addTimePenalty()

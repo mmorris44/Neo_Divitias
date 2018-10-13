@@ -4555,6 +4555,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   activateButton: MoveAbilityActivate p1
   alternateActivateButton: MoveAbilityActivate
+  playerNumber: 1
   dash: {fileID: 114916339653160466}
   rocket: {fileID: 114618770422685152}
   equipped: {fileID: 114916339653160466}
