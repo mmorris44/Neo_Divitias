@@ -23,7 +23,7 @@ public class PlayerHealth : DamageableObject
         playerTransform = transform;
         spawnLocation = new Vector3(playerTransform.position.x, playerTransform.position.y, playerTransform.position.z);
         spawnRotation = new Quaternion(cameraTransform.rotation.x, cameraTransform.rotation.y, cameraTransform.rotation.z, cameraTransform.rotation.w);
-        InvokeRepeating("Regenerate", 0.0f, 1.0f / regenPerSecond);
+        InvokeRepeating("Regenerate", 0.0f, 0.1f / regenPerSecond);
     }
 
     public void Update()
@@ -33,7 +33,7 @@ public class PlayerHealth : DamageableObject
             StartCoroutine(die());
         }
 
-        healthbar.value = (float)currentHealth / (float)maxHealth;
+        healthbar.value = currentHealth / maxHealth;
     }
 
     public override void damage(float damage)
@@ -86,6 +86,6 @@ public class PlayerHealth : DamageableObject
     void Regenerate()
     {
         if (currentHealth < maxHealth && !isDead)
-            currentHealth++;
+            currentHealth += 0.1f;
     }
 }
