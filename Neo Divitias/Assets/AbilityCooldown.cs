@@ -10,7 +10,6 @@ public class AbilityCooldown : MonoBehaviour {
     public Image leap;
     public string player;
 
-    private bool dashEquipped = false;
     private Image activeImage;
 
     private void Start()
@@ -19,14 +18,12 @@ public class AbilityCooldown : MonoBehaviour {
         {
             if (GameState.player_two.movement == "dash")
             {
-                dashEquipped = true;
                 dash.enabled = true;
                 leap.enabled = false;
                 activeImage = dash;
             }
             else
             {
-                dashEquipped = false;
                 dash.enabled = false;
                 leap.enabled = true;
                 activeImage = leap;
@@ -36,14 +33,12 @@ public class AbilityCooldown : MonoBehaviour {
         {
             if (GameState.player_one.movement == "dash")
             {
-                dashEquipped = true;
                 dash.enabled = true;
                 leap.enabled = false;
                 activeImage = dash;
             }
             else
             {
-                dashEquipped = false;
                 dash.enabled = false;
                 leap.enabled = true;
                 activeImage = leap;

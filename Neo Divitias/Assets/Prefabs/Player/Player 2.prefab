@@ -1488,7 +1488,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1134396177712644}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 2, y: 0.7, z: 0}
+  m_LocalPosition: {x: -4.054107, y: 1.87, z: -3.9759994}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 4585504876006264}
@@ -4068,6 +4068,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 10b7bca464610b244a99f9a1766cd35f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  deathFX: {fileID: 1965272940313536, guid: 91e22cb192e1b9d40810cba788572406, type: 2}
   fadeImg: {fileID: 114342776046289974}
   fade: {fileID: 95345756227341884}
   cameraTransform: {fileID: 4609915699095596}
@@ -4075,6 +4076,19 @@ MonoBehaviour:
   maxHealth: 100
   regenPerSecond: 1
   isDead: 0
+  meshParents:
+  - {fileID: 1839441213376740}
+  - {fileID: 1967282920283790}
+  - {fileID: 1884968624430202}
+  - {fileID: 1890855520061638}
+  - {fileID: 1038312722055520}
+  - {fileID: 1292089626196218}
+  - {fileID: 1770592025389262}
+  - {fileID: 1680381766812862}
+  - {fileID: 1607163274236166}
+  - {fileID: 1152617578918262}
+  - {fileID: 1246101654077694}
+  - {fileID: 1694607417215746}
   healthbar: {fileID: 114693646544187862}
 --- !u!114 &114010133641314164
 MonoBehaviour:

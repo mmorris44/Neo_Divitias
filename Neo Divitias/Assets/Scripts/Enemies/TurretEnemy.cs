@@ -39,6 +39,7 @@ public class TurretEnemy : DamageableObject {
         health -= damage;
         if (health <= 0)
         {
+            Instantiate(deathFX, transform.position, Quaternion.identity);
             Instantiate(deathAnimation, transform.position, Quaternion.identity);
             Destroy(gameObject);
         }

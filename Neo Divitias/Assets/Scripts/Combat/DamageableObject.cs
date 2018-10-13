@@ -4,5 +4,7 @@ using UnityEngine;
 
 public abstract class DamageableObject : MonoBehaviour {
 
+    public GameObject deathFX;
+
     public abstract void damage(float damage);
 }
