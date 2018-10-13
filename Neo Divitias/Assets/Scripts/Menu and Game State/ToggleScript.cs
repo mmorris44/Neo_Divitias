@@ -184,12 +184,14 @@ public class ToggleScript : MonoBehaviour {
             upgrade.interactable = false;
             // Was a bug where if item became too expensive or max, it would become unclickable. However this would also mean you can select more things on controller.
             // In this case, just move the selection to the actual toggle
-            toggle.Select();
+           // toggle.Select();
         }
         
         // Can't click if cant afford
         if (!affordable){
             upgrade.interactable = false;
+           // toggle.Select();
+           // toggle.Select();
         }
 
 
