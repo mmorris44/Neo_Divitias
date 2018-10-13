@@ -16,7 +16,7 @@ public class Player
     public Player(string name)
     {
         this.name = name;
-        this.money = 30;
+        this.money = 1000;
         Equipment.Add("pistol", 1);
         Equipment.Add("shotgun", 0);
         Equipment.Add("smg", 0);
@@ -39,12 +39,15 @@ public class Player
     public void deselectWeapon(string weapon)
     {
         // If they choose to deselect a weapon. Default that weapon to a pistol.
-        if (primary == weapon)
+        if (primary.Equals(weapon))
         {
+            Debug.Log("Swapping out P");
             primary = string.Format("pistol", name);
         }
-        else if (secondary == weapon)
+        else if (secondary.Equals(weapon))
         {
+            Debug.Log("Swapping out S");
+
             secondary = string.Format("pistol", name);
         }
     }
