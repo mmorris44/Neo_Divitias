@@ -6,6 +6,9 @@ EditorBuildSettings:
   serializedVersion: 2
   m_Scenes:
   - enabled: 1
+    path: Assets/Scenes/Main.unity
+    guid: 9dfa25c3f3ac51e45a84be77cbc753f6
+  - enabled: 1
     path: Assets/Scenes/Level 1.unity
     guid: f393da70a7a008545b015d5ec5220f2f
   - enabled: 1
@@ -15,13 +18,10 @@ EditorBuildSettings:
     path: Assets/Scenes/Shop.unity
     guid: c8bbd87a01e06b844a09097883a4dbcc
   - enabled: 1
-    path: Assets/Scenes/Main.unity
-    guid: 9dfa25c3f3ac51e45a84be77cbc753f6
-  - enabled: 1
     path: Assets/Scenes/Level 3.unity
     guid: ebba24220795b5e4cb7660c014cbde54
   - enabled: 1
-    path: Assets/Scenes/PvP Level.unity
+    path: Assets/Scenes/Level 4.unity
     guid: b426023fe5893c54393d9ac25fadc996
   - enabled: 1
     path: Assets/Scenes/Cutscenes/Cutscene 2.unity
