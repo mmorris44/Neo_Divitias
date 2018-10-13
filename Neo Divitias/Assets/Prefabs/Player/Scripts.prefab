@@ -276,6 +276,7 @@ GameObject:
   - component: {fileID: 114807914505108540}
   - component: {fileID: 114987741790632518}
   - component: {fileID: 114956498081309132}
+  - component: {fileID: 81586820358963434}
   m_Layer: 0
   m_Name: Scripts
   m_TagString: Untagged
@@ -314,6 +315,13 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!81 &81586820358963434
+AudioListener:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1904821032514822}
+  m_Enabled: 1
 --- !u!114 &114264423963728628
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -1070,6 +1078,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   timeText: {fileID: 114488459652925418}
   objectiveText: {fileID: 114560125144568514}
+  p1Money: {fileID: 114766565548039772}
+  p2Money: {fileID: 114655248145162634}
 --- !u!114 &114987741790632518
 MonoBehaviour:
   m_ObjectHideFlags: 1

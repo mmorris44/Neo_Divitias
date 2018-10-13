@@ -7,7 +7,7 @@ public class ExplodingObject : DamageableObject {
     public float currentHealth = 3;
     public GameObject explosion;
 
-	public override void damage (float damage)
+	public override bool damage (float damage)
     {
         currentHealth -= damage;
 
@@ -15,6 +15,9 @@ public class ExplodingObject : DamageableObject {
         {
             Instantiate(explosion, transform.position, Quaternion.identity);
             Destroy(gameObject);
+            return true;
         }
+
+        return false;
     }
 }

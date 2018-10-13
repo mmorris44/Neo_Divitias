@@ -20,7 +20,7 @@ public class SwarmMinion : DamageableObject {
         targetPosition = randomLocation();
 	}
 
-    public override void damage(float damage)
+    public override bool damage(float damage)
     {
         health -= damage;
         if (health <= 0)
@@ -29,7 +29,10 @@ public class SwarmMinion : DamageableObject {
             Instantiate(deathAnimation, transform.position, Quaternion.identity);
             deathSound.Play();
             Destroy(gameObject);
+            return true;
         }
+
+        return false;
     }
 
     void Update () {

@@ -48,16 +48,18 @@ public class PlayerHealth : DamageableObject
         healthbar.value = currentHealth / maxHealth;
     }
 
-    public override void damage(float damage)
+    public override bool damage(float damage)
     {
 
         if (currentHealth - damage <= 0 && !isDead)
         {
             StartCoroutine(die());
+            return true;
         }
         else
         {
             currentHealth -= damage;
+            return false;
         }
     }
 

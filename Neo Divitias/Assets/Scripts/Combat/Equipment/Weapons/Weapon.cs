@@ -66,7 +66,20 @@ public abstract class Weapon : Equipment
 				{
                     if (target.gameObject.tag != "Player" || GameState.game_level == 4 )
                     {
-                        target.damage(damage[level - 1]);
+                        bool kill = target.damage(damage[level - 1]);
+                        if (kill)
+                        {
+                            if (transform.parent.gameObject.GetComponent<WeaponManager>().playerNumber == 1)
+                            {
+                                GameState.player_one.money += 6;
+                                GameState.player_two.money += 4;
+                            }
+                            else
+                            {
+                                GameState.player_two.money += 6;
+                                GameState.player_one.money += 4;
+                            }
+                        }
                         if (hit.rigidbody != null)
                         {
                             hit.rigidbody.AddForce(-hit.normal * impactForce);

@@ -16,6 +16,18 @@ public class ObjectiveCollect : MonoBehaviour
 	{	
 		if (other.gameObject.CompareTag("Player"))
 		{
+            // handle income
+            if (other.GetComponent<Player1Controller>() != null)
+            {
+                GameState.player_one.money += 30;
+                GameState.player_two.money += 20;
+            }
+            else
+            {
+                GameState.player_one.money += 20;
+                GameState.player_two.money += 30;
+            }
+
             Vector3 pos = gameObject.transform.position;
             pos.y += 1.5f;
             Instantiate(pickupFX, pos, pickupFX.transform.rotation);

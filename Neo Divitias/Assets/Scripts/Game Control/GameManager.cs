@@ -15,6 +15,8 @@ public class GameManager : MonoBehaviour {
     private static int penaltyTotal;
     public TextMeshProUGUI timeText;
     public TextMeshProUGUI objectiveText;
+    public TextMeshProUGUI p1Money;
+    public TextMeshProUGUI p2Money;
 
     void Start ()
 	{
@@ -48,6 +50,8 @@ public class GameManager : MonoBehaviour {
         if (timerOn)
         {
             timeText.SetText("" + Mathf.Min((int)Time.timeSinceLevelLoad + penaltyTotal, 99999));
+            p1Money.SetText("$" + GameState.player_one.money);
+            p2Money.SetText("$" + GameState.player_two.money);
         }
     }
 

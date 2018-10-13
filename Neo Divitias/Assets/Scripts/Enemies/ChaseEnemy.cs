@@ -25,17 +25,19 @@ public class ChaseEnemy : DamageableObject {
     Transform[] player;
     Rigidbody[] playerBody;
 
-    public override void damage(float damage)
+    public override bool damage(float damage)
     {
-        if (!isDestructible) return;
+        if (!isDestructible) return false;
         health -= damage;
         if (health <= 0)
         {
             Instantiate(deathAnimation, transform.position, Quaternion.identity);
             Destroy(gameObject);
+            return true;
         }
 
         agroEnd = Time.time + agroDuration;
+        return false;
     }
 
     void Start () {
