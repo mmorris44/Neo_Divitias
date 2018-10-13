@@ -1,6 +1,4 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
+﻿using UnityEngine;
 
 public class RocketJump : MovementItem {
 
@@ -8,8 +6,8 @@ public class RocketJump : MovementItem {
     {
         if (nextActivate < Time.time)
         {
-
             nextActivate = Time.time + cooldown[level-1];
+            StartCoroutine(cooldownTimer.abilityActivate(nextActivate, cooldown[level - 1]));
             activationSound.Play();
 
             // perform rocket jump

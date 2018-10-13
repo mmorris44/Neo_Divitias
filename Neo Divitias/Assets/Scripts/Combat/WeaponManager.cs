@@ -113,9 +113,7 @@ public class WeaponManager : MonoBehaviour
 			unequipped = tmp;
 
             swapSound.Play();
-            //unequipped.gameObject.SetActive(false);
             StartCoroutine(unequipped.switchOut(equipped));
-            //equipped.gameObject.SetActive(true);
         }
 	}
 }

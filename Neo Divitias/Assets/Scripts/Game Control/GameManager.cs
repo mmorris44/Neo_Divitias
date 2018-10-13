@@ -87,14 +87,14 @@ public class GameManager : MonoBehaviour {
                 anim.Play("fadeOut");
         }
         float playUntil = Time.time + fadeOutDuration;
-        while (fadeImgs[0].color.a < 0.95f)
+        while (fadeImgs[0].color.a < 0.99f)
         {
             Debug.Log(fadeImgs[0].color.a);
-            Time.timeScale -= (0.75f / (fadeOutDuration / 2) * Time.deltaTime);
+            Time.timeScale = Mathf.Max(Time.timeScale - 0.01f, 0.4f);
             foreach (Animator anim in fadeAnims)
             {
                 if (anim != null)
-                    anim.speed = 2 - Time.timeScale;
+                    anim.speed = 1f + (1f - Time.timeScale);
             }
             yield return null;
         }
@@ -102,6 +102,7 @@ public class GameManager : MonoBehaviour {
         // reset timescale, set prefs & change level
         Time.timeScale = originalTimeScale;
         MainMenu m = new MainMenu();
+       
         m.FinishLevel();
     }
 

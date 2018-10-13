@@ -14,6 +14,7 @@ public class CutsceneCamera : MonoBehaviour {
 
     float speed = 0;
     int currentTarget = 1;
+    bool ending = false;
 
 	void Start () {
         // Calculate speed
@@ -68,6 +69,9 @@ public class CutsceneCamera : MonoBehaviour {
 
     public IEnumerator endScene()
     {
+        if (ending) yield break;
+        ending = true;
+
         cutsceneFader.FadeOut();
 
         while (!cutsceneFader.FadedOut()) {

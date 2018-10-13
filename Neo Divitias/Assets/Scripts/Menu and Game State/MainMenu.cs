@@ -1,9 +1,7 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
+﻿using UnityEngine;
 using UnityEngine.SceneManagement;
 
-public class MainMenu : MonoBehaviour{
+public class MainMenu : MonoBehaviour {
 
     public void NewGame(){
         GameState.game_level = 1;
@@ -55,14 +53,16 @@ public class MainMenu : MonoBehaviour{
     public void FinishLevel(){
         if (SceneManager.GetActiveScene().name.Equals("Tutorial"))
         {
-
             ReturnToMain();
         }
         else
         {
             GameState.game_level++;
             GameState.SetPrefs();
-            LoadShop();
+            if (GameState.game_level > 4)
+                SceneManager.LoadScene("Cutscene 5");
+            else
+                LoadShop();
         }
     }
 

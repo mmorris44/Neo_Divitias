@@ -14,6 +14,9 @@ public class AbilityCooldown : MonoBehaviour {
 
     private void Start()
     {
+        Debug.Log(GameState.player_two.movement);
+        Debug.Log(GameState.player_one.movement);
+
         if (player == "player2")
         {
             if (GameState.player_two.movement == "dash")

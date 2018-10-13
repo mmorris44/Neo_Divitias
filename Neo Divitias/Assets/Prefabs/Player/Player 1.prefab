@@ -4574,7 +4574,7 @@ MonoBehaviour:
   cost: 0
   playerCam: {fileID: 20807266968998558}
   player: {fileID: 54369231960953214}
-  cooldownTimer: {fileID: 0}
+  cooldownTimer: {fileID: 114166604290582550}
   cooldown:
   - 5
   - 3
