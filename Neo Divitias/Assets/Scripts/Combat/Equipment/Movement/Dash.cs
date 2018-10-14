@@ -30,6 +30,7 @@ public class Dash : MovementItem {
             playerController.restrictVel = false; // override velocity limits for duration of dash
 
             player.velocity = playerCam.transform.forward * movementForce[level - 1];
+            player.velocity = new Vector3(player.velocity.x, player.velocity.y * 0.3f, player.velocity.z);
             yield return null;
         }
 

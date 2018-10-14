@@ -11,7 +11,7 @@ public abstract class Weapon : Equipment
     public GameObject muzzleFx;
     public float maxRecoil;
     public float recoilRecovery;
-	public int[] damage;
+	public float[] damage;
 	public float[] range;
 	public float[] recoil; // amount of recoil per shot
 	public float[] fireRate; // (per second)
