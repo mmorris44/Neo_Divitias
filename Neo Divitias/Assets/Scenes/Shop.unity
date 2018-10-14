@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.37311953, g: 0.38074014, b: 0.3587274, a: 1}
+  m_IndirectSpecularColor: {r: 0.37311992, g: 0.38074034, b: 0.35872713, a: 1}
 --- !u!157 &3
 LightmapSettings:
   m_ObjectHideFlags: 0
@@ -958,7 +958,7 @@ GameObject:
   - component: {fileID: 267047619}
   - component: {fileID: 267047618}
   - component: {fileID: 267047617}
-  m_Layer: 5
+  m_Layer: 8
   m_Name: Ready1
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1139,7 +1139,7 @@ GameObject:
   - component: {fileID: 268078711}
   - component: {fileID: 268078710}
   - component: {fileID: 268078709}
-  m_Layer: 5
+  m_Layer: 9
   m_Name: Ready2
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -3851,7 +3851,7 @@ GameObject:
   - component: {fileID: 658623149}
   - component: {fileID: 658623151}
   - component: {fileID: 658623150}
-  m_Layer: 5
+  m_Layer: 8
   m_Name: Text
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -5143,7 +5143,7 @@ GameObject:
   - component: {fileID: 923846503}
   - component: {fileID: 923846502}
   - component: {fileID: 923846501}
-  m_Layer: 8
+  m_Layer: 9
   m_Name: Player 2 Input
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -5182,6 +5182,7 @@ MonoBehaviour:
   m_FirstSelected: {fileID: 681771802}
   m_sendNavigationEvents: 1
   m_DragThreshold: 5
+  playerLayer: 9
 --- !u!4 &923846503
 Transform:
   m_ObjectHideFlags: 0
@@ -8058,7 +8059,7 @@ GameObject:
   - component: {fileID: 1439662746}
   - component: {fileID: 1439662748}
   - component: {fileID: 1439662747}
-  m_Layer: 5
+  m_Layer: 9
   m_Name: Text
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -8463,6 +8464,7 @@ MonoBehaviour:
   m_FirstSelected: {fileID: 410648681}
   m_sendNavigationEvents: 1
   m_DragThreshold: 5
+  playerLayer: 8
 --- !u!4 &1462343183
 Transform:
   m_ObjectHideFlags: 0
