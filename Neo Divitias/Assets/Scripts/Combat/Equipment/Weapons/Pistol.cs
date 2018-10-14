@@ -2,7 +2,7 @@
 
 public class Pistol : Weapon {
     
-    public void Shoot(Camera playerCam)
+    public new void Shoot(Camera playerCam)
     {
         base.Shoot(playerCam);
     }

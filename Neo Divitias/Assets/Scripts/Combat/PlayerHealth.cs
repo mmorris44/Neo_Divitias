@@ -40,6 +40,7 @@ public class PlayerHealth : DamageableObject
 
     public void Update()
     {
+        // check if player has fallen too far off the platforms
         if (playerTransform.position.y < -30 && !isDead)
         {
             StartCoroutine(die());
@@ -48,9 +49,9 @@ public class PlayerHealth : DamageableObject
         healthbar.value = currentHealth / maxHealth;
     }
 
+    // deal damage to the player
     public override bool damage(float damage)
     {
-
         if (currentHealth - damage <= 0 && !isDead)
         {
             StartCoroutine(die());
@@ -67,7 +68,6 @@ public class PlayerHealth : DamageableObject
     {
         isDead = true;
         currentHealth = 0;
-        GameManager.addTimePenalty();
 
         // play death particle and make player invisible
         Instantiate(deathFX, transform.position, Quaternion.identity);
@@ -103,8 +103,8 @@ public class PlayerHealth : DamageableObject
             mr.enabled = true;
         }
 
+        // fade in from black
         fade.Play("fadeIn");
-
         while (fadeImg.color.a > 0)
         {
             yield return null;
@@ -113,6 +113,7 @@ public class PlayerHealth : DamageableObject
         isDead = false;
     }
 
+    // restore player health over time
     void Regenerate()
     {
         if (currentHealth < maxHealth && !isDead)

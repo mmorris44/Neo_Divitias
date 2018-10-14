@@ -7,6 +7,8 @@ public class RocketJump : MovementItem {
         if (nextActivate < Time.time)
         {
             nextActivate = Time.time + cooldown[level-1];
+
+            // play effects
             StartCoroutine(cooldownTimer.abilityActivate(nextActivate, cooldown[level - 1]));
             activationSound.Play();
 

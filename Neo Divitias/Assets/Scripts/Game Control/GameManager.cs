@@ -7,7 +7,6 @@ using TMPro;
 public class GameManager : MonoBehaviour {
     public static Image[] fadeImgs;
     public static Animator[] fadeAnims;
-    public static int deathPenalty;
     public static bool timerOn;
 
 	private static int collectedObjectives = 0;
@@ -58,7 +57,6 @@ public class GameManager : MonoBehaviour {
             if (SceneManager.GetActiveScene().name == "Tutorial")
             {
                 StartCoroutine(changeLevel());
-
             }
         }
     }
@@ -78,15 +76,16 @@ public class GameManager : MonoBehaviour {
 	{
 		collectedObjectives = 0;
         timerOn = false;
-        float fadeOutDuration = 3f;
         float originalTimeScale = Time.timeScale;
 
+        // play fade to black animation
         foreach (Animator anim in fadeAnims)
         {
             if (anim != null)
                 anim.Play("fadeOut");
         }
-        float playUntil = Time.time + fadeOutDuration;
+
+        // gradually slow down timescale until fadeout is complete
         while (fadeImgs[0].color.a < 0.99f)
         {
             Debug.Log(fadeImgs[0].color.a);
@@ -104,10 +103,5 @@ public class GameManager : MonoBehaviour {
         MainMenu m = new MainMenu();
        
         m.FinishLevel();
-    }
-
-    public static void addTimePenalty()
-    {
-        penaltyTotal += deathPenalty;
     }
 }

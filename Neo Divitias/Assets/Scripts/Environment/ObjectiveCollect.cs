@@ -28,10 +28,14 @@ public class ObjectiveCollect : MonoBehaviour
                 GameState.player_two.money += 30;
             }
 
+            // play effects
             Vector3 pos = gameObject.transform.position;
             pos.y += 1.5f;
             Instantiate(pickupFX, pos, pickupFX.transform.rotation);
+
+            // notify gamemanager
 			gm.CollectObjective();
+
 			Destroy(gameObject);
 		}	
 	}

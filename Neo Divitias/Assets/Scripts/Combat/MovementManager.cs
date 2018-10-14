@@ -1,6 +1,4 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
+﻿using UnityEngine;
 
 public class MovementManager : MonoBehaviour {
     public string activateButton;
@@ -10,7 +8,6 @@ public class MovementManager : MonoBehaviour {
 
     public MovementItem dash;
     public MovementItem rocket;
-
     public MovementItem equipped;
 
     private void Start()
@@ -48,6 +45,7 @@ public class MovementManager : MonoBehaviour {
     }
 
     void Update () {
+        // check for movement ability input
         if ((Input.GetButtonDown(activateButton) || Input.GetButtonDown(alternateActivateButton)) && !playerHealth.isDead)
         {
             equipped.Activate();

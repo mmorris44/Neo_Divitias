@@ -125,7 +125,7 @@ public abstract class Weapon : Equipment
     {
         switching = true;
 
-        // rotate down
+        // rotate up
         float rotateAmount = 0.0f;
         float rotateStep = 10f;
         while (rotateAmount < 49.0f)
