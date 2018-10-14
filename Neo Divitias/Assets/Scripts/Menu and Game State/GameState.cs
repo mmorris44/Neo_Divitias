@@ -81,6 +81,7 @@ public static class GameState{
 
     // Set player prefs
     public static void SetPrefs() {
+        Debug.Log("SET PREFS");
         PlayerPrefs.SetInt("game_level", game_level);
         PlayerPrefs.SetInt("time_1", time_1);
         PlayerPrefs.SetInt("time_2", time_2);

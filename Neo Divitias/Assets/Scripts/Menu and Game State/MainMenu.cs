@@ -2,6 +2,8 @@
 using UnityEngine.SceneManagement;
 
 public class MainMenu : MonoBehaviour {
+    bool player1;
+    bool player2;
 
     public void NewGame(){
         GameState.game_level = 1;
@@ -13,8 +15,21 @@ public class MainMenu : MonoBehaviour {
     }
 
     public void StartNextLevel(){
-        GameState.SetPrefs();
-        SceneManager.LoadScene(string.Format("Cutscene {0}", GameState.game_level));
+        
+       /* if (p == 1)
+        {
+            player1 = true;
+        }else if(p == 2)
+        {
+            player2 = true;
+        }
+        if (player1 && player2)
+        {*/
+        
+            GameState.SetPrefs();
+            SceneManager.LoadScene(string.Format("Cutscene {0}", GameState.game_level));
+        //}
+       
     }
 
     public void PlayTutorial()
@@ -26,11 +41,13 @@ public class MainMenu : MonoBehaviour {
         GameState.player_one.movement = "dash";
         GameState.player_two.Equipment["dash"] = 3;
         GameState.player_two.movement = "dash";
-        GameState.SetPrefs();
+        //GameState.SetPrefs();
         SceneManager.LoadScene("Tutorial");
     }
 
     public void LoadShop(){
+        player1 = false;
+        player2 = false;
         // This should ideally be somewhere that only gets called once on setup.
         GameState.BaseSetup();
         try
@@ -43,11 +60,6 @@ public class MainMenu : MonoBehaviour {
         }
         //GameState.GetPrefs();
         SceneManager.LoadScene("Shop");
-    }
-
-    public void loadControlsScene()
-    {
-
     }
     
     public void FinishLevel(){
@@ -68,19 +80,36 @@ public class MainMenu : MonoBehaviour {
 
     public void QuitGame(){
         GameState.SetPrefs();
-        Debug.Log("Quitting!");
         Application.Quit();
     }
 
     public void ReturnToMain(){
         // This is a bit hacky but it allows us to go back to main menu from settings and controls before a game has been started.
         // Maybe fix if we have extra time at the end
-        try {
-            GameState.SetPrefs();
+        Debug.Log(SceneManager.GetActiveScene().name);
+        if (!SceneManager.GetActiveScene().name.Equals("Tutorial"))
+        {
+            try
+            {
+                GameState.SetPrefs();
+            }
+            catch (System.Exception e)
+            {
+                Debug.Log("Prefs couldnt be set because GameState hasnt been instantiated.");
+            }
         }
-        catch(System.Exception e){
-            Debug.LogError("Prefs couldnt be set because GameState hasnt been instantiated.");
+        else
+        {
+            //return to main from tutorial
         }
         SceneManager.LoadScene("Main");
+    }
+
+    private void Update()
+    {
+        if (Input.GetButtonDown("Back"))
+        {
+            ReturnToMain();
+        }
     }
 }

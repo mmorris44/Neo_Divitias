@@ -88,7 +88,6 @@ public class GameManager : MonoBehaviour {
         // gradually slow down timescale until fadeout is complete
         while (fadeImgs[0].color.a < 0.99f)
         {
-            Debug.Log(fadeImgs[0].color.a);
             Time.timeScale = Mathf.Max(Time.timeScale - 0.01f, 0.4f);
             foreach (Animator anim in fadeAnims)
             {
