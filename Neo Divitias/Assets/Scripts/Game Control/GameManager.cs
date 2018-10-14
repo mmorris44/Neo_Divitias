@@ -72,7 +72,7 @@ public class GameManager : MonoBehaviour {
 		}
 	}
 
-	static IEnumerator changeLevel()
+	public static IEnumerator changeLevel()
 	{
 		collectedObjectives = 0;
         timerOn = false;
