@@ -13,6 +13,7 @@ public class RocketJump : MovementItem {
             activationSound.Play();
 
             // perform rocket jump
+            player.velocity = Vector3.zero;
             player.AddForce(Vector3.up * movementForce[level - 1], ForceMode.Impulse);
         }
     }

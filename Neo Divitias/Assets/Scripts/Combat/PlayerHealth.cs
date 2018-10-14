@@ -15,6 +15,9 @@ public class PlayerHealth : DamageableObject
 
     public Slider healthbar;
 
+    public float[] extraHpPerArmourLevel;
+    public float baseHp = 100;
+
     private Transform playerTransform;
     private Vector3 spawnLocation;
     private Quaternion spawnRotation;
@@ -22,6 +25,8 @@ public class PlayerHealth : DamageableObject
 
     public void Start()
     {
+        currentHealth = maxHealth;
+
         playerMeshes = new ArrayList();
         foreach (GameObject parent in meshParents)
         {
@@ -47,6 +52,13 @@ public class PlayerHealth : DamageableObject
         }
 
         healthbar.value = currentHealth / maxHealth;
+    }
+
+    // set max hp at start of level
+    public void setMaxHp (int armourLevel)
+    {
+        maxHealth = baseHp;
+        if (armourLevel != 0) maxHealth += extraHpPerArmourLevel[armourLevel - 1];
     }
 
     // deal damage to the player

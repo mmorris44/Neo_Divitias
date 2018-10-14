@@ -4262,6 +4262,11 @@ MonoBehaviour:
   - {fileID: 1246101654077694}
   - {fileID: 1694607417215746}
   healthbar: {fileID: 114077667755668336}
+  extraHpPerArmourLevel:
+  - 15
+  - 30
+  - 50
+  baseHp: 100
 --- !u!114 &114010133641314164
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -4645,7 +4650,6 @@ MonoBehaviour:
   - 1
   - 1.25
   - 1.5
-  numProjectiles: 000000000000000000000000
 --- !u!114 &114760956215372772
 MonoBehaviour:
   m_ObjectHideFlags: 1
