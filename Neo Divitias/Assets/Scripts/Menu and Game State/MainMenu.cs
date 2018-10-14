@@ -104,12 +104,4 @@ public class MainMenu : MonoBehaviour {
         }
         SceneManager.LoadScene("Main");
     }
-
-    private void Update()
-    {
-        if (Input.GetButtonDown("Back"))
-        {
-            ReturnToMain();
-        }
-    }
 }
