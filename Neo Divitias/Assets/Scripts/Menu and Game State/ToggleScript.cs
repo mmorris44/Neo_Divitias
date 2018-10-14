@@ -9,7 +9,6 @@ public class ToggleScript : MonoBehaviour {
     private Toggle toggle;
     Toggle[] ws;
     public bool changedByCode;
-    //ColorBlock cb;
 
     private void Start() {
         toggle = GetComponent<Toggle>();
@@ -80,12 +79,9 @@ public class ToggleScript : MonoBehaviour {
 
 
     private void OnToggleValueChanged(bool isOn){
-        //Debug.Log(toggle.name + " " + isOn);
         if (!changedByCode)
         {
-            Debug.Log("CHANGED MANUALLY " + toggle.name);
             if (!isOn) {
-                Debug.Log("Deselect");
                 if (gameObject.layer == 8)
                 {
                     deselectItem(1, gameObject.GetComponent<Toggle>().name.ToLower());
@@ -97,8 +93,6 @@ public class ToggleScript : MonoBehaviour {
             }
             else
             {
-                Debug.Log("Select");
-                // Change the toggle to selected. This should then call refresh to deactivate the oldest weapon.
                 if (gameObject.layer == 8)
                 {
                     selectItem(1, gameObject.GetComponent<Toggle>().name.ToLower());
@@ -109,24 +103,7 @@ public class ToggleScript : MonoBehaviour {
                 }
             }
         }
-        else
-        {
-            Debug.Log("CHANGED BY CODE " + toggle.name);
-        }
-
         Refresh();
-
-        //debug blah
-        if (gameObject.layer == 8)
-        {
-            GameState.player_one.playerDebug();
-        }
-        else if (gameObject.layer == 9)
-        {
-            GameState.player_two.playerDebug();
-        }
-
-
     }
 
     public void Refresh() {
@@ -173,7 +150,6 @@ public class ToggleScript : MonoBehaviour {
             active.Add(GameState.player_two.movement);
             armour = GameState.player_two.Equipment["armour"];
         }
-
         if (armour > 0)
         {
             active.Add("armour");
@@ -181,26 +157,30 @@ public class ToggleScript : MonoBehaviour {
 
         foreach (Toggle t in toggles)
         {
+            ColorBlock cb = t.colors;
+            if (active.Contains(t.name.ToLower()))
             {
-                ColorBlock cb = t.colors;
-                if (active.Contains(t.name.ToLower()))
-                {
-                    cb.normalColor = Color.green;
-                    cb.highlightedColor = Color.red;
-                }
-                else
-                {
-                    cb.normalColor = Color.blue;
-                    cb.highlightedColor = Color.red;
-                    t.GetComponent<ToggleScript>().changedByCode = true;
-                    t.isOn = false;
-                    t.GetComponent<ToggleScript>().changedByCode = false;
-                }
-                t.colors = cb;
+                cb.normalColor = GameState.onColour;
             }
+            else
+            {
+                cb.normalColor = GameState.offColour;
+                cb.highlightedColor = GameState.offSelectColour;
+                t.GetComponent<ToggleScript>().changedByCode = true;
+                t.isOn = false;
+                t.GetComponent<ToggleScript>().changedByCode = false;
+            }
+            if (cb.normalColor == GameState.onColour)
+            {
+                cb.highlightedColor = GameState.onSelectColour;
+            }
+            else if (cb.normalColor == GameState.offColour)
+            {
+                cb.highlightedColor = GameState.offSelectColour;
+
+            }
+            t.colors = cb;  
         }
-
-
     }
 }
 

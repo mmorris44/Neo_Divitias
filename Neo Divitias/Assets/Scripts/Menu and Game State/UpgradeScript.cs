@@ -10,6 +10,8 @@ public class UpgradeScript : MonoBehaviour {
     private Toggle toggle;
     int player;
 
+
+
     private void Start()
     {
         player = 1;
@@ -21,13 +23,14 @@ public class UpgradeScript : MonoBehaviour {
         item = transform.parent.name;
         button = GetComponent<Button>();
         button.onClick.AddListener(OnButtonClick);
-        Refresh();
 
         ColorBlock cb = button.colors;
-        cb.normalColor = Color.blue;
-        cb.highlightedColor = Color.red;
-        cb.disabledColor = Color.grey;
+        cb.normalColor = GameState.offColour;
+        cb.highlightedColor = GameState.offSelectColour;
+        cb.disabledColor = GameState.uninteractableColour;
         button.colors = cb;
+
+        Refresh();
     }
 
     public void OnButtonClick(){

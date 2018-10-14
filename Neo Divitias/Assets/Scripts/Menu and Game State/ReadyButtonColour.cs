@@ -25,11 +25,11 @@ public class ReadyButtonColour : MonoBehaviour {
             ColorBlock cb = button1.colors;
             if (ready1)
             {
-                cb.highlightedColor = Color.cyan;
+                cb.highlightedColor = GameState.onSelectColour;
             }
             else
             {
-                cb.highlightedColor = Color.red;
+                cb.highlightedColor = GameState.offSelectColour;
             }
             button1.colors = cb;
         }
@@ -38,11 +38,11 @@ public class ReadyButtonColour : MonoBehaviour {
             ColorBlock cb = button2.colors;
             if (ready2)
             {
-                cb.highlightedColor = Color.cyan;
+                cb.highlightedColor = GameState.onSelectColour;
             }
             else
             {
-                cb.highlightedColor = Color.red;
+                cb.highlightedColor = GameState.offSelectColour;
             }
             button2.colors = cb;
         }
@@ -51,16 +51,16 @@ public class ReadyButtonColour : MonoBehaviour {
     void makeGreen(Button b)
     {
         ColorBlock cb = b.colors;
-        cb.normalColor = Color.green;
-        cb.highlightedColor = Color.green;
+        cb.normalColor = GameState.onColour;
+        cb.highlightedColor = GameState.onSelectColour;
         b.colors = cb;
     }
 
     void makeGray(Button b)
     {
         ColorBlock cb = b.colors;
-        cb.normalColor = Color.gray;
-        cb.highlightedColor = Color.gray;
+        cb.normalColor = GameState.offColour;
+        cb.highlightedColor = GameState.offSelectColour;
         b.colors = cb;
     }
 
