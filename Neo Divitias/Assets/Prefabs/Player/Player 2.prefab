@@ -4543,12 +4543,12 @@ MonoBehaviour:
   cooldownTimer: {fileID: 114649700848162126}
   cooldown:
   - 5
+  - 4
   - 3
-  - 2
   movementForce:
-  - 20
   - 25
-  - 30
+  - 25
+  - 25
   activationSound: {fileID: 82308754277776002}
 --- !u!114 &114621837575258774
 MonoBehaviour:
@@ -4761,13 +4761,13 @@ MonoBehaviour:
   - 3
   movementForce:
   - 40
-  - 18
-  - 25
+  - 40
+  - 40
   activationSound: {fileID: 82313265706639020}
   duration:
-  - 0.3
-  - 1.5
-  - 2
+  - 0.4
+  - 0.4
+  - 0.4
   playerController: {fileID: 114971900162016740}
 --- !u!114 &114953412590710898
 MonoBehaviour:
