@@ -13,8 +13,11 @@ public class MovementManager : MonoBehaviour {
     private void Start()
     {
         playerHealth = GetComponent<PlayerHealth>();
+
         if (playerNumber == 1)
         {
+            playerHealth.setMaxHp(GameState.player_one.Equipment["armour"]);
+
             string movement = GameState.player_one.movement;
             switch (movement)
             {
@@ -29,6 +32,8 @@ public class MovementManager : MonoBehaviour {
         }
         else
         {
+            playerHealth.setMaxHp(GameState.player_two.Equipment["armour"]);
+
             string movement = GameState.player_two.movement;
             switch (movement)
             {
