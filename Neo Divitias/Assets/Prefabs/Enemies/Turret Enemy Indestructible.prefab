@@ -621,13 +621,17 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7d4f0d1761e947b4ea44855e8c16128c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  deathFX: {fileID: 0}
+  deathSound: {fileID: 0}
   range: 25
   rotationSpeed: 1
-  damageDone: 1
-  fireCooldown: 1
+  damageDone: 15
+  fireCooldown: 0.6
   health: 5
+  agroDuration: 10
   shooter: {fileID: 114613166907214924}
   isDestructible: 0
+  deathAnimation: {fileID: 0}
 --- !u!114 &114613166907214924
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -641,6 +645,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   projectile: {fileID: 1498379661480350, guid: 4d758c155c4684a4893c62ee417f6b04, type: 2}
   spawnSpot: {fileID: 4598591285453646}
+  predictBias: 1
 --- !u!135 &135625854234592868
 SphereCollider:
   m_ObjectHideFlags: 1

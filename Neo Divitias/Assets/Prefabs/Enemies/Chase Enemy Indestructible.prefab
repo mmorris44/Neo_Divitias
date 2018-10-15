@@ -178,7 +178,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1676783200382568}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 4.36, z: 0}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 4001427828801948}
@@ -422,15 +422,21 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3b7ab9a96b895234e8f1c55de779b794, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  deathFX: {fileID: 0}
+  deathSound: {fileID: 0}
   chaseSpeed: 3
+  catchUpSpeed: 15
   distanceFromPlayer: 5
+  catchUpDistance: 30
   range: 10
   verticaleOffset: 3
-  damageDone: 1
+  damageDone: 10
   fireCooldown: 1
   health: 5
+  agroDuration: 10
   shooter: {fileID: 114722529497696584}
   isDestructible: 0
+  deathAnimation: {fileID: 0}
 --- !u!114 &114722529497696584
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -444,6 +450,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   projectile: {fileID: 1498379661480350, guid: 4d758c155c4684a4893c62ee417f6b04, type: 2}
   spawnSpot: {fileID: 4090679147977458}
+  predictBias: 1
 --- !u!135 &135411530331926284
 SphereCollider:
   m_ObjectHideFlags: 1
