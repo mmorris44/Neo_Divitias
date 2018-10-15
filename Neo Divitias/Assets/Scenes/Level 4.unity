@@ -28712,6 +28712,8 @@ MonoBehaviour:
   player2scoreText: {fileID: 1755613801}
   player1: {fileID: 1852378654}
   player2: {fileID: 9274401}
+  playTo: 3
+  timeToCapture: 30
 --- !u!1001 &1794159473
 Prefab:
   m_ObjectHideFlags: 0
