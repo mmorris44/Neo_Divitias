@@ -56,6 +56,6 @@ MonoBehaviour:
   minion: {fileID: 1523446371155404, guid: 2766c2805831ff344ba6fcfd35172a46, type: 2}
   swarmDistance: 10
   patrolSpeed: 1.5
-  swarmSpeed: 6
+  swarmSpeed: 5
   positions: []
   swarming: 0

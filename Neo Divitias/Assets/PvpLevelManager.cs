@@ -12,6 +12,9 @@ public class PvpLevelManager : MonoBehaviour {
     public PlayerHealth player1;
     public PlayerHealth player2;
 
+    public int playTo = 5;
+    public float timeToCapture = 30;
+
     int player1score = 0;
     int player2score = 0;
 
@@ -22,8 +25,8 @@ public class PvpLevelManager : MonoBehaviour {
 
 	// Use this for initialization
 	void Start () {
-        player1scoreText.SetText("0/3");
-        player2scoreText.SetText("0/3");
+        player1scoreText.SetText("0/" + playTo);
+        player2scoreText.SetText("0/" + playTo);
     }
 
     void Update () {
@@ -64,11 +67,11 @@ public class PvpLevelManager : MonoBehaviour {
                 // update capture progress
                 if (player1inZone && !player2inZone)
                 {
-                    player1progress.value += 10f * Time.deltaTime;
+                    player1progress.value += 10f * 10 / timeToCapture * Time.deltaTime;
                 }
                 else if (player2inZone && !player1inZone)
                 {
-                    player2progress.value += 10f * Time.deltaTime;
+                    player2progress.value += 10f * 10 / timeToCapture * Time.deltaTime;
                 }
 
                 // check if someone has won the round
@@ -93,17 +96,17 @@ public class PvpLevelManager : MonoBehaviour {
         if (winner == 1)
         {
             player1score++;
-            player1scoreText.SetText("" + player1score + "/3");
+            player1scoreText.SetText("" + player1score + "/" + playTo);
         }
         else if (winner == 2)
         {
             player2score++;
-            player2scoreText.SetText("" + player2score + "/3");
+            player2scoreText.SetText("" + player2score + "/" + playTo);
         }
 
 
         // end level if someone has reached max score
-        if (player1score == 3 || player2score == 3)
+        if (player1score == playTo || player2score == playTo)
         {
             StartCoroutine(GameManager.changeLevel());
             return;

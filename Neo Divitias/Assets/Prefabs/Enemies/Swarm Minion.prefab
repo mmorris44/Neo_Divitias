@@ -529,7 +529,7 @@ MonoBehaviour:
   deathFX: {fileID: 1766451946772658, guid: 68f53a517a5fae045995b6a3e5895f58, type: 2}
   deathSound: {fileID: 82087418076859790}
   patrolSpeed: 2
-  swarmSpeed: 5
+  swarmSpeed: 6
   damageDone: 10
   damageCooldown: 2
   health: 1

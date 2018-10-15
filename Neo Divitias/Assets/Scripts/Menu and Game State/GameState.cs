@@ -25,31 +25,31 @@ public static class GameState{
     public static void BaseSetup() {
         PlayerPrefs.SetInt("pistol_1", 0);
         PlayerPrefs.SetInt("pistol_2", 60);
-        PlayerPrefs.SetInt("pistol_3", 120);
+        PlayerPrefs.SetInt("pistol_3", 90);
 
         PlayerPrefs.SetInt("shotgun_1", 20);
         PlayerPrefs.SetInt("shotgun_2", 80);
-        PlayerPrefs.SetInt("shotgun_3", 150);
+        PlayerPrefs.SetInt("shotgun_3", 130);
 
         PlayerPrefs.SetInt("smg_1", 20);
         PlayerPrefs.SetInt("smg_2", 80);
-        PlayerPrefs.SetInt("smg_3", 150);
+        PlayerPrefs.SetInt("smg_3", 130);
 
         PlayerPrefs.SetInt("rifle_1", 20);
         PlayerPrefs.SetInt("rifle_2", 80);
-        PlayerPrefs.SetInt("rifle_3", 150);
+        PlayerPrefs.SetInt("rifle_3", 130);
 
         PlayerPrefs.SetInt("dash_1", 30);
-        PlayerPrefs.SetInt("dash_2", 100);
-        PlayerPrefs.SetInt("dash_3", 180);
+        PlayerPrefs.SetInt("dash_2", 90);
+        PlayerPrefs.SetInt("dash_3", 150);
 
         PlayerPrefs.SetInt("jump_1", 0);
-        PlayerPrefs.SetInt("jump_2", 100);
-        PlayerPrefs.SetInt("jump_3", 180);
+        PlayerPrefs.SetInt("jump_2", 90);
+        PlayerPrefs.SetInt("jump_3", 150);
 
         PlayerPrefs.SetInt("armour_1", 50);
-        PlayerPrefs.SetInt("armour_2", 120);
-        PlayerPrefs.SetInt("armour_3", 200);
+        PlayerPrefs.SetInt("armour_2", 100);
+        PlayerPrefs.SetInt("armour_3", 150);
     }
 
     // Get all player prefs

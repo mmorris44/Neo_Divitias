@@ -4238,7 +4238,7 @@ MonoBehaviour:
   cameraTransform: {fileID: 4609915699095596}
   currentHealth: 70
   maxHealth: 100
-  regenPerSecond: 1
+  regenPerSecond: 3
   isDead: 0
   meshParents:
   - {fileID: 1839441213376740}
