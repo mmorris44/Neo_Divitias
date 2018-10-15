@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
+// Control energy to fly back towards the player
 public class EnergyController : MonoBehaviour {
 
     public float speed = 3f;

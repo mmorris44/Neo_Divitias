@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
+// Stores abstract logic for movement abilities
 public abstract class MovementItem : Equipment
 {
     public Camera playerCam;
@@ -13,6 +14,6 @@ public abstract class MovementItem : Equipment
 
     protected float nextActivate = 0.0f;
 
-    // use the movement ability
+    // Use the movement ability
     public abstract void Activate();
 }

@@ -3,6 +3,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
+// Patrols along given path until encountering player
 public class PatrollingEnemy : DamageableObject {
 
     public float patrolSpeed = 2f;
@@ -28,6 +29,7 @@ public class PatrollingEnemy : DamageableObject {
 
     public override bool damage(float damage)
     {
+        // Check for damaging enemy
         if (!isDestructible) return false;
         health -= damage;
         if (health <= 0)
@@ -39,6 +41,7 @@ public class PatrollingEnemy : DamageableObject {
             return true;
         }
 
+        // Agro enemy onto player
         agroEnd = Time.time + agroDuration;
         return false;
     }
@@ -47,6 +50,7 @@ public class PatrollingEnemy : DamageableObject {
         // Set position to 0th tranform
         transform.position = positions[0].position;
 
+        // Find players
         GameObject[] players = GameObject.FindGameObjectsWithTag("Player");
         player = new Transform[players.Length];
         playerBody = new Rigidbody[players.Length];

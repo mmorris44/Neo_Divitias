@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
+// Swarm minion that follows the swarm center around
 public class SwarmMinion : DamageableObject {
 
     public float patrolSpeed = 1f;
@@ -16,10 +17,12 @@ public class SwarmMinion : DamageableObject {
     Vector3 targetPosition;
     float currentCooldown = 0;
 
+    // Choose random spot to move to
 	void Start () {
         targetPosition = randomLocation();
 	}
 
+    // Damage and destroy the minion if it dies as a result
     public override bool damage(float damage)
     {
         health -= damage;
@@ -37,6 +40,8 @@ public class SwarmMinion : DamageableObject {
 
     void Update () {
         float moveDist = patrolSpeed * Time.deltaTime;
+
+        // Check for swarming the player
         if (swarm.swarming) moveDist = swarmSpeed * Time.deltaTime;
 
         // Check if at target
@@ -56,6 +61,7 @@ public class SwarmMinion : DamageableObject {
         }
     }
 
+    // Damage player on a collision
     private void OnCollisionEnter(Collision collision)
     {
         GameObject other = collision.gameObject;
@@ -68,6 +74,7 @@ public class SwarmMinion : DamageableObject {
         }
     }
 
+    // Find spot around swarm center to move to
     Vector3 randomLocation()
     {
         return Random.onUnitSphere * swarm.radius + swarm.transform.position;

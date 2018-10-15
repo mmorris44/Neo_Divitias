@@ -1,10 +1,12 @@
 ﻿using UnityEngine.UI;
 using UnityEngine.EventSystems;
 
+// Custom toggle to handle two players in one menu
 public class MyToggle : Toggle
 {
     public EventSystem eventSystem;
 
+    // Set the event system
     protected override void Awake()
     {
         base.Awake();
@@ -23,6 +25,7 @@ public class MyToggle : Toggle
         base.OnPointerDown(eventData);
     }
 
+    // Select toggle if not already
     public override void Select()
     {
         if (eventSystem.alreadySelecting)

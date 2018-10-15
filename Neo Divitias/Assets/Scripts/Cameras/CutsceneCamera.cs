@@ -4,6 +4,7 @@ using UnityEngine;
 using UnityEngine.SceneManagement;
 
 
+// Controls logic for moving the cutscene camera around through waypoints
 public class CutsceneCamera : MonoBehaviour {
 
     public string nextLevel;
@@ -67,6 +68,7 @@ public class CutsceneCamera : MonoBehaviour {
         }
     }
 
+    // End the scene with a smooth fadeout
     public IEnumerator endScene()
     {
         if (ending) yield break;

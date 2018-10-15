@@ -2,16 +2,12 @@
 using System.Collections.Generic;
 using UnityEngine;
 
+// Aims the gun of the second player based off controller joystick input
 public class GunAim2 : MonoBehaviour {
 
     public float speed = 3f;
     public float maxRotation = 50f;
     public float minRotation = -90f;
-
-	// Use this for initialization
-	void Start () {
-		
-	}
 	
 	void FixedUpdate () {
         // Rotate

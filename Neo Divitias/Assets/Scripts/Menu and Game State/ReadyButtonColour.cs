@@ -3,6 +3,8 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
+// Manages the colour of the buttons used for readying up in the shop
+// Also handles transition to next level once both players are ready
 public class ReadyButtonColour : MonoBehaviour {
     public Button button1;
     public Button button2;
@@ -10,7 +12,7 @@ public class ReadyButtonColour : MonoBehaviour {
     bool ready2;
     MainMenu m = new MainMenu();
 
-    // Use this for initialization
+    // Set not ready by default
     void Start () {
         ready1 = false;
         ready2 = false;
@@ -18,6 +20,7 @@ public class ReadyButtonColour : MonoBehaviour {
         makeGray(button2);
     }
 
+    // Highlight the button a different colour if selected by player
     public void hover(int player)
     {
         if (player == 1)
@@ -48,6 +51,7 @@ public class ReadyButtonColour : MonoBehaviour {
         }
     }
 
+    // Set button to ready green
     void makeGreen(Button b)
     {
         ColorBlock cb = b.colors;
@@ -56,6 +60,7 @@ public class ReadyButtonColour : MonoBehaviour {
         b.colors = cb;
     }
 
+    // Set button to not ready grey
     void makeGray(Button b)
     {
         ColorBlock cb = b.colors;
@@ -64,6 +69,7 @@ public class ReadyButtonColour : MonoBehaviour {
         b.colors = cb;
     }
 
+    // Press button and update colours
     public void click(int player)
     {
         if (player == 1)
@@ -96,6 +102,8 @@ public class ReadyButtonColour : MonoBehaviour {
                 hover(2);
             }
         }
+
+        // Transition to next level if both players are ready
         if(ready1 && ready2)
         {
             m.StartNextLevel();

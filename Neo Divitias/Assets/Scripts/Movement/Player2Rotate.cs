@@ -2,17 +2,13 @@
 using System.Collections.Generic;
 using UnityEngine;
 
+// Rotates the second player with the joystick
 public class Player2Rotate : MonoBehaviour {
 
     public float speed = 3f;
-
-	// Use this for initialization
-	void Start () {
-		
-	}
 	
 	void FixedUpdate () {
-        // Rotate with mouse
+        // Rotate with joystick
         transform.Rotate((new Vector3(0, Input.GetAxis("Horizontal Look p2"), 0)) * speed);
     }
 }

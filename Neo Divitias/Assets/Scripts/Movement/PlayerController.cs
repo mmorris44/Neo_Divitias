@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
+// General abstract class containing specifications for a player controller
 public class PlayerController : MonoBehaviour {
 
     public float moveSpeed = 50f,

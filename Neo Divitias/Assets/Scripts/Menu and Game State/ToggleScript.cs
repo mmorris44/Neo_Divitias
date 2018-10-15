@@ -4,20 +4,24 @@ using UnityEngine;
 using TMPro;
 using UnityEngine.UI;
 
-
+// Handles the toggles that activate and deactivate equipment
 public class ToggleScript : MonoBehaviour {
     private Toggle toggle;
     Toggle[] ws;
-    public bool changedByCode;
+    public bool changedByCode; // Is the state being changed manually in the code
 
+    // Set default values and update GUI
     private void Start() {
         toggle = GetComponent<Toggle>();
+
+        // Listen for when a toggle is used
         toggle.onValueChanged.AddListener(OnToggleValueChanged);
         changedByCode = false;
 
         Refresh();
     }
 
+    // Select the item with the given name
     private void selectItem(int player, string w){
         w = w.Split(' ')[0];
         if (w.Equals("armour"))
@@ -48,6 +52,7 @@ public class ToggleScript : MonoBehaviour {
         }
     }
 
+    // Deselect item with the given name
     private void deselectItem(int player, string w){
         if (w.Equals("armour"))
         {
@@ -77,45 +82,50 @@ public class ToggleScript : MonoBehaviour {
         }
     }
 
-
+    // Check for when the toggle value changes (toggle is pressed)
     private void OnToggleValueChanged(bool isOn){
         if (!changedByCode)
         {
-            if (!isOn) {
-                if (gameObject.layer == 8)
+            if (!isOn) { // Deselect
+                if (gameObject.layer == 8) // Player 1
                 {
                     deselectItem(1, gameObject.GetComponent<Toggle>().name.ToLower());
                 }
-                else if (gameObject.layer == 9)
+                else if (gameObject.layer == 9) // Player 2
                 {
                     deselectItem(2, gameObject.GetComponent<Toggle>().name.ToLower());
                 }
             }
             else
-            {
-                if (gameObject.layer == 8)
+            { // Select
+                if (gameObject.layer == 8) // Player 1
                 {
                     selectItem(1, gameObject.GetComponent<Toggle>().name.ToLower());
                 }
-                else if (gameObject.layer == 9)
+                else if (gameObject.layer == 9) // Player 2
                 {
                     selectItem(2, gameObject.GetComponent<Toggle>().name.ToLower());
                 }
             }
         }
+
+        // Update GUI
         Refresh();
     }
 
+    // Update the GUI with proper info and colour representations
     public void Refresh() {
         string item_name = gameObject.name;
         int current_level = 0;
 
+        // Find which player is allowed on the object
         int player = 1;
         if (gameObject.layer == 9)
         {
             player = 2;
         }
 
+        // Get current level of equipment
         if (player == 1){
             current_level = GameState.player_one.Equipment[item_name.ToLower()];
         }
@@ -123,6 +133,7 @@ public class ToggleScript : MonoBehaviour {
             current_level = GameState.player_two.Equipment[item_name.ToLower()];
         }
 
+        // Make toggle interacterable if levelled up already, otherwise uninteracterable
         if (current_level == 0)
         {
             toggle.interactable = false;
@@ -132,8 +143,10 @@ public class ToggleScript : MonoBehaviour {
             toggle.interactable = true;
         }
 
+        // Find all toggles
         Toggle[] toggles = gameObject.transform.parent.GetComponentsInChildren<Toggle>();
 
+        // Get names of active weapons and abilities from game script
         List<string> active = new List<string>();
         int armour;
         if (player == 1)
@@ -152,16 +165,23 @@ public class ToggleScript : MonoBehaviour {
         }
         if (armour > 0)
         {
+            // Armour active by default if levelled up
             active.Add("armour");
         }
 
+        // For every toggle
         foreach (Toggle t in toggles)
         {
+            // Get colours
             ColorBlock cb = t.colors;
+
+            // If active
             if (active.Contains(t.name.ToLower()))
             {
                 cb.normalColor = GameState.onColour;
             }
+
+            // If inactive
             else
             {
                 cb.normalColor = GameState.offColour;
@@ -170,6 +190,8 @@ public class ToggleScript : MonoBehaviour {
                 t.isOn = false;
                 t.GetComponent<ToggleScript>().changedByCode = false;
             }
+
+            // Check for being selected and highlighted
             if (cb.normalColor == GameState.onColour)
             {
                 cb.highlightedColor = GameState.onSelectColour;
@@ -179,6 +201,8 @@ public class ToggleScript : MonoBehaviour {
                 cb.highlightedColor = GameState.offSelectColour;
 
             }
+
+            // Update colours
             t.colors = cb;  
         }
     }

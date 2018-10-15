@@ -1,5 +1,7 @@
 ﻿using UnityEngine;
 
+// Handles which weapons are currently active, which is currently equipped
+// and passes call to shoot onto equipped weapon
 public class WeaponManager : MonoBehaviour
 {
     public string fireButton;
@@ -21,7 +23,7 @@ public class WeaponManager : MonoBehaviour
 
     private void Start()
     {
-        // Still need to add level in here
+        // Load in active weapons
         if (playerNumber == 1)
         {
             string primary = GameState.player_one.primary;
@@ -101,17 +103,21 @@ public class WeaponManager : MonoBehaviour
     }
 
     void Update () {
+        // Check for shooting
 		if ((Input.GetAxis(fireButton) > 0 || Input.GetButton(alternareFireButton)) && !playerHealth.isDead)
 		{
 			equipped.Shoot(playerCamera);
 		}
 		
+        // Check for being able to switch
 		if ((Input.GetButtonDown(switchButton) || Input.GetButtonDown(alternateSwitchButton)) && !playerHealth.isDead)
         {
+            // Swap equipped and unequipped weapons
 			Weapon tmp = equipped;
 			equipped = unequipped;
 			unequipped = tmp;
 
+            // Play switch animation
             swapSound.Play();
             StartCoroutine(unequipped.switchOut(equipped));
         }

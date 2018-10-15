@@ -2,6 +2,8 @@
 using UnityEngine.UI;
 using System.Collections;
 
+// Handles logic for player death, damage, regen and respawning
+// Also animates deaths and respawns
 public class PlayerHealth : DamageableObject
 {
     public Image fadeImg;
@@ -25,8 +27,10 @@ public class PlayerHealth : DamageableObject
 
     public void Start()
     {
+        // Start on full HP
         currentHealth = maxHealth;
 
+        // Setup player meshes to hide when dead
         playerMeshes = new ArrayList();
         foreach (GameObject parent in meshParents)
         {
@@ -37,31 +41,35 @@ public class PlayerHealth : DamageableObject
             }
         }
 
+        // Set spawn locations
         playerTransform = transform;
         spawnLocation = new Vector3(playerTransform.position.x, playerTransform.position.y, playerTransform.position.z);
         spawnRotation = new Quaternion(cameraTransform.rotation.x, cameraTransform.rotation.y, cameraTransform.rotation.z, cameraTransform.rotation.w);
+
+        // Constant regen
         InvokeRepeating("Regenerate", 0.0f, 0.1f / regenPerSecond);
     }
 
     public void Update()
     {
-        // check if player has fallen too far off the platforms
+        // Check if player has fallen too far off the platforms
         if (playerTransform.position.y < -30 && !isDead)
         {
             StartCoroutine(die());
         }
 
+        // Update healthbar slider
         healthbar.value = currentHealth / maxHealth;
     }
 
-    // set max hp at start of level
+    // Set max hp at start of level
     public void setMaxHp (int armourLevel)
     {
         maxHealth = baseHp;
         if (armourLevel != 0) maxHealth += extraHpPerArmourLevel[armourLevel - 1];
     }
 
-    // deal damage to the player
+    // Deal damage to the player
     public override bool damage(float damage)
     {
         if (currentHealth - damage <= 0 && !isDead)
@@ -76,12 +84,13 @@ public class PlayerHealth : DamageableObject
         }
     }
 
+    // Animate death and respawn
     private IEnumerator die()
     {
         isDead = true;
         currentHealth = 0;
 
-        // play death particle and make player invisible
+        // Play death particle and make player invisible
         Instantiate(deathFX, transform.position, Quaternion.identity);
 
         foreach (MeshRenderer mr in playerMeshes)
@@ -90,7 +99,7 @@ public class PlayerHealth : DamageableObject
         }
         deathSound.Play();
 
-        // fade out
+        // Fade out
         fade.Play("fadeOut");
 
         while (fadeImg.color.a < 1)
@@ -101,21 +110,22 @@ public class PlayerHealth : DamageableObject
         StartCoroutine(respawn());
     }
 
+    // Repawn player with fadein animation
     private IEnumerator respawn()
     {
         currentHealth = maxHealth;
 
-        // set player back to start position and rotation
+        // Set player back to start position and rotation
         playerTransform.position = spawnLocation;
         cameraTransform.rotation = spawnRotation;
 
-        // make player visible again
+        // Make player visible again
         foreach (MeshRenderer mr in playerMeshes)
         {
             mr.enabled = true;
         }
 
-        // fade in from black
+        // Fade in from black
         fade.Play("fadeIn");
         while (fadeImg.color.a > 0)
         {
@@ -125,7 +135,7 @@ public class PlayerHealth : DamageableObject
         isDead = false;
     }
 
-    // restore player health over time
+    // Restore player health over time
     void Regenerate()
     {
         if (currentHealth < maxHealth && !isDead)

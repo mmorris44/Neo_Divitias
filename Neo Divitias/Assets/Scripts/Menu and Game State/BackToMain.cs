@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
+// Controls navigation back into main menu
 public class BackToMain : MonoBehaviour {
     public GameObject main;
     public GameObject controls;

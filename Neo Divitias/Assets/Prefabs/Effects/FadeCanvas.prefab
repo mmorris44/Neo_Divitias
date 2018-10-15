@@ -78,6 +78,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   animator: {fileID: 95971435101571952}
   img: {fileID: 114727255304520746}
+  fadeOnStart: 1
 --- !u!114 &114454879811957110
 MonoBehaviour:
   m_ObjectHideFlags: 1

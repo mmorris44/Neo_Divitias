@@ -2,21 +2,24 @@
 using System.Collections.Generic;
 using UnityEngine;
 
+// Handles objective collection
 public class ObjectiveCollect : MonoBehaviour
 {
 	public GameObject pickupFX;
     GameManager gm;
 
+    // Get gamemanager script
     private void Start()
     {
         gm = FindObjectOfType<GameManager>();
     }
 
+    // Check for player collecting objective
     private void OnTriggerEnter(Collider other)
 	{	
 		if (other.gameObject.CompareTag("Player"))
 		{
-            // handle income
+            // Handle income
             if (other.GetComponent<Player1Controller>() != null)
             {
                 GameState.player_one.money += 30;
@@ -28,12 +31,12 @@ public class ObjectiveCollect : MonoBehaviour
                 GameState.player_two.money += 30;
             }
 
-            // play effects
+            // Play effects
             Vector3 pos = gameObject.transform.position;
             pos.y += 1.5f;
             Instantiate(pickupFX, pos, pickupFX.transform.rotation);
 
-            // notify gamemanager
+            // Notify gamemanager
 			gm.CollectObjective();
 
 			Destroy(gameObject);

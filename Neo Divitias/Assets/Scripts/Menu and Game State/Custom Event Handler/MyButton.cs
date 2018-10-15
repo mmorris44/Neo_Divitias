@@ -1,10 +1,12 @@
 ﻿using UnityEngine.UI;
 using UnityEngine.EventSystems;
 
+// Custom button to handle two players at once
 public class MyButton : Button
 {
     public EventSystem eventSystem;
 
+    // Set event system
     protected override void Awake()
     {
         base.Awake();
@@ -23,6 +25,7 @@ public class MyButton : Button
         base.OnPointerDown(eventData);
     }
 
+    // Select button if not already
     public override void Select()
     {
         if (eventSystem.alreadySelecting)

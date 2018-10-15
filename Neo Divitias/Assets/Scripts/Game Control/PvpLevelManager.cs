@@ -4,6 +4,7 @@ using UnityEngine;
 using UnityEngine.UI;
 using TMPro;
 
+// Special script to manage PvP fighting and capture point in the final level
 public class PvpLevelManager : MonoBehaviour {
     public Slider player1progress;
     public Slider player2progress;
@@ -23,13 +24,14 @@ public class PvpLevelManager : MonoBehaviour {
     bool resetting = false;
     bool playerHealthReset = true;
 
-	// Use this for initialization
+	// Set score texts to 0
 	void Start () {
         player1scoreText.SetText("0/" + playTo);
         player2scoreText.SetText("0/" + playTo);
     }
 
     void Update () {
+        // Check if players should return to full health
         if (!playerHealthReset)
         {
             if (player1.currentHealth > 0f && player2.currentHealth > 0f) playerHealthReset = true;
@@ -39,7 +41,7 @@ public class PvpLevelManager : MonoBehaviour {
         {
             bool roundEnded = false;
 
-            // check players fell
+            // Check if players fell
             if (player1.transform.position.y < -25f)
             {
                 player1.damage(1000f);
@@ -49,7 +51,7 @@ public class PvpLevelManager : MonoBehaviour {
                 player2.damage(1000f);
             }
 
-            // check player healths
+            // Check player healths
             if (player1.currentHealth <= 0f)
             {
                 endRound(2);
@@ -64,7 +66,7 @@ public class PvpLevelManager : MonoBehaviour {
             
             if (!roundEnded)
             {
-                // update capture progress
+                // Update capture progress
                 if (player1inZone && !player2inZone)
                 {
                     player1progress.value += 10f * 10 / timeToCapture * Time.deltaTime;
@@ -74,7 +76,7 @@ public class PvpLevelManager : MonoBehaviour {
                     player2progress.value += 10f * 10 / timeToCapture * Time.deltaTime;
                 }
 
-                // check if someone has won the round
+                // Check if someone has won the round
                 if (player1progress.value >= player1progress.maxValue)
                 {
                     endRound(1);
@@ -87,12 +89,14 @@ public class PvpLevelManager : MonoBehaviour {
         }
     }
 
+    // End a round of play and update GUI info
     void endRound(int winner)
     {
         if (resetting)
             return;
         resetting = true;
 
+        // Check for which GUI to update
         if (winner == 1)
         {
             player1score++;
@@ -105,14 +109,14 @@ public class PvpLevelManager : MonoBehaviour {
         }
 
 
-        // end level if someone has reached max score
+        // End level if someone has reached max score
         if (player1score == playTo || player2score == playTo)
         {
             StartCoroutine(GameManager.changeLevel());
             return;
         }
 
-        // otherwise reset for next round
+        // Otherwise reset for next round
         else
         {
             player1.damage(1000f);
@@ -126,7 +130,7 @@ public class PvpLevelManager : MonoBehaviour {
         resetting = false;
     }
 
-    // keep track of players entering capture zone
+    // Keep track of players entering capture zone
     private void OnTriggerEnter(Collider other)
     {
         if (other.tag == "Player")
@@ -142,7 +146,7 @@ public class PvpLevelManager : MonoBehaviour {
         }
     }
 
-    // keep track of players leaving capture zone
+    // Keep track of players leaving capture zone
     private void OnTriggerExit(Collider other)
     {
         if (other.tag == "Player")

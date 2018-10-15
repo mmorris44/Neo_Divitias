@@ -2,6 +2,7 @@
 using UnityEngine;
 using UnityEngine.UI;
 
+// Controls cooldown and recovery of movement abilities
 public class AbilityCooldown : MonoBehaviour {
     public Color ready;
     public Color notReady;
@@ -13,6 +14,7 @@ public class AbilityCooldown : MonoBehaviour {
 
     private void Start()
     {
+        // Check for which movement abilities are loaded
         if (player == "player2")
         {
             if (GameState.player_two.movement == "dash")
@@ -45,7 +47,7 @@ public class AbilityCooldown : MonoBehaviour {
         }
     }
 
-    // animate ability cooldown image
+    // Animate ability cooldown image
     public IEnumerator abilityActivate(float reset, float cooldown)
     {
         Color change = notReady;

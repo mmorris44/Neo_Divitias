@@ -1,5 +1,6 @@
 ﻿using UnityEngine;
 
+// Manages which movement ability is active and passes activate call on to it when input is given
 public class MovementManager : MonoBehaviour {
     public string activateButton;
     public string alternateActivateButton;
@@ -10,6 +11,7 @@ public class MovementManager : MonoBehaviour {
     public MovementItem rocket;
     public MovementItem equipped;
 
+    // Check which abilities are currently equipped
     private void Start()
     {
         playerHealth = GetComponent<PlayerHealth>();
@@ -50,7 +52,7 @@ public class MovementManager : MonoBehaviour {
     }
 
     void Update () {
-        // check for movement ability input
+        // Check for movement ability input
         if ((Input.GetButtonDown(activateButton) || Input.GetButtonDown(alternateActivateButton)) && !playerHealth.isDead)
         {
             equipped.Activate();

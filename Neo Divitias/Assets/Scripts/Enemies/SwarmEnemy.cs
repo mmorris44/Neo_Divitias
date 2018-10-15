@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
+// Controls the center of the swarm that the swarm minions follow around
 public class SwarmEnemy : MonoBehaviour {
 
     public int numberOfMinions = 5;
@@ -27,9 +28,6 @@ public class SwarmEnemy : MonoBehaviour {
             SwarmMinion s = m.GetComponent<SwarmMinion>();
             s.swarm = this;
         }
-        
-        // Set position to 0th tranform
-        //transform.position = positions[0].position;
 
         // Find players
         GameObject[] players = GameObject.FindGameObjectsWithTag("Player");
@@ -83,6 +81,7 @@ public class SwarmEnemy : MonoBehaviour {
         }
     }
 
+    // Find random spot around the swarm to spawn a minion
     Vector3 randomLocation()
     {
         return Random.onUnitSphere * radius + transform.position;

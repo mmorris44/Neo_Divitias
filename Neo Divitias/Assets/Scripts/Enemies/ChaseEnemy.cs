@@ -3,6 +3,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
+// Just continuously follow the nearest player and chase them down
 public class ChaseEnemy : DamageableObject {
 
     public float chaseSpeed = 2.5f;
@@ -27,7 +28,10 @@ public class ChaseEnemy : DamageableObject {
 
     public override bool damage(float damage)
     {
+        // Don't damage if can't
         if (!isDestructible) return false;
+
+        // Check for dead
         health -= damage;
         if (health <= 0)
         {
@@ -36,10 +40,12 @@ public class ChaseEnemy : DamageableObject {
             return true;
         }
 
+        // Agro enemy onto player
         agroEnd = Time.time + agroDuration;
         return false;
     }
 
+    // Find players
     void Start () {
         GameObject[] players = GameObject.FindGameObjectsWithTag("Player");
         player = new Transform[players.Length];

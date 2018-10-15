@@ -3,6 +3,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
+// Stationary turret enemy that fires on player when it is within range
 public class TurretEnemy : DamageableObject {
 
     public float range = 15f;
@@ -21,6 +22,7 @@ public class TurretEnemy : DamageableObject {
     Transform[] player;
     Rigidbody[] playerBody;
 
+    // Find players
     void Start ()
     {
         GameObject[] players = GameObject.FindGameObjectsWithTag("Player");
@@ -35,6 +37,7 @@ public class TurretEnemy : DamageableObject {
 
     public override bool damage(float damage)
     {
+        // Damage enemy if able
         if (!isDestructible) return false;
         health -= damage;
         if (health <= 0)
@@ -46,6 +49,7 @@ public class TurretEnemy : DamageableObject {
             return true;
         }
 
+        // Agro onto player when damage taken (enemy knows you're there)
         agroEnd = Time.time + agroDuration;
         return false;
     }
@@ -65,6 +69,7 @@ public class TurretEnemy : DamageableObject {
             }
         }
 
+        // If within turret range
         if (distance < range || agroEnd > Time.time) {
             transform.LookAt(player[playerIndex].position);
 
@@ -76,6 +81,7 @@ public class TurretEnemy : DamageableObject {
             }
         }
 
+        // Decrease cooldown on firing
         if (currentCooldown > -1)
         {
             currentCooldown -= Time.deltaTime;

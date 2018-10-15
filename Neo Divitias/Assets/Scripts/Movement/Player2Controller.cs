@@ -2,6 +2,8 @@
 using System.Collections.Generic;
 using UnityEngine;
 
+// Controls physics, movement and movement input for the second player
+// Uses input from joystick controller
 public class Player2Controller : PlayerController {
     PlayerHealth playerHealth;
     Rigidbody body;
@@ -84,6 +86,7 @@ public class Player2Controller : PlayerController {
         }
     }
 
+    // Check if on the ground
     bool isGrounded()
     {
         return Physics.Raycast(transform.position, Vector3.down, distToGround + 0.2f);

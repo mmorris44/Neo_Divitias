@@ -2,6 +2,9 @@
 using System.Collections.Generic;
 using UnityEngine;
 
+// Stores information about the game state in static variables
+// Information includes player data and current level
+// Provides methods for saving/loading the data to/from player prefs
 public static class GameState{
 
     public static int game_level;
@@ -12,6 +15,8 @@ public static class GameState{
     public static int time_3 = -1;
     public static int winner = 0;
 
+    // Store colours for UI
+
     public static Color offColour = new Color(30f/255,30f/255,150f/255,0.2f);
     public static Color offSelectColour = new Color(30f/255, 30f/255, 150f/255, 1f);
 
@@ -20,8 +25,7 @@ public static class GameState{
 
     public static Color uninteractableColour = new Color(220,220,220, 0.6f);
 
-    // Set weapon prices once. We should maybe store these in a file somewhere and just do a single read in. But this is fine for now.
-    // We could store a dict with base and scale factors example {"pistol": [100, 0, 1, 3]}. pistol_1 = 100*0, pistol_2 = 100*1 etc.
+    // Set weapon prices once up front
     public static void BaseSetup() {
         PlayerPrefs.SetInt("pistol_1", 0);
         PlayerPrefs.SetInt("pistol_2", 60);
@@ -89,7 +93,6 @@ public static class GameState{
 
     // Set player prefs
     public static void SetPrefs() {
-        Debug.Log("SET PREFS");
         PlayerPrefs.SetInt("game_level", game_level);
         PlayerPrefs.SetInt("time_1", time_1);
         PlayerPrefs.SetInt("time_2", time_2);
