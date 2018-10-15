@@ -5,7 +5,7 @@ UCT 3rd year games project. Done by
 * Michael White     - WHTMIC023
 * Daniel Munday     - MNDDAN004
 * Matthew Morris    - MRRMAT011
-* Adrian Krige      - KRGADR0004
+* Adrian Krige      - KRGADR004
 
 ##
 
