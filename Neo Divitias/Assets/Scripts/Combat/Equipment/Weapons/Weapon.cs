@@ -58,7 +58,7 @@ public abstract class Weapon : Equipment
             Vector3 rayOrigin = playerCam.ViewportToWorldPoint(new Vector3(0.5f, 0.5f, 0));
 			RaycastHit hit;
 
-			if (Physics.Raycast(rayOrigin, playerCam.transform.forward, out hit, range[level-1]))
+			if (Physics.Raycast(rayOrigin, playerCam.transform.forward, out hit, range[level-1], Physics.DefaultRaycastLayers, QueryTriggerInteraction.Ignore))
 			{
 				DamageableObject target = hit.collider.GetComponent<DamageableObject>();
 

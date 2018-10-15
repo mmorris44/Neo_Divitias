@@ -5,6 +5,14 @@ public class MainMenu : MonoBehaviour {
     bool player1;
     bool player2;
 
+    private void Update()
+    {
+        if (Input.GetButtonDown("Back") && SceneManager.GetActiveScene().name == "Shop")
+        {
+            ReturnToMain();
+        }
+    }
+
     public void NewGame(){
         GameState.game_level = 1;
         GameState.player_one = new Player("1");
@@ -15,21 +23,8 @@ public class MainMenu : MonoBehaviour {
     }
 
     public void StartNextLevel(){
-        
-       /* if (p == 1)
-        {
-            player1 = true;
-        }else if(p == 2)
-        {
-            player2 = true;
-        }
-        if (player1 && player2)
-        {*/
-        
-            GameState.SetPrefs();
-            SceneManager.LoadScene(string.Format("Cutscene {0}", GameState.game_level));
-        //}
-       
+        GameState.SetPrefs();
+        SceneManager.LoadScene(string.Format("Cutscene {0}", GameState.game_level));
     }
 
     public void PlayTutorial()
