@@ -12,13 +12,13 @@ public static class GameState{
     public static int time_3 = -1;
     public static int winner = 0;
 
-    public static Color offColour = new Color(0,0,255,0.5f);
+    public static Color offColour = new Color(0,0,255,0.3f);
     public static Color offSelectColour = new Color(0, 0, 255, 1f);
 
-    public static Color onColour = new Color(0, 255, 0, 0.5f);
+    public static Color onColour = new Color(0, 255, 0, 0.3f);
     public static Color onSelectColour = new Color(0, 255, 0, 1f);
 
-    public static Color uninteractableColour = new Color(220,220,220, 0.8f);
+    public static Color uninteractableColour = new Color(220,220,220, 0.6f);
 
     // Set weapon prices once. We should maybe store these in a file somewhere and just do a single read in. But this is fine for now.
     // We could store a dict with base and scale factors example {"pistol": [100, 0, 1, 3]}. pistol_1 = 100*0, pistol_2 = 100*1 etc.
