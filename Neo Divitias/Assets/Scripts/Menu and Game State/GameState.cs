@@ -12,8 +12,8 @@ public static class GameState{
     public static int time_3 = -1;
     public static int winner = 0;
 
-    public static Color offColour = new Color(0,0,255,0.3f);
-    public static Color offSelectColour = new Color(0, 0, 255, 1f);
+    public static Color offColour = new Color(30f/255,30f/255,150f/255,0.2f);
+    public static Color offSelectColour = new Color(30f/255, 30f/255, 150f/255, 1f);
 
     public static Color onColour = new Color(0, 255, 0, 0.3f);
     public static Color onSelectColour = new Color(0, 255, 0, 1f);
