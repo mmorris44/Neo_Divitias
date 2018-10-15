@@ -575,7 +575,7 @@ Transform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 137340768}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -10, y: 6, z: 63.33}
+  m_LocalPosition: {x: -10, y: 4, z: 63.33}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 551289128}
@@ -1031,7 +1031,7 @@ Transform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 506122382}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 5, y: 6, z: 40.91}
+  m_LocalPosition: {x: 5, y: 4, z: 40.91}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 1578418307}
@@ -1124,7 +1124,7 @@ TextMesh:
   m_GameObject: {fileID: 551289127}
   m_Text: 'Some enemies cannot be killed. Notice the difference
 
-    in shape of their core structures.
+    in shape.
 
 
     These enemies'' attacks simply have to be
@@ -1199,7 +1199,7 @@ Transform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 580306971}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -10, y: 6, z: 3}
+  m_LocalPosition: {x: -10, y: 4, z: 3}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 2125427414}
@@ -1245,18 +1245,12 @@ TextMesh:
   m_GameObject: {fileID: 589551450}
   m_Text: 'Your weapons and abilities can be changed and
 
-    upgraded in between levels of the Temple. You
-
-    may purchase these upgrades with energy
-
-    earned during the levels.
+    upgraded using energy.
 
 
     You may only have one movement ability and
 
-    two weapons active at once, and may switch
-
-    between those two weapons during a level.'
+    two weapons active at once.'
   m_OffsetZ: 0
   m_CharacterSize: 1
   m_LineSpacing: 1
@@ -1428,7 +1422,7 @@ Transform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 691332531}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 5, y: 6, z: 10.62}
+  m_LocalPosition: {x: 5, y: 4, z: 10.62}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 589551451}
@@ -1676,10 +1670,9 @@ TextMesh:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 804051235}
-  m_Text: "Falling off the edge or death will result in an\nimmediate reset of player
-    positional data, \nalong with a time penalty.\n\nTime units taken by the user
-    are an important\nfactor for performance validation, so care must\nbe taken to
-    move swiftly while maintaining\nstructural integrity."
+  m_Text: 'Falling off the edge or death will reset your
+
+    position.'
   m_OffsetZ: 0
   m_CharacterSize: 1
   m_LineSpacing: 1
@@ -1851,7 +1844,7 @@ Transform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 835045174}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -10, y: 6, z: 18.5}
+  m_LocalPosition: {x: -10, y: 4, z: 18.5}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 804051236}
@@ -2184,7 +2177,7 @@ Transform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1173053314}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 5, y: 9, z: 62.9}
+  m_LocalPosition: {x: 5, y: 7, z: 62.9}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 1994691289}
@@ -2232,14 +2225,7 @@ TextMesh:
 
     level. They must all be collected to complete
 
-    the level.
-
-
-    Be warned; if you want more energy to spend
-
-    then you will have to kill more enemies before
-
-    you collect the final objective of a level.'
+    the level.'
   m_OffsetZ: 0
   m_CharacterSize: 1
   m_LineSpacing: 1
@@ -2876,20 +2862,7 @@ TextMesh:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1573368966}
-  m_Text: 'You can also jump to clear gaps you would
-
-    otherwise fall through, but this ability is weak
-
-    compared to what you can actually achieve.
-
-
-    Your special movement abilities are key to
-
-    your sucess in the temple. You may only have
-
-    one active at a time. Use this area to test
-
-    the dash ability.'
+  m_Text: Jump with A. Dash with LB.
   m_OffsetZ: 0
   m_CharacterSize: 1
   m_LineSpacing: 1
@@ -2974,12 +2947,7 @@ TextMesh:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1578418306}
-  m_Text: 'Very impressive. Now let''s see how you fare
-
-    when they are able to shoot back.
-
-
-    Remember, killing enemies will provide rewards
+  m_Text: 'Killing enemies will provide rewards
 
     of energy, which can be spent to upgrade and
 
@@ -3070,18 +3038,7 @@ TextMesh:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1729174454}
-  m_Text: 'Welcome to the Temple''s Tutorial Simulation.
-
-    Your controls should have been set when you
-
-    created this instance; feel free to disconnect
-
-    and change them should you wish.
-
-
-    Try moving around a bit, sprinting to move
-
-    through the world faster.'
+  m_Text: Welcome to the Temple's Tutorial Simulation.
   m_OffsetZ: 0
   m_CharacterSize: 1
   m_LineSpacing: 1
@@ -3151,7 +3108,7 @@ Transform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1764266437}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -10, y: 6, z: 16.96}
+  m_LocalPosition: {x: -10, y: 4, z: 16.96}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 1177600335}
@@ -3324,7 +3281,7 @@ Transform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1934002561}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 5, y: 6, z: 43.87}
+  m_LocalPosition: {x: 5, y: 4, z: 43.87}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 1573368967}
@@ -3487,7 +3444,7 @@ Transform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 2041225179}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 5, y: 6, z: 10}
+  m_LocalPosition: {x: 5, y: 4, z: 10}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 1729174455}
@@ -3578,16 +3535,12 @@ TextMesh:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 2125427413}
-  m_Text: 'You will encounter Temple Guardians on your
-
-    journeys. Some move and some do not. Many
-
-    have different patterns of attack that you will
-
-    need to adapt to.
+  m_Text: 'Shoot with RT and change weapons with RB.
 
 
-    Try destroying the enemies up ahead.'
+    Killing enemies gives energy, which can be spent
+
+    in the shop.'
   m_OffsetZ: 0
   m_CharacterSize: 1
   m_LineSpacing: 1
